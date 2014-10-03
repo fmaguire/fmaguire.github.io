@@ -1,4 +1,4 @@
-fmaguire.github.io
-==================
+finlaymaguir.re
+===============
 
 My personal githubpages website
