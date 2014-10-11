@@ -6,7 +6,7 @@ see whether I can offer anything useful!
 
 I came to bioinformatics from a mostly non-computer science background.
 Due to this, I occasionally, get asked by colleagues and students for advice on
-how and what to learn to get started in bioinformatics-based research areas. 
+how and what to learn to get started in bioinformatics research.
 
 Exactly what a researcher will need to know to be effective in a bioinformatics
 research project will be very topic dependent. For example, researchers working on 
