@@ -2,14 +2,25 @@
 #quick script to paste 
 
 input_md_file=$1
-temp_html_file=${input_md_file:0:-3}.tmp
+input_name=${input_md_file:0:-3}
+temp_html_file=${input_name}.tmp
 
 markdown $input_md_file > $temp_html_file
 
-output_file=${input_md_file:0:-3}.html
+output_file=${input_name}.html
 
 SED_CMD="/<section>/r $temp_html_file" 
 
-sed -e $SED_CMD template.html > $output_file
+sed -e $SED_CMD template.html > ${output_file}
 
-rm $temp_html_file
+name_with_spaces=${input_name//_/ }
+name_with_dashes=${input_name//_/-}
+
+title_string="<h2><a name=\"${name_with_dashes}\" class=\"anchor\" href=\"#${name_with_dashes}\"><span class=\"octicon octicon-link\"></span></a>${name_with_spaces}</h2>"
+echo $title_string
+sed -i "/<section>/a ${title_string}" ${output_file}
+
+rm $temp_html_file 
+
+
+
