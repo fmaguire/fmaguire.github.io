@@ -1,5 +1,3 @@
-##Publications
-
 General details of my publications can be found on my [Google Scholar](http://scholar.google.co.uk/citations?user=rHFCtWwAAAAJ) or [Research Gate](http://www.researchgate.net/profile/Finlay_Maguire)
 
 You can get copies of all my papers from this [repository](https://github.com/fmaguire/publications)
