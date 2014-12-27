@@ -1,0 +1,89 @@
+<div class="reveal">
+
+<div class="slides">
+
+Finlay Maguire {.author}
+------------------------
+
+### December 27th 2014 {.date}
+
+I, for one, welcome our robot overlords.
+========================================
+
+Doing science sucks
+===================
+
+<div class="fragment">
+
+![Science sucks](assets/presentation/human_bad.jpg)
+Sucks to do science.
+
+</div>
+
+<p><img src="assets/presentation/nhm.jpg" alt="Large insitutes produce bad science" title="" />
+And lots of bad science is being done.</p>
+
+<h1>Technology is improving</h1>
+
+<div class="fragment">
+
+![Technology is improving and getting smaller](assets/presentation/hiseq.jpg)
+2-2.5 generation DNA sequencer
+
+</div>
+
+<p><img src="assets/presentation/minion.jpg" alt="much smaller" title="" />
+3rd generation DNA sequencer</p>
+
+<p><img src="assets/presentation/robot_better.jpg" alt="Robotic platforms starting to come in" title="" />
+Monotonous labour is being replaced.</p>
+
+<p><img src="assets/presentation/robot_2.jpg" alt="and that is cool" title="" />
+and that is cool.</p>
+
+<p><img src="assets/robot_schemati.jpg" alt="very cool" title="" />
+very cool.</p>
+
+<h1>Science-as-a-service</h1>
+
+<p>Science-as-a-Service - transcriptic</p>
+
+<pre><code>    run = requests.post(url("%s/runs" % PROJECT), json.dumps({
+      "run": {
+        "title": "Synthesize pri-F",
+        "request": {
+          "type": "synthesis",
+          "sequence": {
+            "sequence": "acatctgagcgagcgac",
+            "name": "pri-F"
+          }
+        }
+      }
+    }), headers = headers).json()
+    print run['id']
+
+
+
+    {
+      "title": "Incubate bacteria",
+      "protocol": {
+        "refs": {
+          "plate1": {
+            "id": "ct139xhhctkphy",
+            "store": { "where": "cold_4" }
+          }
+        },
+        "instructions": [
+          {
+            "op": "incubate",
+            "object": "plate1",
+            "where": "warm_37",
+            "duration": "2:hour",
+            "shaking": true
+          }
+        ]
+      }
+    }
+</code></pre>
+
+<p></div></p>
