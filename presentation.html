@@ -1,90 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level6">
+
 <div class="reveal">
-
 <div class="slides">
-
-Finlay Maguire {.author}
-------------------------
-
-### December 27th 2014 {.date}
-
-I, for one, welcome our robot overlords.
-========================================
-
-Doing science sucks
-===================
-
+<h2>Finlay Maguire</h2>
+<h3>December 27th 2014</h3>
+<h1>I, for one, welcome our robot overlords.</h1>
+<h1>Doing science sucks</h1>
 <div class="fragment">
-
-![Science sucks](assets/presentation/human_bad.jpg)
-Sucks to do science.
-
+<p><img src="assets/presentation/human_bad.jpg" alt="Science sucks" /> Sucks to do science.</p>
 </div>
-
-<p><img src="assets/presentation/nhm.jpg" alt="Large insitutes produce bad science" title="" />
-And lots of bad science is being done.</p>
-
+<p><img src="assets/presentation/nhm.jpg" alt="Large insitutes produce bad science" /> And lots of bad science is being done.</p>
 <h1>Technology is improving</h1>
-
 <div class="fragment">
-
-![Technology is improving and getting smaller](assets/presentation/hiseq.jpg)
-2-2.5 generation DNA sequencer
-
+<p><img src="assets/presentation/hiseq.jpg" alt="Technology is improving and getting smaller" /> 2-2.5 generation DNA sequencer</p>
 </div>
-
-<p><img src="assets/presentation/minion.jpg" alt="much smaller" title="" />
-3rd generation DNA sequencer</p>
-
-<p><img src="assets/presentation/robot_better.jpg" alt="Robotic platforms starting to come in" title="" />
-Monotonous labour is being replaced.</p>
-
-<p><img src="assets/presentation/robot_2.jpg" alt="and that is cool" title="" />
-and that is cool.</p>
-
-<p><img src="assets/robot_schemati.jpg" alt="very cool" title="" />
-very cool.</p>
-
+<p><img src="assets/presentation/minion.jpg" alt="much smaller" /> 3rd generation DNA sequencer</p>
+<p><img src="assets/presentation/robot_better.jpg" alt="Robotic platforms starting to come in" /> Monotonous labour is being replaced.</p>
+<p><img src="assets/presentation/robot_2.jpg" alt="and that is cool" /> and that is cool.</p>
+<p><img src="assets/robot_schemati.jpg" alt="very cool" /> very cool.</p>
 <h1>Science-as-a-service</h1>
-
 <p>Science-as-a-Service - transcriptic</p>
-
-<pre><code>    run = requests.post(url("%s/runs" % PROJECT), json.dumps({
-      "run": {
-        "title": "Synthesize pri-F",
-        "request": {
-          "type": "synthesis",
-          "sequence": {
-            "sequence": "acatctgagcgagcgac",
-            "name": "pri-F"
+<pre><code>    run = requests.post(url(&quot;%s/runs&quot; % PROJECT), json.dumps({
+      &quot;run&quot;: {
+        &quot;title&quot;: &quot;Synthesize pri-F&quot;,
+        &quot;request&quot;: {
+          &quot;type&quot;: &quot;synthesis&quot;,
+          &quot;sequence&quot;: {
+            &quot;sequence&quot;: &quot;acatctgagcgagcgac&quot;,
+            &quot;name&quot;: &quot;pri-F&quot;
           }
         }
       }
     }), headers = headers).json()
-    print run['id']
+    print run[&#39;id&#39;]
 
 
 
     {
-      "title": "Incubate bacteria",
-      "protocol": {
-        "refs": {
-          "plate1": {
-            "id": "ct139xhhctkphy",
-            "store": { "where": "cold_4" }
+      &quot;title&quot;: &quot;Incubate bacteria&quot;,
+      &quot;protocol&quot;: {
+        &quot;refs&quot;: {
+          &quot;plate1&quot;: {
+            &quot;id&quot;: &quot;ct139xhhctkphy&quot;,
+            &quot;store&quot;: { &quot;where&quot;: &quot;cold_4&quot; }
           }
         },
-        "instructions": [
+        &quot;instructions&quot;: [
           {
-            "op": "incubate",
-            "object": "plate1",
-            "where": "warm_37",
-            "duration": "2:hour",
-            "shaking": true
+            &quot;op&quot;: &quot;incubate&quot;,
+            &quot;object&quot;: &quot;plate1&quot;,
+            &quot;where&quot;: &quot;warm_37&quot;,
+            &quot;duration&quot;: &quot;2:hour&quot;,
+            &quot;shaking&quot;: true
           }
         ]
       }
-    }
-</code></pre>
+    }</code></pre>
+</div>
+</div>
+</section>
+    </div>
+  </div>
 
-<p></div>
-</div></p>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
