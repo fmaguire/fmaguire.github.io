@@ -22,7 +22,13 @@
 
 ![3rd generation DNA sequencer](assets/presentation/minion.jpg)
 
-# The rise of the robots
+---
+
+Aside about nanopore
+
+![](assets/presentation/nanopore.jpg)
+
+# The robots are rising
 
 ---
 
@@ -43,7 +49,11 @@
 
 ---
 
-![Science-as-a-Service](assets/presentation/transcriptic.jpg)
+![Science-as-a-Service](assets/presentation/logo.png)
+
+- web-based on-demand remote life science lab
+- live results
+- currently expanding... jobs available... tons of start-up funding
 
 ---
 
@@ -63,8 +73,13 @@
         }), headers = headers).json()
         print run['id']
 
+---
+
+![Transcriptic](assets/presentation/transcriptic.jpg)
 
 ---
+
+## Robots + Internet + Life
 
         {
           "title": "Incubate bacteria",
@@ -86,12 +101,16 @@
             ]
           }
         }
+---
 
-# Conclusions
+![](assets/presentation/matrix.jpg)
+
+
+# In summary:
 
 ---
 
 - Science sucks to do
 - Robots are awesome
-- Robots + the internet are even awesomer
-- Bow down human worms.
+- Robots + the internet are even more awesome
+- Robots + internet + machine learning + utilitarian political philosophies = Bow down human worms.
