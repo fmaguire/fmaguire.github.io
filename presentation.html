@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Finlay Maguire" />
-  <title>Robot overlords</title>
+  <title>I, for one, welcome our robot overlords.</title>
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -30,25 +30,62 @@
     <div class="slides">
 
 <section>
-    <h1 class="title">Robot overlords</h1>
+    <h1 class="title">I, for one, welcome our robot overlords.</h1>
     <h2 class="author">Finlay Maguire</h2>
     <h3 class="date">December 27th 2014</h3>
 </section>
 
-<section><section id="i-for-one-welcome-our-robot-overlords." class="titleslide slide level1"><h1>I, for one, welcome our robot overlords.</h1></section><section id="doing-science-sucks" class="slide level2">
-<h1>Doing science sucks</h1>
-<p><img src="assets/presentation/human_bad.jpg" alt="Science sucks" /> Sucks to do science.</p>
-<p><img src="assets/presentation/nhm.jpg" alt="Large insitutes produce bad science" /> And lots of bad science is being done.</p>
-</section><section id="technology-is-improving" class="slide level2">
+<section id="science-sucks" class="slide level1">
+<h1>Science sucks</h1>
+<section>
+<figure>
+<img src="assets/presentation/human_bad.jpg" alt="Sucks to do" /><figcaption>Sucks to do</figcaption>
+</figure>
+</section>
+<section>
+<figure>
+<img src="assets/presentation/nhm.jpg" alt="Lots of bad science is being done" /><figcaption>Lots of bad science is being done</figcaption>
+</figure>
+</section>
+</section>
+<section id="technology-is-improving" class="slide level1">
 <h1>Technology is improving</h1>
-<p><img src="assets/presentation/hiseq.jpg" alt="Technology is improving and getting smaller" /> 2-2.5 generation DNA sequencer</p>
-<p><img src="assets/presentation/minion.jpg" alt="much smaller" /> 3rd generation DNA sequencer</p>
-<p><img src="assets/presentation/robot_better.jpg" alt="Robotic platforms starting to come in" /> Monotonous labour is being replaced.</p>
-<p><img src="assets/presentation/robot_2.jpg" alt="and that is cool" /> and that is cool.</p>
-<p><img src="assets/robot_schemati.jpg" alt="very cool" /> very cool.</p>
-</section><section id="science-as-a-service" class="slide level2">
-<h1>Science-as-a-service</h1>
-<p>Science-as-a-Service - transcriptic</p>
+<section>
+<figure>
+<img src="assets/presentation/hiseq.jpg" alt="2nd generation DNA sequencer" /><figcaption>2nd generation DNA sequencer</figcaption>
+</figure>
+</section>
+<section>
+<figure>
+<img src="assets/presentation/minion.jpg" alt="3rd generation DNA sequencer" /><figcaption>3rd generation DNA sequencer</figcaption>
+</figure>
+</section>
+</section>
+<section id="the-rise-of-the-robots" class="slide level1">
+<h1>The rise of the robots</h1>
+<section>
+<figure>
+<img src="assets/presentation/robot_better.jpg" alt="The robot&#39;s have emerged with their own propaganda" /><figcaption>The robot's have emerged with their own propaganda</figcaption>
+</figure>
+</section>
+<section>
+<figure>
+<img src="assets/presentation/robot_2.jpg" alt="and that is cool" /><figcaption>and that is cool</figcaption>
+</figure>
+</section>
+<section>
+<figure>
+<img src="assets/presentation/robot_schemati.jpg" alt="very cool" /><figcaption>very cool</figcaption>
+</figure>
+</section>
+<section>
+<h2 id="but-that-is-still-not-enough">But that is still not enough</h2>
+</section>
+</section>
+<section id="it-is-time-to-get-saas-y" class="slide level1">
+<h1>It is time to get SAAS-y</h1>
+<p>Science-as-a-Service</p>
+<h2 id="execute-remote-commands">Execute remote commands</h2>
 <pre><code>    run = requests.post(url(&quot;%s/runs&quot; % PROJECT), json.dumps({
       &quot;run&quot;: {
         &quot;title&quot;: &quot;Synthesize pri-F&quot;,
@@ -61,11 +98,9 @@
         }
       }
     }), headers = headers).json()
-    print run[&#39;id&#39;]
-
-
-
-    {
+    print run[&#39;id&#39;]</code></pre>
+<h2 id="or-more-complicated-protocols">Or more complicated protocols</h2>
+<pre><code>    {
       &quot;title&quot;: &quot;Incubate bacteria&quot;,
       &quot;protocol&quot;: {
         &quot;refs&quot;: {
@@ -85,7 +120,7 @@
         ]
       }
     }</code></pre>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -102,8 +137,8 @@
         progress: true,
         history: true,
         center: true,
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        theme: 'moon', // available themes are in /css/theme
+        transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
         // Optional libraries used to extend on reveal.js
         dependencies: [
