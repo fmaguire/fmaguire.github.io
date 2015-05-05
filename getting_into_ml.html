@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Finlay Maguire (root@finlaymagui.re)" />
+  <title>Stumbling around the decision boundary</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Stumbling around the decision boundary</h1>
+    <h2 class="author">Finlay Maguire (root@finlaymagui.re)</h2>
+    <h3 class="date">June 1-2nd 2015</h3>
+</section>
+
+<section id="getting-into-machine-learning" class="slide level1">
+<h1>Getting into Machine Learning</h1>
+<h2 id="who-am-i">Who Am I?</h2>
+<ul>
+<li>Biology Undergraduate</li>
+<li>Finishing Bioinformatics PhD</li>
+<li>Amateur</li>
+</ul>
+</section>
+<section id="try-before-you-buy" class="slide level1">
+<h1>Try before you buy</h1>
+</section>
+<section id="background" class="slide level1">
+<h1>Background</h1>
+<ul>
+<li>Linear Algebra</li>
+<li>Statistics and Probability</li>
+<li>Programming</li>
+</ul>
+</section>
+<section id="linear-algebra" class="slide level1">
+<h1>Linear Algebra</h1>
+<ul>
+<li>Online course</li>
+<li></li>
+</ul>
+<h2 id="things-useful-to-be-comfortable-with">Things useful to be comfortable with</h2>
+<ul>
+<li>Matrix and Vector Notation</li>
+<li>Basic operations</li>
+<li>Factorization</li>
+</ul>
+<h2 id="tools-useful-to-be-comfortable-with">Tools useful to be comfortable with</h2>
+<ul>
+<li>Numpy</li>
+<li>Matlab/Octav</li>
+<li><a href="http://bendixcarstensen.com/APC/linalg-notes-BxC.pdf">R</a></li>
+<li>More advanced: BLAS/LAPACK</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://youtu.be/ZumgfOei0Ak">25 Minute Summary by Patrick van der Smagt</a></li>
+<li><a href="https://class.coursera.org/ml-005/lecture/preview">Quick summary as part of Andrew Ng's course</a></li>
+<li><a href="https://www.coursera.org/course/matrix">Philip Klein's &quot;Coding the Matrix course</a></li>
+<li><a href="http://www.amazon.com/dp/0980232716?tag=inspiredalgor-20">Gilbert Strang's textbook</a></li>
+</ul>
+</section>
+<section id="statistics-and-probability" class="slide level1">
+<h1>Statistics and Probability</h1>
+<h2 id="things-to-be-comfortable-with">Things to be comfortable with</h2>
+<ul>
+<li>Bayes</li>
+<li>Maximum likelihood</li>
+<li>Gaussian Mixture Models</li>
+</ul>
+</section>
+<section id="programming" class="slide level1">
+<h1>Programming</h1>
+<h2 id="languages">Languages</h2>
+<ul>
+<li>Python (scikit-learn, theano)</li>
+<li>R (carat)</li>
+<li>Java (weka)</li>
+</ul>
+<p>Notes: skl blackbox, theano is not, ipythonnotebook/R</p>
+</section>
+<section id="ml-itself" class="slide level1">
+<h1>ML itself</h1>
+<h2 id="online-courses">Online Courses</h2>
+<ul>
+<li>Andrew Ng's coursera</li>
+<li>Caltech</li>
+</ul>
+<h2 id="textbooks">Textbooks</h2>
+<ul>
+<li>PRML Bishop</li>
+</ul>
+<h2 id="practice">Practice!</h2>
+<ul>
+<li>Kaggle</li>
+<li>Playing with your own data</li>
+<li>blah</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
