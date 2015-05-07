@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Classifying Plankton from Images" />
+  <title>Casting a Deep Net</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="reveal.js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+    <!--[if lt IE 9]>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Casting a Deep Net</h1>
+    <h2 class="author">Classifying Plankton from Images</h2>
+    <h3 class="date">Finlay Maguire</h3>
+</section>
+
+<section class="slide level1">
+
+<p>% root@finlaymagui.re</p>
+</section>
+<section id="what" class="slide level1">
+<h1>What?</h1>
+</section>
+<section class="slide level1">
+
+<p>National Data Science Bowl Booz Allen Hamilton Kaggle Hatfield Marine Science Center @ Oregan State [[[Crowdsourced analytics competitions]]]</p>
+</section>
+<section id="why" class="slide level1">
+<h1>Why?</h1>
+</section>
+<section class="slide level1">
+
+<ul>
+<li>More useful than an advertising problem</li>
+<li>Practice</li>
+<li>Fun</li>
+<li>...$100,000 1st Place Prize [[[time consuming, doesn't scale, HMSC have underwater camera, high volume]]]</li>
+</ul>
+</section>
+<section id="what-was-the-input" class="slide level1">
+<h1>What was the input?</h1>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="assets/presentation/NDSB/raw_data.png" />
+</figure>
+<ul>
+<li>30,336 labelled</li>
+<li>20,000 unlabelled</li>
+<li>121 classes</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="class-labels">Class Labels</h2>
+<figure>
+<img src="assets/presentations/NDSB/hierarchy.png" alt="Hierarchy of labels" /><figcaption>Hierarchy of labels</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<h2 id="difficulties">Difficulties</h2>
+<p>PLOT OF CARDINALITIES Many classes</p>
+</section>
+<section class="slide level1">
+
+<p>PLOT OF IMAGE SIZES Unbalacned image sizes</p>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="assets/presentation/NDSB/try_yourself.png" alt="Classes very similar" /><figcaption>Classes very similar</figcaption>
+</figure>
+</section>
+<section id="our-approach" class="slide level1">
+<h1>Our approach</h1>
+</section>
+<section class="slide level1">
+
+<p>Combining: - Convoluted Neural Networks - Classical Computer Vision</p>
+</section>
+<section class="slide level1">
+
+<h2 id="convnets">Convnets</h2>
+<ul>
+<li>Neural network to deepnet to convnet</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="classical-computer-vision">Classical Computer Vision</h2>
+<ul>
+<li>Visual feature extraction PLOT OF EXAMPLES</li>
+</ul>
+</section>
+<section id="getting-more-data" class="slide level1">
+<h1>Getting more data!</h1>
+<figure>
+<img src="assets/presentations/NDSB/augmentation.png" alt="Affine transformations" /><figcaption>Affine transformations</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<h2 id="how-to-take-down-a-server">How to take down a server</h2>
+<ul>
+<li>Offline augmentation uses a LOT of memory</li>
+<li>More than we had as it turns out</li>
+<li>Our code doesn't fail politely</li>
+<li>Not being nice: misconfigured priorities on cluster</li>
+</ul>
+</section>
+<section id="our-model" class="slide level1">
+<h1>Our Model</h1>
+</section>
+<section id="combining-convnet-and-cv" class="slide level1">
+<h1>Combining Convnet and CV</h1>
+</section>
+<section class="slide level1">
+
+<p>Doesn't work</p>
+</section>
+<section id="hierarchial-modelling" class="slide level1">
+<h1>Hierarchial modelling</h1>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="assets/presentations/NDSB/hierarchy.png" alt="Label schema" /><figcaption>Label schema</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="assets/presentations/NDSB/trees.png" alt="Left: Original Hiearchy, Right: New Layers" /><figcaption>Left: Original Hiearchy, Right: New Layers</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<ul>
+<li>Supplied to six parallel softmax output layers</li>
+<li>Improved initial learning rate but not performance</li>
+</ul>
+</section>
+<section id="eat-your-time" class="slide level1">
+<h1>Eat your time</h1>
+<figure>
+<img src="assets/presentations/NDSB/punchcard.png" alt="Punchard of code submissions" /><figcaption>Punchard of code submissions</figcaption>
+</figure>
+</section>
+    </div>
+  </div>
+
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'night', // available themes are in /css/theme
+        transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+    </body>
+</html>
