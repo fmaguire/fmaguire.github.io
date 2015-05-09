@@ -35,23 +35,56 @@
     <h3 class="date">root@finlaymagui.re</h3>
 </section>
 
+<section><section id="overview" class="titleslide slide level1"><h1>Overview</h1></section></section>
 <section><section id="what" class="titleslide slide level1"><h1>What?</h1></section><section class="slide level2">
 
+<figure>
+<img src="assets/presentations/NDSB/NDSB.png" alt="National Data Science Bowl" /><figcaption>National Data Science Bowl</figcaption>
+</figure>
 <ul>
-<li>National Data Science Bowl</li>
-<li>Booz Allen Hamilton</li>
-<li>Kaggle</li>
-<li>Hatfield Marine Science Center @ Oregan State</li>
+<li>90 days (December 15th 2014 - March 16th 2015)</li>
+<li>Sponsored by Booz Allen Hamilton</li>
+<li>Kaggle platform</li>
+<li>Data from Oregon State University</li>
+</ul>
+</section><section class="slide level2">
+
+<p><img src="assets/presentations/NDSB/isiis.jpg" alt="In Situ Ichthyoplankton Imaging System" /> - 5 million shadowgraph images (4-5TB) a day - Automatically segmented - Manual analysis of all infeasible</p>
+</section><section class="slide level2">
+
+<ul>
+<li>Automated identification of plankton</li>
+<li>121 expert provided labels</li>
+<li>Goal: generate probability distribution for each image</li>
+<li>1,293 participants</li>
+<li>1,049 teams</li>
+<li>15,120 submissions</li>
+</ul>
+</section><section id="scoring" class="slide level2">
+<h1>Scoring</h1>
+<ul>
+<li>logloss (cross-entropy loss or negative loglikelihood)</li>
+<li>Sensitive to overconfidence</li>
+<li>Differentiable</li>
+<li>Not the same as accuracy</li>
+<li>30:70 public:private test data split</li>
 </ul>
 </section></section>
 <section><section id="why" class="titleslide slide level1"><h1>Why?</h1></section><section class="slide level2">
 
 <ul>
+<li>Important problem</li>
+<li></li>
 <li>More useful than an advertising problem</li>
-<li>Practice</li>
-<li>Fun</li>
-<li>...$100,000 1st Place Prize</li>
 </ul>
+</section><section id="other-reasons" class="slide level2">
+<h1>Other reasons</h1>
+<ul>
+<li>Good practice</li>
+<li>Fun ...$100,000 1st Place Prize</li>
+</ul>
+</section><section class="slide level2">
+
 </section></section>
 <section><section id="what-was-the-input" class="titleslide slide level1"><h1>What was the input?</h1></section><section class="slide level2">
 
@@ -70,6 +103,12 @@
 </figure>
 </section><section id="difficulties" class="slide level2">
 <h1>Difficulties</h1>
+</section><section class="slide level2">
+
+<p>Error in the ground-truth</p>
+<ul>
+<li><h2 id="self-consistency-in-labelling-culverhouse-2003-dinoflagellates">84-95% self-consistency in labelling [Culverhouse, 2003] (Dinoflagellates)</h2></li>
+</ul>
 <p>PLOT OF CARDINALITIES Many classes</p>
 </section><section class="slide level2">
 
@@ -127,7 +166,10 @@
 <li>Improved initial learning rate but not performance</li>
 </ul>
 </section></section>
+<section><section id="biggest-challenges" class="titleslide slide level1"><h1>Biggest challenges</h1></section></section>
+<section><section id="conclusions" class="titleslide slide level1"><h1>Conclusions</h1></section></section>
 <section><section id="eat-your-time" class="titleslide slide level1"><h1>Eat your time</h1></section></section>
+<section><section id="citations" class="titleslide slide level1"><h1>Citations</h1></section></section>
     </div>
   </div>
 
