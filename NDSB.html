@@ -35,10 +35,7 @@
     <h3 class="date">root@finlaymagui.re</h3>
 </section>
 
-<section id="what" class="slide level1">
-<h1>What?</h1>
-</section>
-<section class="slide level1">
+<section><section id="what" class="titleslide slide level1"><h1>What?</h1></section><section class="slide level2">
 
 <ul>
 <li>National Data Science Bowl</li>
@@ -46,11 +43,8 @@
 <li>Kaggle</li>
 <li>Hatfield Marine Science Center @ Oregan State</li>
 </ul>
-</section>
-<section id="why" class="slide level1">
-<h1>Why?</h1>
-</section>
-<section class="slide level1">
+</section></section>
+<section><section id="why" class="titleslide slide level1"><h1>Why?</h1></section><section class="slide level2">
 
 <ul>
 <li>More useful than an advertising problem</li>
@@ -58,11 +52,8 @@
 <li>Fun</li>
 <li>...$100,000 1st Place Prize</li>
 </ul>
-</section>
-<section id="what-was-the-input" class="slide level1">
-<h1>What was the input?</h1>
-</section>
-<section class="slide level1">
+</section></section>
+<section><section id="what-was-the-input" class="titleslide slide level1"><h1>What was the input?</h1></section><section class="slide level2">
 
 <figure>
 <img src="assets/presentation/NDSB/raw_data.png" />
@@ -72,99 +63,71 @@
 <li>20,000 unlabelled</li>
 <li>121 classes</li>
 </ul>
-</section>
-<section class="slide level1">
-
-<h2 id="class-labels">Class Labels</h2>
+</section><section id="class-labels" class="slide level2">
+<h1>Class Labels</h1>
 <figure>
 <img src="assets/presentations/NDSB/hierarchy.png" alt="Hierarchy of labels" /><figcaption>Hierarchy of labels</figcaption>
 </figure>
-</section>
-<section class="slide level1">
-
-<h2 id="difficulties">Difficulties</h2>
+</section><section id="difficulties" class="slide level2">
+<h1>Difficulties</h1>
 <p>PLOT OF CARDINALITIES Many classes</p>
-</section>
-<section class="slide level1">
+</section><section class="slide level2">
 
 <p>PLOT OF IMAGE SIZES Unbalacned image sizes</p>
-</section>
-<section class="slide level1">
+</section><section class="slide level2">
 
 <figure>
 <img src="assets/presentation/NDSB/try_yourself.png" alt="Classes very similar" /><figcaption>Classes very similar</figcaption>
 </figure>
-</section>
-<section id="our-approach" class="slide level1">
-<h1>Our approach</h1>
-</section>
-<section class="slide level1">
+</section></section>
+<section><section id="our-approach" class="titleslide slide level1"><h1>Our approach</h1></section><section class="slide level2">
 
 <p>Combining: - Convoluted Neural Networks - Classical Computer Vision</p>
-</section>
-<section class="slide level1">
-
-<h2 id="convnets">Convnets</h2>
+</section><section id="convnets" class="slide level2">
+<h1>Convnets</h1>
 <ul>
 <li>Neural network to deepnet to convnet</li>
 </ul>
-</section>
-<section class="slide level1">
-
-<h2 id="classical-computer-vision">Classical Computer Vision</h2>
+</section><section id="classical-computer-vision" class="slide level2">
+<h1>Classical Computer Vision</h1>
 <ul>
 <li>Visual feature extraction PLOT OF EXAMPLES</li>
 </ul>
-</section>
-<section id="getting-more-data" class="slide level1">
-<h1>Getting more data!</h1>
-<h2 id="affine-transformations"><img src="assets/presentation/NDSB/augmentation.png" alt="Affine transformations" /></h2>
-<h2 id="how-to-take-down-a-server">How to take down a server</h2>
+</section></section>
+<section><section id="getting-more-data" class="titleslide slide level1"><h1>Getting more data!</h1></section><section id="affine-transformations" class="slide level2">
+<h1><img src="assets/presentation/NDSB/augmentation.png" alt="Affine transformations" /></h1>
+</section><section id="how-to-take-down-a-server" class="slide level2">
+<h1>How to take down a server</h1>
 <ul>
 <li>Offline augmentation uses a LOT of memory</li>
 <li>More than we had as it turns out</li>
 <li>Our code doesn't fail politely</li>
 <li>Not being nice: misconfigured priorities on cluster</li>
 </ul>
-</section>
-<section id="our-model" class="slide level1">
-<h1>Our Model</h1>
-</section>
-<section id="combining-convnet-and-cv" class="slide level1">
-<h1>Combining Convnet and CV</h1>
-</section>
-<section class="slide level1">
+</section></section>
+<section><section id="our-model" class="titleslide slide level1"><h1>Our Model</h1></section></section>
+<section><section id="combining-convnet-and-cv" class="titleslide slide level1"><h1>Combining Convnet and CV</h1></section><section class="slide level2">
 
 <p>Doesn't work</p>
-</section>
-<section id="hierarchial-modelling" class="slide level1">
-<h1>Hierarchial modelling</h1>
-</section>
-<section class="slide level1">
+</section></section>
+<section><section id="hierarchial-modelling" class="titleslide slide level1"><h1>Hierarchial modelling</h1></section><section class="slide level2">
 
 <figure>
 <img src="assets/presentations/NDSB/hierarchy.png" alt="Label schema" /><figcaption>Label schema</figcaption>
 </figure>
-</section>
-<section class="slide level1">
+</section><section class="slide level2">
 
 <figure>
 <img src="assets/presentations/NDSB/trees.png" alt="Left: Original Hiearchy, Right: New Layers" /><figcaption>Left: Original Hiearchy, Right: New Layers</figcaption>
 </figure>
-</section>
-<section class="slide level1">
+</section><section class="slide level2">
 
 <ul>
 <li>Supplied to six parallel softmax output layers</li>
 <li>Improved initial learning rate but not performance</li>
 </ul>
-</section>
-<section id="eat-your-time" class="slide level1">
-<h1>Eat your time</h1>
-<figure>
-<img src="assets/presentations/NDSB/punchcard.png" alt="Punchard of code submissions" /><figcaption>Punchard of code submissions</figcaption>
-</figure>
-</section>
+</section></section>
+<section><section id="eat-your-time" class="titleslide slide level1"><h1>Eat your time</h1></section></section>
     </div>
   </div>
 
@@ -181,7 +144,7 @@
         progress: true,
         history: true,
         center: true,
-        theme: 'night', // available themes are in /css/theme
+        theme: 'moon', // available themes are in /css/theme
         transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
 
         // Optional libraries used to extend on reveal.js
