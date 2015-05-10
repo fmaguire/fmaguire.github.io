@@ -96,3 +96,9 @@ Notes: skl blackbox, theano is not, ipythonnotebook/R
 - Kaggle
 - Playing with your own data
 - blah
+
+
+
+# Kaggle
+
+

@@ -3,18 +3,15 @@
 % root@finlaymagui.re
 
 #Overview
-
 - What?
 - Why?
 - Input data?
 - Solutions?
 
 #What?
-
 ----
 
-![National Data Science Bowl](assets/presentations/NDSB/NDSB.png)
-
+![National Data Science Bowl](assets/presentation/NDSB/NDSB.png)
 - 90 days (December 15th 2014 - March 16th 2015) 
 - Sponsored by Booz Allen Hamilton
 - Kaggle platform
@@ -22,7 +19,7 @@
 
 ----
 
-![In Situ Ichthyoplankton Imaging System](assets/presentations/NDSB/isiis.jpg)
+![In Situ Ichthyoplankton Imaging System](assets/presentation/NDSB/isiis.jpg)
 - 5 million shadowgraph images (4-5TB) a day 
 - Automatically segmented
 - Manual analysis of all infeasible 
@@ -50,22 +47,22 @@
 
 ----
 
-- Important problem
-- 
-- More useful than an advertising problem
+- Monitoring oceanic conditions is vital
+- Democratisation of results
+- Potentially helpful for other similar challenges
 
 ----
 
 ## Other reasons
 
-- Good practice
+- Practice
+- Cutting edge
 - Fun
- ...$100,000 1st Place Prize
-
+- ...$100,000 1st Place Prize
 
 ----
 
-#What was the input?
+#Input Data
 
 ----
 
@@ -74,52 +71,70 @@
 - 30,336 labelled
 - 20,000 unlabelled
 - 121 classes
-
-----
-
-## Class Labels
-
-![Hierarchy of labels](assets/presentations/NDSB/hierarchy.png)
-
-----
-
-## Difficulties
-
-----
-
-Error in the ground-truth
-
 - 84-95% self-consistency in labelling \[Culverhouse, 2003\] (Dinoflagellates)
-----
-
-PLOT OF CARDINALITIES
-Many classes
 
 ----
 
-PLOT OF IMAGE SIZES
-Unbalacned image sizes
+## Variable input size
+
+![](assets/presentation/NDSB/image_sizes.png)
+
+----
+
+## Unbalanced classes
+
+![](assets/presentation/NDSB/label_card.png)
+
+----
+
+![](assets/presentation/NDSB/low_card.png)
 
 ----
 
 ![Classes very similar](assets/presentation/NDSB/try_yourself.png)
 
+----
 
-# Our approach
+![Hierarchy of labels](assets/presentation/NDSB/raw_hierarchy.png)
+
+# Our solution
+
+Two paths:
+- Convoluted Neural Networks e.g. ImageNet
+- Classical Computer Vision e.g. BugID
+
+- Combine results
+
+# So what are Convnets?
+
+---- 
+
+## Artificial Neural Network 
+
+![ANN](assets/presentation/NDSB/ann.png)
 
 ----
 
-Combining:
-- Convoluted Neural Networks
-- Classical Computer Vision
+## Deep Neural Network
+
+![DNN](assets/presentation/NDSB/dnn.png)
 
 ----
 
-##Convnets
+## Convolutional Deep Neural Network 
 
-- Neural network to deepnet to convnet
+![Convolution](assets/presentation/NDSB/conv.jpg)
 
 ----
+
+## Our CNN architecture
+
+![](assets/presentation/NDSB/arch.png)
+
+----
+
+
+
 
 ##Classical Computer Vision
 
