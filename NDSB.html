@@ -35,21 +35,12 @@
     <h3 class="date">root@finlaymagui.re</h3>
 </section>
 
-<section><section id="overview" class="titleslide slide level1"><h1>Overview</h1></section></section>
-<section><section id="what" class="titleslide slide level1"><h1>What?</h1></section><section class="slide level2">
-
-<figure>
-<img src="assets/presentations/NDSB/NDSB.png" alt="National Data Science Bowl" /><figcaption>National Data Science Bowl</figcaption>
-</figure>
-<ul>
-<li>90 days (December 15th 2014 - March 16th 2015)</li>
-<li>Sponsored by Booz Allen Hamilton</li>
-<li>Kaggle platform</li>
-<li>Data from Oregon State University</li>
-</ul>
+<section><section id="overview" class="titleslide slide level1"><h1>Overview</h1></section><section id="what" class="slide level2">
+<h1>#What?</h1>
+<p><img src="assets/presentation/NDSB/NDSB.png" alt="National Data Science Bowl" /> - 90 days (December 15th 2014 - March 16th 2015) - Sponsored by Booz Allen Hamilton - Kaggle platform - Data from Oregon State University</p>
 </section><section class="slide level2">
 
-<p><img src="assets/presentations/NDSB/isiis.jpg" alt="In Situ Ichthyoplankton Imaging System" /> - 5 million shadowgraph images (4-5TB) a day - Automatically segmented - Manual analysis of all infeasible</p>
+<p><img src="assets/presentation/NDSB/isiis.jpg" alt="In Situ Ichthyoplankton Imaging System" /> - 5 million shadowgraph images (4-5TB) a day - Automatically segmented - Manual analysis of all infeasible</p>
 </section><section class="slide level2">
 
 <ul>
@@ -73,20 +64,22 @@
 <section><section id="why" class="titleslide slide level1"><h1>Why?</h1></section><section class="slide level2">
 
 <ul>
-<li>Important problem</li>
-<li></li>
-<li>More useful than an advertising problem</li>
+<li>Monitoring oceanic conditions is vital</li>
+<li>Democratisation of results</li>
+<li>Potentially helpful for other similar challenges</li>
 </ul>
 </section><section id="other-reasons" class="slide level2">
 <h1>Other reasons</h1>
 <ul>
-<li>Good practice</li>
-<li>Fun ...$100,000 1st Place Prize</li>
+<li>Practice</li>
+<li>Cutting edge</li>
+<li>Fun</li>
+<li>...$100,000 1st Place Prize</li>
 </ul>
 </section><section class="slide level2">
 
 </section></section>
-<section><section id="what-was-the-input" class="titleslide slide level1"><h1>What was the input?</h1></section><section class="slide level2">
+<section><section id="input-data" class="titleslide slide level1"><h1>Input Data</h1></section><section class="slide level2">
 
 <figure>
 <img src="assets/presentation/NDSB/raw_data.png" />
@@ -95,38 +88,55 @@
 <li>30,336 labelled</li>
 <li>20,000 unlabelled</li>
 <li>121 classes</li>
+<li>84-95% self-consistency in labelling [Culverhouse, 2003] (Dinoflagellates)</li>
 </ul>
-</section><section id="class-labels" class="slide level2">
-<h1>Class Labels</h1>
+</section><section id="variable-input-size" class="slide level2">
+<h1>Variable input size</h1>
 <figure>
-<img src="assets/presentations/NDSB/hierarchy.png" alt="Hierarchy of labels" /><figcaption>Hierarchy of labels</figcaption>
+<img src="assets/presentation/NDSB/image_sizes.png" />
 </figure>
-</section><section id="difficulties" class="slide level2">
-<h1>Difficulties</h1>
+</section><section id="unbalanced-classes" class="slide level2">
+<h1>Unbalanced classes</h1>
+<figure>
+<img src="assets/presentation/NDSB/label_card.png" />
+</figure>
 </section><section class="slide level2">
 
-<p>Error in the ground-truth</p>
-<ul>
-<li><h2 id="self-consistency-in-labelling-culverhouse-2003-dinoflagellates">84-95% self-consistency in labelling [Culverhouse, 2003] (Dinoflagellates)</h2></li>
-</ul>
-<p>PLOT OF CARDINALITIES Many classes</p>
-</section><section class="slide level2">
-
-<p>PLOT OF IMAGE SIZES Unbalacned image sizes</p>
+<figure>
+<img src="assets/presentation/NDSB/low_card.png" />
+</figure>
 </section><section class="slide level2">
 
 <figure>
 <img src="assets/presentation/NDSB/try_yourself.png" alt="Classes very similar" /><figcaption>Classes very similar</figcaption>
 </figure>
-</section></section>
-<section><section id="our-approach" class="titleslide slide level1"><h1>Our approach</h1></section><section class="slide level2">
+</section><section class="slide level2">
 
-<p>Combining: - Convoluted Neural Networks - Classical Computer Vision</p>
-</section><section id="convnets" class="slide level2">
-<h1>Convnets</h1>
-<ul>
-<li>Neural network to deepnet to convnet</li>
-</ul>
+<figure>
+<img src="assets/presentation/NDSB/raw_hierarchy.png" alt="Hierarchy of labels" /><figcaption>Hierarchy of labels</figcaption>
+</figure>
+</section></section>
+<section><section id="our-solution" class="titleslide slide level1"><h1>Our solution</h1></section></section>
+<section><section id="so-what-are-convnets" class="titleslide slide level1"><h1>So what are Convnets?</h1></section><section id="artificial-neural-network" class="slide level2">
+<h1>Artificial Neural Network</h1>
+<figure>
+<img src="assets/presentation/NDSB/ann.png" alt="ANN" /><figcaption>ANN</figcaption>
+</figure>
+</section><section id="deep-neural-network" class="slide level2">
+<h1>Deep Neural Network</h1>
+<figure>
+<img src="assets/presentation/NDSB/dnn.png" alt="DNN" /><figcaption>DNN</figcaption>
+</figure>
+</section><section id="convolutional-deep-neural-network" class="slide level2">
+<h1>Convolutional Deep Neural Network</h1>
+<figure>
+<img src="assets/presentation/NDSB/conv.jpg" alt="Convolution" /><figcaption>Convolution</figcaption>
+</figure>
+</section><section id="our-cnn-architecture" class="slide level2">
+<h1>Our CNN architecture</h1>
+<figure>
+<img src="assets/presentation/NDSB/arch.png" />
+</figure>
 </section><section id="classical-computer-vision" class="slide level2">
 <h1>Classical Computer Vision</h1>
 <ul>
