@@ -8,6 +8,7 @@
 - Why?
 - Input data?
 - Solutions?
+- Performance?
 
 #What?
 
@@ -52,7 +53,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ---- 
 
-## Implications
+## Evaluation
 
 - Sensitive to overconfidence
 - Differentiable
@@ -63,20 +64,21 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-- Monitoring oceanic conditions is vital
-- Democratisation of results
-- Potentially helpful for other similar challenges
+Important problem:
+
+- Ecological indicator of oceanic conditions
+- Ecosystem functions
+- Fishery monitoring 
+- Allows autonomous remote monitoring
 
 ----
 
-## Other reasons
-
-- Practice
-- Cutting edge
+- Machine learning practice
+- Collaborative coding practice
+- Playing with latest techniques
 - Fun
-- Instant feedback
+- Instant feedback without data cleaning and gathering
 - ...$100,000 1st Place Prize
-
 
 # Input Data
 
@@ -183,6 +185,8 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 # So what are Convnets?
 
+![Artificial Neuron](assets/presentation/NDSB/perceptron.png)
+
 ---- 
 
 ![Artificial Neural Network](assets/presentation/NDSB/ann.png)
@@ -217,7 +221,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![](assets/presentation/NDSB/results.png)
+![](assets/presentation/NDSB/leader.png)
 
 - 57/1,054 teams (5.4%)
 - Our LL and PPV = 0.704, 74.38%
