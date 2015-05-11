@@ -64,7 +64,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-Important problem:
+## Important problem
 
 - Ecological indicator of oceanic conditions
 - Ecosystem functions
@@ -72,6 +72,8 @@ Important problem:
 - Allows autonomous remote monitoring
 
 ----
+
+## Learning opportunity
 
 - Machine learning practice
 - Collaborative coding practice
@@ -185,15 +187,17 @@ Important problem:
 
 # So what are Convnets?
 
-![Artificial Neuron](assets/presentation/NDSB/perceptron.png)
+----
+
+![Artificial Neuron (from wikimedia)](assets/presentation/NDSB/perceptron.png)
 
 ---- 
 
-![Artificial Neural Network](assets/presentation/NDSB/ann.png)
+![Artificial Neural Network (from wikimedia)](assets/presentation/NDSB/ann.png)
 
 ----
 
-![Deep Neural Network](assets/presentation/NDSB/DNN.png)
+![Deep Neural Network (from neuralnetworksanddeeplearning.com)](assets/presentation/NDSB/DNN.png)
 
 ----
 
