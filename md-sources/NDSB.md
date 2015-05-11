@@ -2,7 +2,7 @@
 % Finlay Maguire
 % root@finlaymagui.re
 
-#Overview
+##Overview
 
 - What?
 - Why?
@@ -31,7 +31,7 @@
 
 ----
 
-## Goal
+![Goal](assets/presentation/NDSB/prob_dist.png)
 
 - Reliable automated identification of plankton
 - 121 provided labels 
@@ -39,30 +39,24 @@
 
 ----
 
-![](assets/presentation/NDSB/prob_dist.png)
-
-----
-
-![](assets/presentation/NDSB/prob_dist_2.png)
-
-
-----
-
 ## Evaluation
 
 - multi-class logloss (cross-entropy loss or negative loglikelihood)
 
-$logloss = -\frac{1}{N} \sum{N}{i=1}\sum{M}{j=1}y_{ij} log(p_{ij})$
+$$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
-N is size of test set (20,000), M is number of class labels (121), $y_{ij}$ is 
-1 if observation $i$ is in class $j$ and 0 otherwise. $p_{ij}$ is our
-predicted probability that $i$ belongs to $j$
+- N is size of test set (20,000) 
+- M is number of class labels (121)
+- $y_{ij}$ is 1 if observation $i$ is in class $j$ and 0 otherwise. 
+- $p_{ij}$ is our predicted probability that $i$ belongs to $j$
 
 ---- 
 
+## Implications
+
 - Sensitive to overconfidence
 - Differentiable
-- Not the same as accuracy
+- Not the same as accuracy ($\frac{TP + TN}{TP + TN + FP + FN}$)
 - 30:70 public:private test data split
 
 # Why?
@@ -141,7 +135,7 @@ predicted probability that $i$ belongs to $j$
 
 ----
 
-![Label schema](assets/presentation/NDSB/hierarchy.png)
+![Label schema](assets/presentation/NDSB/raw_hierarchy.png)
 
 ----
 
@@ -155,12 +149,14 @@ predicted probability that $i$ belongs to $j$
 
 # Our Model
 
+----
+
 - Two approaches
 - Classical Computer Vision e.g. BugID
 - Convoluted Neural Networks e.g. ImageNet
 - Combine best of all worlds 
 
-#Classical Computer Vision
+## Classical Computer Vision
 
 - More similar to classifiers explained
 - Apply specific functions to detect local features
@@ -180,8 +176,9 @@ predicted probability that $i$ belongs to $j$
 
 ##CV Performance
 
-- Better with global rather than localfeatures
+- Better with global rather than local features
 - Hiearchial label data made no difference
+- Slow, painstaking, manual
 - Worse than even simplest convnet
 
 # So what are Convnets?
@@ -196,7 +193,7 @@ predicted probability that $i$ belongs to $j$
 
 ----
 
-![Convolutional Deep Neural Network](assets/presentation/NDSB/conv.jpg)
+![Convolutional Deep Neural Network: LeNet (from DeepLearning.net)](assets/presentation/NDSB/mylenet.png)
 
 ----
 
@@ -234,23 +231,28 @@ predicted probability that $i$ belongs to $j$
 - Simultaneous cyclic pooling 
 - Leaky rectified linear units
 
-# Conclusions
+## Conclusions
+
+---
 
 - Convnets are amazing and possibly black magic
 - Unit testing will save your ass
 - Learning to use the tools like pylearn2 is non-trivial
 - Experimentation is key 
 
-# Acknowledgements
+----
 
-## University of Edinburgh Neuroinformatics DTC
+## Acknowledgements
 
+- *University of Edinburgh Neuroinformatics DTC*
 - Gavin Gray 
 - Scott Lowe
 - Alina Selega
 - Matt Graham
 - Dragos Stanciu 
 
-# Citations
+----
+
+## Citations
 
 - PF Culverhouse, Williams R, Reguera B, Herry V, González-Gil S. (2003) "Do experts make mistakes? A comparison of human and machine identification of dinoflagellates." Mar. Ecol. Prog. Ser. 247:17-25.

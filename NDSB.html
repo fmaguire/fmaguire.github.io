@@ -36,7 +36,15 @@
     <h3 class="date">root@finlaymagui.re</h3>
 </section>
 
-<section><section id="overview" class="titleslide slide level1"><h1>Overview</h1></section></section>
+<section id="overview" class="slide level2">
+<h1>Overview</h1>
+<ul>
+<li>What?</li>
+<li>Why?</li>
+<li>Input data?</li>
+<li>Solutions?</li>
+</ul>
+</section>
 <section><section id="what" class="titleslide slide level1"><h1>What?</h1></section><section class="slide level2">
 
 <figure>
@@ -59,36 +67,34 @@
 <li>Automatically segmented</li>
 <li>Manual analysis infeasible</li>
 </ul>
-</section><section id="goal" class="slide level2">
-<h1>Goal</h1>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/NDSB/prob_dist.png" alt="Goal" /><figcaption>Goal</figcaption>
+</figure>
 <ul>
 <li>Reliable automated identification of plankton</li>
 <li>121 provided labels</li>
 <li>Generate probability distribution for each image across labels</li>
 </ul>
-</section><section class="slide level2">
-
-<figure>
-<img src="assets/presentation/NDSB/prob_dist.png" />
-</figure>
-</section><section class="slide level2">
-
-<figure>
-<img src="assets/presentation/NDSB/prob_dist_2.png" />
-</figure>
 </section><section id="evaluation" class="slide level2">
 <h1>Evaluation</h1>
 <ul>
 <li>multi-class logloss (cross-entropy loss or negative loglikelihood)</li>
 </ul>
-<p><span class="math">\(logloss = -\frac{1}{N} \sum{N}{i=1}\sum{M}{j=1}y_{ij} log(p_{ij})\)</span></p>
-<p>N is size of test set (20,000), M is number of class labels (121), <span class="math">\(y_{ij}\)</span> is 1 if observation <span class="math">\(i\)</span> is in class <span class="math">\(j\)</span> and 0 otherwise. <span class="math">\(p_{ij}\)</span> is our predicted probability that <span class="math">\(i\)</span> belongs to <span class="math">\(j\)</span></p>
-</section><section class="slide level2">
-
+<p><span class="math">\[logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})\]</span></p>
+<ul>
+<li>N is size of test set (20,000)</li>
+<li>M is number of class labels (121)</li>
+<li><span class="math">\(y_{ij}\)</span> is 1 if observation <span class="math">\(i\)</span> is in class <span class="math">\(j\)</span> and 0 otherwise.</li>
+<li><span class="math">\(p_{ij}\)</span> is our predicted probability that <span class="math">\(i\)</span> belongs to <span class="math">\(j\)</span></li>
+</ul>
+</section><section id="implications" class="slide level2">
+<h1>Implications</h1>
 <ul>
 <li>Sensitive to overconfidence</li>
 <li>Differentiable</li>
-<li>Not the same as accuracy</li>
+<li>Not the same as accuracy (<span class="math">\(\frac{TP + TN}{TP + TN + FP + FN}\)</span>)</li>
 <li>30:70 public:private test data split</li>
 </ul>
 </section></section>
@@ -168,7 +174,7 @@
 </section><section class="slide level2">
 
 <figure>
-<img src="assets/presentation/NDSB/hierarchy.png" alt="Label schema" /><figcaption>Label schema</figcaption>
+<img src="assets/presentation/NDSB/raw_hierarchy.png" alt="Label schema" /><figcaption>Label schema</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -183,8 +189,23 @@
 <li>Logloss performance was unchanged</li>
 </ul>
 </section></section>
-<section><section id="our-model" class="titleslide slide level1"><h1>Our Model</h1></section></section>
-<section><section id="classical-computer-vision" class="titleslide slide level1"><h1>Classical Computer Vision</h1></section><section class="slide level2">
+<section><section id="our-model" class="titleslide slide level1"><h1>Our Model</h1></section><section class="slide level2">
+
+<ul>
+<li>Two approaches</li>
+<li>Classical Computer Vision e.g. BugID</li>
+<li>Convoluted Neural Networks e.g. ImageNet</li>
+<li>Combine best of all worlds</li>
+</ul>
+</section><section id="classical-computer-vision" class="slide level2">
+<h1>Classical Computer Vision</h1>
+<ul>
+<li>More similar to classifiers explained</li>
+<li>Apply specific functions to detect local features</li>
+<li>General global image characteristics</li>
+<li>Fit standard classifier RF, SVM, LR</li>
+</ul>
+</section><section class="slide level2">
 
 <figure>
 <img src="assets/presentation/NDSB/conv.jpg" alt="Convolution" /><figcaption>Convolution</figcaption>
@@ -197,8 +218,9 @@
 </section><section id="cv-performance" class="slide level2">
 <h1>CV Performance</h1>
 <ul>
-<li>Better with global rather than localfeatures</li>
+<li>Better with global rather than local features</li>
 <li>Hiearchial label data made no difference</li>
+<li>Slow, painstaking, manual</li>
 <li>Worse than even simplest convnet</li>
 </ul>
 </section></section>
@@ -215,7 +237,7 @@
 </section><section class="slide level2">
 
 <figure>
-<img src="assets/presentation/NDSB/conv.jpg" alt="Convolutional Deep Neural Network" /><figcaption>Convolutional Deep Neural Network</figcaption>
+<img src="assets/presentation/NDSB/mylenet.png" alt="Convolutional Deep Neural Network: LeNet (from DeepLearning.net)" /><figcaption>Convolutional Deep Neural Network: LeNet (from DeepLearning.net)</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -240,19 +262,32 @@
 <li>Simultaneous cyclic pooling</li>
 <li>Leaky rectified linear units</li>
 </ul>
-</section></section>
-<section><section id="conclusions" class="titleslide slide level1"><h1>Conclusions</h1></section></section>
-<section><section id="acknowledgements" class="titleslide slide level1"><h1>Acknowledgements</h1></section><section id="university-of-edinburgh-neuroinformatics-dtc" class="slide level2">
-<h1>University of Edinburgh Neuroinformatics DTC</h1>
+</section><section id="conclusions" class="slide level2">
+<h1>Conclusions</h1>
+</section><section class="slide level2">
+
 <ul>
+<li>Convnets are amazing and possibly black magic</li>
+<li>Unit testing will save your ass</li>
+<li>Learning to use the tools like pylearn2 is non-trivial</li>
+<li>Experimentation is key</li>
+</ul>
+</section><section id="acknowledgements" class="slide level2">
+<h1>Acknowledgements</h1>
+<ul>
+<li><em>University of Edinburgh Neuroinformatics DTC</em></li>
 <li>Gavin Gray</li>
 <li>Scott Lowe</li>
 <li>Alina Selega</li>
 <li>Matt Graham</li>
 <li>Dragos Stanciu</li>
 </ul>
+</section><section id="citations" class="slide level2">
+<h1>Citations</h1>
+<ul>
+<li>PF Culverhouse, Williams R, Reguera B, Herry V, González-Gil S. (2003) &quot;Do experts make mistakes? A comparison of human and machine identification of dinoflagellates.&quot; Mar. Ecol. Prog. Ser. 247:17-25.</li>
+</ul>
 </section></section>
-<section><section id="citations" class="titleslide slide level1"><h1>Citations</h1></section></section>
     </div>
   </div>
 
