@@ -170,11 +170,11 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![Convolution kernels](assets/persentation/NDSB/convolution.png)
+![Convolution kernels](assets/presentation/NDSB/convolution.png)
 
 ----
 
-##CV Performance
+##Computer Vision Performance
 
 - Better with global rather than local features
 - Hiearchial label data made no difference
@@ -206,6 +206,8 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 # Combining approaches
 
+----
+
 - Integrated augmented CV-features with convnet
 - Added into network after convolutions
 - Decreased performance
@@ -224,16 +226,19 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ## So what did the winners do?
 
-![](assets/presentation/NDSB/cyclicpool.png)
 
 - Everything we did but better!
 - More convolution layers with smaller kernels
 - Simultaneous cyclic pooling 
 - Leaky rectified linear units
 
-## Conclusions
+----
 
----
+![Cyclic pooling](assets/presentation/NDSB/cyclicpool.png)
+
+# Conclusions
+
+----
 
 - Convnets are amazing and possibly black magic
 - Unit testing will save your ass
