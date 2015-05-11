@@ -35,13 +35,37 @@
     <h3 class="date">root@finlaymagui.re</h3>
 </section>
 
-<section><section id="overview" class="titleslide slide level1"><h1>Overview</h1></section><section id="what" class="slide level2">
-<h1>#What?</h1>
-<p><img src="assets/presentation/NDSB/NDSB.png" alt="National Data Science Bowl" /> - 90 days (December 15th 2014 - March 16th 2015) - Sponsored by Booz Allen Hamilton - Kaggle platform - Data from Oregon State University</p>
-</section><section class="slide level2">
+<section id="overview" class="slide level1">
+<h1>Overview</h1>
+<ul>
+<li>What?</li>
+<li>Why?</li>
+<li>Input data?</li>
+<li>Solutions?</li>
+</ul>
+<h2 id="what"># What?</h2>
+<figure>
+<img src="assets/presentation/NDSB/NDSB.png" alt="National Data Science Bowl" /><figcaption>National Data Science Bowl</figcaption>
+</figure>
+<ul>
+<li>90 days (December 15th 2014 - March 16th 2015)</li>
+<li>Sponsored by Booz Allen Hamilton</li>
+<li>Kaggle platform</li>
+<li>Data from Oregon State University</li>
+</ul>
+</section>
+<section class="slide level1">
 
-<p><img src="assets/presentation/NDSB/isiis.jpg" alt="In Situ Ichthyoplankton Imaging System" /> - 5 million shadowgraph images (4-5TB) a day - Automatically segmented - Manual analysis of all infeasible</p>
-</section><section class="slide level2">
+<figure>
+<img src="assets/presentation/NDSB/isiis.jpg" alt="In Situ Ichthyoplankton Imaging System" /><figcaption>In Situ Ichthyoplankton Imaging System</figcaption>
+</figure>
+<ul>
+<li>5 million shadowgraph images (4-5TB) a day</li>
+<li>Automatically segmented</li>
+<li>Manual analysis of all infeasible</li>
+</ul>
+</section>
+<section class="slide level1">
 
 <ul>
 <li>Automated identification of plankton</li>
@@ -51,8 +75,10 @@
 <li>1,049 teams</li>
 <li>15,120 submissions</li>
 </ul>
-</section><section id="scoring" class="slide level2">
-<h1>Scoring</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="scoring">Scoring</h2>
 <ul>
 <li>logloss (cross-entropy loss or negative loglikelihood)</li>
 <li>Sensitive to overconfidence</li>
@@ -60,26 +86,32 @@
 <li>Not the same as accuracy</li>
 <li>30:70 public:private test data split</li>
 </ul>
-</section></section>
-<section><section id="why" class="titleslide slide level1"><h1>Why?</h1></section><section class="slide level2">
+</section>
+<section id="why" class="slide level1">
+<h1>Why?</h1>
+</section>
+<section class="slide level1">
 
 <ul>
 <li>Monitoring oceanic conditions is vital</li>
 <li>Democratisation of results</li>
 <li>Potentially helpful for other similar challenges</li>
 </ul>
-</section><section id="other-reasons" class="slide level2">
-<h1>Other reasons</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="other-reasons">Other reasons</h2>
 <ul>
 <li>Practice</li>
 <li>Cutting edge</li>
 <li>Fun</li>
 <li>...$100,000 1st Place Prize</li>
 </ul>
-</section><section class="slide level2">
-
-</section></section>
-<section><section id="input-data" class="titleslide slide level1"><h1>Input Data</h1></section><section class="slide level2">
+</section>
+<section id="input-data" class="slide level1">
+<h1>Input Data</h1>
+</section>
+<section class="slide level1">
 
 <figure>
 <img src="assets/presentation/NDSB/raw_data.png" />
@@ -90,96 +122,147 @@
 <li>121 classes</li>
 <li>84-95% self-consistency in labelling [Culverhouse, 2003] (Dinoflagellates)</li>
 </ul>
-</section><section id="variable-input-size" class="slide level2">
-<h1>Variable input size</h1>
-<figure>
-<img src="assets/presentation/NDSB/image_sizes.png" />
-</figure>
-</section><section id="unbalanced-classes" class="slide level2">
-<h1>Unbalanced classes</h1>
-<figure>
-<img src="assets/presentation/NDSB/label_card.png" />
-</figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <figure>
-<img src="assets/presentation/NDSB/low_card.png" />
+<img src="assets/presentation/NDSB/image_sizes.png" alt="Variable input size" /><figcaption>Variable input size</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <figure>
-<img src="assets/presentation/NDSB/try_yourself.png" alt="Classes very similar" /><figcaption>Classes very similar</figcaption>
+<img src="assets/presentation/NDSB/label_card.png" alt="Unbalanced classes" /><figcaption>Unbalanced classes</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="assets/presentation/NDSB/low_card.png" alt="Unbalanced classes" /><figcaption>Unbalanced classes</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="assets/presentation/NDSB/try_yourelf.png" alt="Classes very similar" /><figcaption>Classes very similar</figcaption>
+</figure>
+</section>
+<section class="slide level1">
 
 <figure>
 <img src="assets/presentation/NDSB/raw_hierarchy.png" alt="Hierarchy of labels" /><figcaption>Hierarchy of labels</figcaption>
 </figure>
-</section></section>
-<section><section id="our-solution" class="titleslide slide level1"><h1>Our solution</h1></section></section>
-<section><section id="so-what-are-convnets" class="titleslide slide level1"><h1>So what are Convnets?</h1></section><section id="artificial-neural-network" class="slide level2">
-<h1>Artificial Neural Network</h1>
+</section>
+<section id="our-solution" class="slide level1">
+<h1>Our solution</h1>
+<p>Two paths: - Convoluted Neural Networks e.g. ImageNet - Classical Computer Vision e.g. BugID</p>
+<ul>
+<li>Combine results</li>
+</ul>
+</section>
+<section id="so-what-are-convnets" class="slide level1">
+<h1>So what are Convnets?</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="artificial-neural-network">Artificial Neural Network</h2>
 <figure>
 <img src="assets/presentation/NDSB/ann.png" alt="ANN" /><figcaption>ANN</figcaption>
 </figure>
-</section><section id="deep-neural-network" class="slide level2">
-<h1>Deep Neural Network</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="deep-neural-network">Deep Neural Network</h2>
 <figure>
 <img src="assets/presentation/NDSB/dnn.png" alt="DNN" /><figcaption>DNN</figcaption>
 </figure>
-</section><section id="convolutional-deep-neural-network" class="slide level2">
-<h1>Convolutional Deep Neural Network</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="convolutional-deep-neural-network">Convolutional Deep Neural Network</h2>
 <figure>
 <img src="assets/presentation/NDSB/conv.jpg" alt="Convolution" /><figcaption>Convolution</figcaption>
 </figure>
-</section><section id="our-cnn-architecture" class="slide level2">
-<h1>Our CNN architecture</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="our-cnn-architecture">Our CNN architecture</h2>
 <figure>
 <img src="assets/presentation/NDSB/arch.png" />
 </figure>
-</section><section id="classical-computer-vision" class="slide level2">
-<h1>Classical Computer Vision</h1>
+</section>
+<section class="slide level1">
+
+<h2 id="classical-computer-vision">Classical Computer Vision</h2>
 <ul>
 <li>Visual feature extraction PLOT OF EXAMPLES</li>
 </ul>
-</section></section>
-<section><section id="getting-more-data" class="titleslide slide level1"><h1>Getting more data!</h1></section><section id="affine-transformations" class="slide level2">
-<h1><img src="assets/presentation/NDSB/augmentation.png" alt="Affine transformations" /></h1>
-</section><section id="how-to-take-down-a-server" class="slide level2">
-<h1>How to take down a server</h1>
+</section>
+<section id="getting-more-data" class="slide level1">
+<h1>Getting more data!</h1>
+<h2 id="affine-transformations"><img src="assets/presentation/NDSB/augmentation.png" alt="Affine transformations" /></h2>
+<h2 id="how-to-take-down-a-server">How to take down a server</h2>
 <ul>
 <li>Offline augmentation uses a LOT of memory</li>
 <li>More than we had as it turns out</li>
 <li>Our code doesn't fail politely</li>
 <li>Not being nice: misconfigured priorities on cluster</li>
 </ul>
-</section></section>
-<section><section id="our-model" class="titleslide slide level1"><h1>Our Model</h1></section></section>
-<section><section id="combining-convnet-and-cv" class="titleslide slide level1"><h1>Combining Convnet and CV</h1></section><section class="slide level2">
+</section>
+<section id="our-model" class="slide level1">
+<h1>Our Model</h1>
+</section>
+<section id="combining-convnet-and-cv" class="slide level1">
+<h1>Combining Convnet and CV</h1>
+</section>
+<section class="slide level1">
 
 <p>Doesn't work</p>
-</section></section>
-<section><section id="hierarchial-modelling" class="titleslide slide level1"><h1>Hierarchial modelling</h1></section><section class="slide level2">
+</section>
+<section id="hierarchial-modelling" class="slide level1">
+<h1>Hierarchial modelling</h1>
+</section>
+<section class="slide level1">
 
 <figure>
 <img src="assets/presentations/NDSB/hierarchy.png" alt="Label schema" /><figcaption>Label schema</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <figure>
 <img src="assets/presentations/NDSB/trees.png" alt="Left: Original Hiearchy, Right: New Layers" /><figcaption>Left: Original Hiearchy, Right: New Layers</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level1">
 
 <ul>
 <li>Supplied to six parallel softmax output layers</li>
 <li>Improved initial learning rate but not performance</li>
 </ul>
-</section></section>
-<section><section id="biggest-challenges" class="titleslide slide level1"><h1>Biggest challenges</h1></section></section>
-<section><section id="conclusions" class="titleslide slide level1"><h1>Conclusions</h1></section></section>
-<section><section id="eat-your-time" class="titleslide slide level1"><h1>Eat your time</h1></section></section>
-<section><section id="citations" class="titleslide slide level1"><h1>Citations</h1></section></section>
+</section>
+<section id="biggest-challenges" class="slide level1">
+<h1>Biggest challenges</h1>
+<ul>
+<li>Dataset handling</li>
+<li></li>
+</ul>
+</section>
+<section id="conclusions" class="slide level1">
+<h1>Conclusions</h1>
+</section>
+<section id="eat-your-time" class="slide level1">
+<h1>Eat your time</h1>
+<figure>
+<img src="assets/presentations/NDSB/punchcard.png" alt="Punchard of code submissions" /><figcaption>Punchard of code submissions</figcaption>
+</figure>
+</section>
+<section id="citations" class="slide level1">
+<h1>Citations</h1>
+<ul>
+<li>PF Culverhouse, Williams R, Reguera B, Herry V, González-Gil S. (2003) &quot;Do experts make mistakes? A comparison of human and machine identification of dinoflagellates.&quot; Mar. Ecol. Prog. Ser. 247:17-25.</li>
+</ul>
+</section>
     </div>
   </div>
 
@@ -196,7 +279,7 @@
         progress: true,
         history: true,
         center: true,
-        theme: 'moon', // available themes are in /css/theme
+        theme: 'night', // available themes are in /css/theme
         transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
 
         // Optional libraries used to extend on reveal.js

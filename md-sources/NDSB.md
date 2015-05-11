@@ -2,16 +2,17 @@
 % Finlay Maguire
 % root@finlaymagui.re
 
-#Overview
+# Overview
 - What?
 - Why?
 - Input data?
 - Solutions?
 
-#What?
+# What?
 ----
 
 ![National Data Science Bowl](assets/presentation/NDSB/NDSB.png)
+
 - 90 days (December 15th 2014 - March 16th 2015) 
 - Sponsored by Booz Allen Hamilton
 - Kaggle platform
@@ -20,6 +21,7 @@
 ----
 
 ![In Situ Ichthyoplankton Imaging System](assets/presentation/NDSB/isiis.jpg)
+
 - 5 million shadowgraph images (4-5TB) a day 
 - Automatically segmented
 - Manual analysis of all infeasible 
@@ -36,14 +38,14 @@
 ----
 
 ## Scoring
+
 - logloss (cross-entropy loss or negative loglikelihood)
 - Sensitive to overconfidence
 - Differentiable
 - Not the same as accuracy
 - 30:70 public:private test data split
 
-
-#Why?
+# Why?
 
 ----
 
@@ -62,7 +64,7 @@
 
 ----
 
-#Input Data
+# Input Data
 
 ----
 
@@ -75,23 +77,19 @@
 
 ----
 
-## Variable input size
-
-![](assets/presentation/NDSB/image_sizes.png)
+![Variable input size](assets/presentation/NDSB/image_sizes.png)
 
 ----
 
-## Unbalanced classes
-
-![](assets/presentation/NDSB/label_card.png)
+![Unbalanced classes](assets/presentation/NDSB/label_card.png)
 
 ----
 
-![](assets/presentation/NDSB/low_card.png)
+![Unbalanced classes](assets/presentation/NDSB/low_card.png)
 
 ----
 
-![Classes very similar](assets/presentation/NDSB/try_yourself.png)
+![Classes very similar](assets/presentation/NDSB/try_yourelf.png)
 
 ----
 
