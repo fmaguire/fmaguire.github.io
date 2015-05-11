@@ -24,6 +24,7 @@
     <!--[if lt IE 9]>
     <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
+    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 <body>
   <div class="reveal">
@@ -80,8 +81,8 @@
 <ul>
 <li>multi-class logloss (cross-entropy loss or negative loglikelihood)</li>
 </ul>
-<p><span class="math">$logloss = -\frac{1}{N} \sum{N}{i=1}\sum{M}{j=1}y_{ij} log(p_{ij}$</span></p>
-<p>N is size of test set (20,000), M is number of class labels (121), <span class="math"><em>y</em><sub><em>i</em><em>j</em></sub></span> is 1 if observation <span class="math"><em>i</em></span> is in class <span class="math"><em>j</em></span> and 0 otherwise. <span class="math"><em>p</em><sub><em>i</em><em>j</em></sub></span> is our predicted probability that <span class="math"><em>i</em></span> belongs to <span class="math"><em>j</em></span></p>
+<p><span class="math">\(logloss = -\frac{1}{N} \sum{N}{i=1}\sum{M}{j=1}y_{ij} log(p_{ij})\)</span></p>
+<p>N is size of test set (20,000), M is number of class labels (121), <span class="math">\(y_{ij}\)</span> is 1 if observation <span class="math">\(i\)</span> is in class <span class="math">\(j\)</span> and 0 otherwise. <span class="math">\(p_{ij}\)</span> is our predicted probability that <span class="math">\(i\)</span> belongs to <span class="math">\(j\)</span></p>
 </section><section class="slide level2">
 
 <ul>
@@ -148,8 +149,59 @@
 <img src="assets/presentation/NDSB/raw_hierarchy.png" alt="Hierarchy of labels" /><figcaption>Hierarchy of labels</figcaption>
 </figure>
 </section></section>
-<section><section id="our-solution" class="titleslide slide level1"><h1>Our solution</h1></section></section>
-<section><section id="classical-computer-vision" class="titleslide slide level1"><h1>Classical Computer Vision</h1></section></section>
+<section><section id="making-the-most-of-this-data" class="titleslide slide level1"><h1>Making the most of this data</h1></section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/NDSB/augmentation.png" alt="Get more data!" /><figcaption>Get more data!</figcaption>
+</figure>
+</section><section id="rescaling" class="slide level2">
+<h1>Rescaling</h1>
+<ul>
+<li>Constant size</li>
+<li>Makes life a lot easier</li>
+<li>Makes training more stable</li>
+<li>Lose detail (siamese network)</li>
+<li>Lose sizing information (scale invariance)</li>
+</ul>
+</section><section id="hierarchial-modelling" class="slide level2">
+<h1>Hierarchial modelling</h1>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/NDSB/hierarchy.png" alt="Label schema" /><figcaption>Label schema</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/NDSB/trees.png" alt="Left: Original Hiearchy, Right: New Layers" /><figcaption>Left: Original Hiearchy, Right: New Layers</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<ul>
+<li>Supplied to six parallel softmax output layers</li>
+<li>Improved initial learning rate</li>
+<li>Logloss performance was unchanged</li>
+</ul>
+</section></section>
+<section><section id="our-model" class="titleslide slide level1"><h1>Our Model</h1></section></section>
+<section><section id="classical-computer-vision" class="titleslide slide level1"><h1>Classical Computer Vision</h1></section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/NDSB/conv.jpg" alt="Convolution" /><figcaption>Convolution</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/persentation/NDSB/convolution.png" alt="Convolution kernels" /><figcaption>Convolution kernels</figcaption>
+</figure>
+</section><section id="cv-performance" class="slide level2">
+<h1>CV Performance</h1>
+<ul>
+<li>Better with global rather than localfeatures</li>
+<li>Hiearchial label data made no difference</li>
+<li>Worse than even simplest convnet</li>
+</ul>
+</section></section>
 <section><section id="so-what-are-convnets" class="titleslide slide level1"><h1>So what are Convnets?</h1></section><section class="slide level2">
 
 <figure>
@@ -173,43 +225,14 @@
 </section><section class="slide level2">
 
 <figure>
-<img src="assets/presentation/NDSB/activation.png" alt="Activation" /><figcaption>Activation</figcaption>
+<img src="assets/presentation/NDSB/full_active.png" alt="Activation" /><figcaption>Activation</figcaption>
 </figure>
 </section></section>
-<section><section id="computer-vision-by-itself-performance" class="titleslide slide level1"><h1>Computer-vision by itself performance</h1></section></section>
-<section><section id="computer-vision-feature-integration" class="titleslide slide level1"><h1>Computer-vision feature integration</h1></section></section>
-<section><section id="getting-more-data" class="titleslide slide level1"><h1>Getting more data!</h1></section><section id="how-to-take-down-a-server" class="slide level2">
-<h1>How to take down a server</h1>
-<ul>
-<li>Offline augmentation uses a LOT of memory</li>
-<li>More than we had as it turns out</li>
-<li>Our code doesn't fail politely</li>
-<li>Not being nice: misconfigured priorities on cluster</li>
-</ul>
-</section></section>
-<section><section id="hierarchial-modelling" class="titleslide slide level1"><h1>Hierarchial modelling</h1></section><section class="slide level2">
-
-<figure>
-<img src="assets/presentation/NDSB/hierarchy.png" alt="Label schema" /><figcaption>Label schema</figcaption>
-</figure>
-</section><section class="slide level2">
-
-<figure>
-<img src="assets/presentation/NDSB/trees.png" alt="Left: Original Hiearchy, Right: New Layers" /><figcaption>Left: Original Hiearchy, Right: New Layers</figcaption>
-</figure>
-</section><section class="slide level2">
-
-<ul>
-<li>Supplied to six parallel softmax output layers</li>
-<li>Improved initial learning rate</li>
-<li>Logloss performance was unchanged</li>
-</ul>
-</section></section>
-<section><section id="if-in-doubt-merge" class="titleslide slide level1"><h1>If in doubt merge!</h1></section></section>
+<section><section id="combining-approaches" class="titleslide slide level1"><h1>Combining approaches</h1></section></section>
 <section><section id="how-did-we-do" class="titleslide slide level1"><h1>How did we do?</h1></section><section id="so-what-did-the-winners-do" class="slide level2">
 <h1>So what did the winners do?</h1>
 <figure>
-<img src="assets/presentation/NDSB/a.png" />
+<img src="assets/presentation/NDSB/cyclicpool.png" />
 </figure>
 <ul>
 <li>Everything we did but better!</li>

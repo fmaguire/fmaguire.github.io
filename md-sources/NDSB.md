@@ -52,7 +52,7 @@
 
 - multi-class logloss (cross-entropy loss or negative loglikelihood)
 
-$logloss = -\frac{1}{N} \sum{N}{i=1}\sum{M}{j=1}y_{ij} log(p_{ij}$
+$logloss = -\frac{1}{N} \sum{N}{i=1}\sum{M}{j=1}y_{ij} log(p_{ij})$
 
 N is size of test set (20,000), M is number of class labels (121), $y_{ij}$ is 
 1 if observation $i$ is in class $j$ and 0 otherwise. $p_{ij}$ is our
@@ -118,16 +118,71 @@ predicted probability that $i$ belongs to $j$
 
 ![Hierarchy of labels](assets/presentation/NDSB/raw_hierarchy.png)
 
-# Our solution
 
-- Convoluted Neural Networks e.g. ImageNet
+# Making the most of this data
+
+---- 
+
+![Get more data!](assets/presentation/NDSB/augmentation.png)
+
+----
+
+## Rescaling 
+
+- Constant size
+- Makes life a lot easier
+- Makes training more stable
+- Lose detail (siamese network)
+- Lose sizing information (scale invariance)
+
+----
+
+## Hierarchial modelling
+
+----
+
+![Label schema](assets/presentation/NDSB/hierarchy.png)
+
+----
+
+![Left: Original Hiearchy, Right: New Layers](assets/presentation/NDSB/trees.png)
+
+----
+
+- Supplied to six parallel softmax output layers
+- Improved initial learning rate 
+- Logloss performance was unchanged
+
+# Our Model
+
+- Two approaches
 - Classical Computer Vision e.g. BugID
-- Combine results
+- Convoluted Neural Networks e.g. ImageNet
+- Combine best of all worlds 
 
 #Classical Computer Vision
 
-- Visual feature extraction
-PLOT OF EXAMPLES
+- More similar to classifiers explained
+- Apply specific functions to detect local features
+- General global image characteristics 
+- Fit standard classifier RF, SVM, LR 
+
+----
+ 
+
+![Convolution](assets/presentation/NDSB/conv.jpg)
+
+----
+
+![Convolution kernels](assets/persentation/NDSB/convolution.png)
+
+----
+
+##CV Performance
+
+- Better with global rather than localfeatures
+- Hiearchial label data made no difference
+- Worse than even simplest convnet
 
 # So what are Convnets?
 
@@ -149,60 +204,15 @@ PLOT OF EXAMPLES
 
 ----
 
-![Activation](assets/presentation/NDSB/activation.png)
+![Activation](assets/presentation/NDSB/full_active.png)
 
 
-# Computer-vision by itself performance 
-
-- 
-- Better with global rather than localfeatures
-- Hiearchial label data made no difference
-- Worse than even simplest convnet
-
-
-# Computer-vision feature integration
+# Combining approaches
 
 - Integrated augmented CV-features with convnet
 - Added into network after convolutions
 - Decreased performance
-
-
-
-#Getting more data!
-
-![Affine transformations](assets/presentation/NDSB/augmentation.png)
-
-----
-
-## How to take down a server
-
-- Offline augmentation uses a LOT of memory
-- More than we had as it turns out
-- Our code doesn't fail politely
-- Not being nice: misconfigured priorities on cluster
-
-
-# Hierarchial modelling
-
-----
-
-![Label schema](assets/presentation/NDSB/hierarchy.png)
-
-----
-
-![Left: Original Hiearchy, Right: New Layers](assets/presentation/NDSB/trees.png)
-
-----
-
-- Supplied to six parallel softmax output layers
-- Improved initial learning rate 
-- Logloss performance was unchanged
-
-# If in doubt merge!
-
-- Weighted average of models almost always perform better
-
-
+- Model averaging
 
 # How did we do?
 
@@ -217,7 +227,7 @@ PLOT OF EXAMPLES
 
 ## So what did the winners do?
 
-![](assets/presentation/NDSB/a.png)
+![](assets/presentation/NDSB/cyclicpool.png)
 
 - Everything we did but better!
 - More convolution layers with smaller kernels
