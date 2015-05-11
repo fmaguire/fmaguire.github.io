@@ -155,12 +155,7 @@
 <img src="assets/presentation/NDSB/raw_hierarchy.png" alt="Hierarchy of labels" /><figcaption>Hierarchy of labels</figcaption>
 </figure>
 </section></section>
-<section><section id="making-the-most-of-this-data" class="titleslide slide level1"><h1>Making the most of this data</h1></section><section class="slide level2">
-
-<figure>
-<img src="assets/presentation/NDSB/augmentation.png" alt="Get more data!" /><figcaption>Get more data!</figcaption>
-</figure>
-</section><section id="rescaling" class="slide level2">
+<section><section id="making-the-most-of-this-data" class="titleslide slide level1"><h1>Making the most of this data</h1></section><section id="rescaling" class="slide level2">
 <h1>Rescaling</h1>
 <ul>
 <li>Constant size</li>
@@ -169,6 +164,11 @@
 <li>Lose detail (siamese network)</li>
 <li>Lose sizing information (scale invariance)</li>
 </ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/NDSB/augmentation.png" alt="Get more data!" /><figcaption>Get more data!</figcaption>
+</figure>
 </section><section id="hierarchial-modelling" class="slide level2">
 <h1>Hierarchial modelling</h1>
 </section><section class="slide level2">
@@ -184,7 +184,7 @@
 </section><section class="slide level2">
 
 <ul>
-<li>Supplied to six parallel softmax output layers</li>
+<li>6 parallel softmax output layers</li>
 <li>Improved initial learning rate</li>
 <li>Logloss performance was unchanged</li>
 </ul>
@@ -259,8 +259,19 @@
 <li>Model averaging</li>
 </ul>
 </section></section>
-<section><section id="how-did-we-do" class="titleslide slide level1"><h1>How did we do?</h1></section><section id="so-what-did-the-winners-do" class="slide level2">
-<h1>So what did the winners do?</h1>
+<section><section id="how-did-we-do" class="titleslide slide level1"><h1>How did we do?</h1></section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/NDSB/results.png" />
+</figure>
+<ul>
+<li>57/1,054 teams (5.4%)</li>
+<li>Our LL and PPV = 0.704, 74.38%</li>
+<li>Winner LL and PPV = 0.565, 81.52%</li>
+<li>Very similar methodologies</li>
+</ul>
+</section><section id="so-what-did-the-winners-do-differently" class="slide level2">
+<h1>So what did the winners do differently?</h1>
 <ul>
 <li>Everything we did but better!</li>
 <li>More convolution layers with smaller kernels</li>
@@ -276,15 +287,15 @@
 <section><section id="conclusions" class="titleslide slide level1"><h1>Conclusions</h1></section><section class="slide level2">
 
 <ul>
-<li>Convnets are amazing and possibly black magic</li>
-<li>Unit testing will save your ass</li>
-<li>Learning to use the tools like pylearn2 is non-trivial</li>
-<li>Experimentation is key</li>
+<li>Convnets are very powerful</li>
+<li>However: implementation is non-trivial</li>
+<li>Experiment with parameters individually</li>
+<li>Unit testing your code is incredibly useful</li>
 </ul>
 </section><section id="acknowledgements" class="slide level2">
 <h1>Acknowledgements</h1>
+<p><em>University of Edinburgh Neuroinformatics DTC:</em></p>
 <ul>
-<li><em>University of Edinburgh Neuroinformatics DTC</em></li>
 <li>Gavin Gray</li>
 <li>Scott Lowe</li>
 <li>Alina Selega</li>

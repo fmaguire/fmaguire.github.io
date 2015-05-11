@@ -117,10 +117,6 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ---- 
 
-![Get more data!](assets/presentation/NDSB/augmentation.png)
-
-----
-
 ## Rescaling 
 
 - Constant size
@@ -128,6 +124,10 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 - Makes training more stable
 - Lose detail (siamese network)
 - Lose sizing information (scale invariance)
+
+----
+
+![Get more data!](assets/presentation/NDSB/augmentation.png)
 
 ----
 
@@ -143,7 +143,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-- Supplied to six parallel softmax output layers
+- 6 parallel softmax output layers
 - Improved initial learning rate 
 - Logloss performance was unchanged
 
@@ -215,6 +215,8 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 # How did we do?
 
+----
+
 ![](assets/presentation/NDSB/results.png)
 
 - 57/1,054 teams (5.4%)
@@ -224,8 +226,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-## So what did the winners do?
-
+## So what did the winners do differently?
 
 - Everything we did but better!
 - More convolution layers with smaller kernels
@@ -240,16 +241,17 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-- Convnets are amazing and possibly black magic
-- Unit testing will save your ass
-- Learning to use the tools like pylearn2 is non-trivial
-- Experimentation is key 
+- Convnets are very powerful
+- However: implementation is non-trivial 
+- Experiment with parameters individually
+- Unit testing your code is incredibly useful
 
 ----
 
 ## Acknowledgements
 
-- *University of Edinburgh Neuroinformatics DTC*
+_University of Edinburgh Neuroinformatics DTC:_
+
 - Gavin Gray 
 - Scott Lowe
 - Alina Selega
