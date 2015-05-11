@@ -2,44 +2,64 @@
 % Finlay Maguire
 % root@finlaymagui.re
 
-# Overview
+#Overview
+
 - What?
 - Why?
 - Input data?
 - Solutions?
 
-# What?
+#What?
+
 ----
 
-![National Data Science Bowl](assets/presentation/NDSB/NDSB.png)
+![](assets/presentation/NDSB/NDSB.png)
 
 - 90 days (December 15th 2014 - March 16th 2015) 
 - Sponsored by Booz Allen Hamilton
-- Kaggle platform
-- Data from Oregon State University
+- Run by Kaggle 
+- Hatfield Marine Science Center
 
 ----
 
-![In Situ Ichthyoplankton Imaging System](assets/presentation/NDSB/isiis.jpg)
+![](assets/presentation/NDSB/isiis.jpg)
 
+- In Situ Ichthyoplankton Imaging System
 - 5 million shadowgraph images (4-5TB) a day 
 - Automatically segmented
-- Manual analysis of all infeasible 
+- Manual analysis infeasible 
 
 ----
 
-- Automated identification of plankton
-- 121 expert provided labels 
-- Goal: generate probability distribution for each image
-- 1,293 participants 
-- 1,049 teams 
-- 15,120 submissions
+## Goal
+
+- Reliable automated identification of plankton
+- 121 provided labels 
+- Generate probability distribution for each image across labels
 
 ----
 
-## Scoring
+![](assets/presentation/NDSB/prob_dist.png)
 
-- logloss (cross-entropy loss or negative loglikelihood)
+----
+
+![](assets/presentation/NDSB/prob_dist_2.png)
+
+
+----
+
+## Evaluation
+
+- multi-class logloss (cross-entropy loss or negative loglikelihood)
+
+$logloss = -\frac{1}{N} \sum{N}{i=1}\sum{M}{j=1}y_{ij} log(p_{ij}$
+
+N is size of test set (20,000), M is number of class labels (121), $y_{ij}$ is 
+1 if observation $i$ is in class $j$ and 0 otherwise. $p_{ij}$ is our
+predicted probability that $i$ belongs to $j$
+
+---- 
+
 - Sensitive to overconfidence
 - Differentiable
 - Not the same as accuracy
@@ -60,9 +80,9 @@
 - Practice
 - Cutting edge
 - Fun
+- Instant feedback
 - ...$100,000 1st Place Prize
 
-----
 
 # Input Data
 
@@ -70,10 +90,13 @@
 
 ![](assets/presentation/NDSB/raw_data.png)
 
+----
+
 - 30,336 labelled
 - 20,000 unlabelled
 - 121 classes
 - 84-95% self-consistency in labelling \[Culverhouse, 2003\] (Dinoflagellates)
+- Scale invariant
 
 ----
 
@@ -97,51 +120,58 @@
 
 # Our solution
 
-Two paths:
 - Convoluted Neural Networks e.g. ImageNet
 - Classical Computer Vision e.g. BugID
-
 - Combine results
+
+#Classical Computer Vision
+
+- Visual feature extraction
+PLOT OF EXAMPLES
 
 # So what are Convnets?
 
 ---- 
 
-## Artificial Neural Network 
-
-![ANN](assets/presentation/NDSB/ann.png)
+![Artificial Neural Network](assets/presentation/NDSB/ann.png)
 
 ----
 
-## Deep Neural Network
-
-![DNN](assets/presentation/NDSB/dnn.png)
+![Deep Neural Network](assets/presentation/NDSB/DNN.png)
 
 ----
 
-## Convolutional Deep Neural Network 
-
-![Convolution](assets/presentation/NDSB/conv.jpg)
+![Convolutional Deep Neural Network](assets/presentation/NDSB/conv.jpg)
 
 ----
 
-## Our CNN architecture
-
-![](assets/presentation/NDSB/arch.png)
+![Our architecture](assets/presentation/NDSB/arch.png)
 
 ----
 
+![Activation](assets/presentation/NDSB/activation.png)
+
+
+# Computer-vision by itself performance 
+
+- 
+- Better with global rather than localfeatures
+- Hiearchial label data made no difference
+- Worse than even simplest convnet
+
+
+# Computer-vision feature integration
+
+- Integrated augmented CV-features with convnet
+- Added into network after convolutions
+- Decreased performance
 
 
 
-##Classical Computer Vision
-
-- Visual feature extraction
-PLOT OF EXAMPLES
-
-# Getting more data!
+#Getting more data!
 
 ![Affine transformations](assets/presentation/NDSB/augmentation.png)
+
 ----
 
 ## How to take down a server
@@ -152,46 +182,64 @@ PLOT OF EXAMPLES
 - Not being nice: misconfigured priorities on cluster
 
 
-# Our Model
-
-
-# Combining Convnet and CV
-
----- 
-
-Doesn't work
-
-# Hierarchial modelling 
+# Hierarchial modelling
 
 ----
 
-![Label schema](assets/presentations/NDSB/hierarchy.png)
+![Label schema](assets/presentation/NDSB/hierarchy.png)
 
 ----
 
-![Left: Original Hiearchy, Right: New Layers](assets/presentations/NDSB/trees.png)
+![Left: Original Hiearchy, Right: New Layers](assets/presentation/NDSB/trees.png)
 
 ----
 
 - Supplied to six parallel softmax output layers
-- Improved initial learning rate but not performance
+- Improved initial learning rate 
+- Logloss performance was unchanged
 
-# Biggest challenges
+# If in doubt merge!
 
-- Dataset handling
-- 
+- Weighted average of models almost always perform better
 
+
+
+# How did we do?
+
+![](assets/presentation/NDSB/results.png)
+
+- 57/1,054 teams (5.4%)
+- Our LL and PPV = 0.704, 74.38%
+- Winner LL and PPV = 0.565, 81.52%
+- Very similar methodologies 
+
+----
+
+## So what did the winners do?
+
+![](assets/presentation/NDSB/a.png)
+
+- Everything we did but better!
+- More convolution layers with smaller kernels
+- Simultaneous cyclic pooling 
+- Leaky rectified linear units
 
 # Conclusions
 
- 
+- Convnets are amazing and possibly black magic
+- Unit testing will save your ass
+- Learning to use the tools like pylearn2 is non-trivial
+- Experimentation is key 
 
+# Acknowledgements
 
-# Eat your time
+## University of Edinburgh Neuroinformatics DTC
 
-![Punchard of code submissions](assets/presentations/NDSB/punchcard.png)
-
-
+- Gavin Gray 
+- Scott Lowe
+- Alina Selega
+- Matt Graham
+- Dragos Stanciu 
 
 # Citations
 

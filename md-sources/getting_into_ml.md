@@ -100,5 +100,10 @@ Notes: skl blackbox, theano is not, ipythonnotebook/R
 
 
 # Kaggle
+![Punchcard of code submissions](assets/presentation/NDSB/punchcard.png)
+
+
+# Eat your time
+
 
 
