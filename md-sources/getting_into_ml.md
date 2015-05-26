@@ -2,7 +2,6 @@
 % Finlay Maguire 
 % root@finlaymagui.re
 
-
 # Getting into Machine Learning
 
 # Overview
@@ -87,6 +86,7 @@ Notes: skl blackbox, theano is not, ipythonnotebook/R
 
 ## Textbooks
 
+- Probablistic 
 - PRML Bishop
 
 ---
