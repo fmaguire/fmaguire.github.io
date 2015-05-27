@@ -6,104 +6,123 @@
 
 # Overview
 
-- Who am I?
-- My experience stumbling into ML
-- Background that has helped me
+---
+
+- What is my background
+- How I got into ML
+- Overview of ways I've used ML
+- What I wish I had known earlier
 
 # Who Am I?
 
-- Biology Undergraduate
-- Finishing Bioinformatics PhD
-- Amateur
+---
 
-# Background
+## Background
 
-- Linear Algebra
-- Statistics and Probability
-- Programming
+- High school "computing" and maths
+- Bioscience Undergraduate: insigificant courses and research project
+- Finishing Bioinformatics PhD looking 
+- So no significant formal training in ML, maths or computer science
 
-# Linear Algebra
+# Getting into ML
 
 --- 
 
-## Things useful to be comfortable with
+## MOOCs!
 
-- Matrix and Vector Notation
-- Basic operations
-- Factorization
-
----
-
-## Tools useful to be comfortable with
-
-- Numpy 
-- Matlab/Octav
-- [R](http://bendixcarstensen.com/APC/linalg-notes-BxC.pdf)
-- More advanced: BLAS/LAPACK
-
----
-
-## Resources 
-
-- [25 Minute Summary by Patrick van der Smagt](https://youtu.be/ZumgfOei0Ak)
+- Linear algebra Coursera *
+- Linear programming Coursera 
 - [Quick summary as part of Andrew Ng's course](https://class.coursera.org/ml-005/lecture/preview)
 - [Philip Klein's "Coding the Matrix course](https://www.coursera.org/course/matrix)
-- [Gilbert Strang's textbook](http://www.amazon.com/dp/0980232716?tag=inspiredalgor-20)
-
-
-# Statistics and Probability
-
----
-
-## Things to be comfortable with
-
-- Bayes
-- Maximum likelihood
-- Gaussian Mixture Models
-
-# Programming 
-
----
-
-## Languages
-
-- Python (scikit-learn, theano) 
-- R (carat)
-- Java (weka)
-
-Notes: skl blackbox, theano is not, ipythonnotebook/R
-
-# ML itself
-
----
-
-## Online Courses
-
-- Andrew Ng's coursera
-- Caltech 
-
----
+- Ng Coursera * 
+- PGM Coursera
+- Caltech edX 
 
 ## Textbooks
 
-- Probablistic 
-- PRML Bishop
+- Bishop 
+- Murphy
+- [25 Minute Summary by Patrick van der Smagt](https://youtu.be/ZumgfOei0Ak)
+- [Gilbert Strang's textbook](http://www.amazon.com/dp/0980232716?tag=inspiredalgor-20)
 
----
 
-## Practice!
+
+## Practice
 
 - Kaggle
-- Playing with your own data
-- blah
-
-
-
-# Kaggle
 ![Punchcard of code submissions](assets/presentation/NDSB/punchcard.png)
 
 
-# Eat your time
+- Research
+- Fun
 
 
+# Projects 
+
+----
+
+## Read partioning
+
+- Goal: partition paired HiSeq reads 
+- Research
+- K-means clustering
+- Speed was key (plot of runtimes in C++, Python, R)
+- How did it do?
+
+## Seizure prediction
+
+- Goal: classifying iEEGs into pre-seizure or normal brain activity
+- Kaggle
+- Random forest and SVM ensemble
+- Signal analysis features 
+- Top 5%
+
+
+## Metatranscriptome origin classification
+
+- Goal: classify transcripts into origin species
+- Research
+- Phylogenetics and sequence features 
+- SVM/RVM 
+- Good enough for a chapter...
+- Nearly as good as manual
+
+## Image classification of plankton
+
+- Goal: identify plankton labels from images
+- Kaggle
+- dCNN
+- More on this tomorrow
+
+## Predict diabetes 
+
+- Goal: predict diabetes from eye scan
+- Basically same network
+- Cost function was difficult
+
+## Short-form spoken word recommender system
+
+- Goal: Recommender system for audioclips
+- Hare brained startup
+- Autotranscription
+- Work in progress
+- RNN and LSTM are fucking cool (see karpathy post!)
+
+
+
+# Things I wish I had known earlier!
+
+---- 
+
+- Most of the work is the boring stuff
+- [scikit-learn's documentation is great](http://scikit-learn.org/stable/)
+- BLAS/LAPACK CUDA 
+- Exploratory data analysis - plot, density, scatter, t-sne structure
+- Literate programming and version control 
+- No Free Lunch
+- Curse of dimensionality 
+- Ensembles are amazing
+- Basic probability (dists and real-world usages) 
+- Linear algebra will help you doing
+- Optimisation - calculus 
 
