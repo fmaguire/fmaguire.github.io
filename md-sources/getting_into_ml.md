@@ -61,25 +61,27 @@
 
 ----
 
-## Read partioning
+## parKour 
 
+- Read partioning
 - Goal: partition paired HiSeq reads 
 - Research
 - K-means clustering
 - Speed was key (plot of runtimes in C++, Python, R)
 - How did it do?
 
-## Seizure prediction
+## Hail-Seizure
 
+- Seizure prediction
 - Goal: classifying iEEGs into pre-seizure or normal brain activity
 - Kaggle
 - Random forest and SVM ensemble
 - Signal analysis features 
 - Top 5%
 
+## Dendrogenous
 
-## Metatranscriptome origin classification
-
+- Metatranscriptome origin classification
 - Goal: classify transcripts into origin species
 - Research
 - Phylogenetics and sequence features 
@@ -87,21 +89,33 @@
 - Good enough for a chapter...
 - Nearly as good as manual
 
-## Image classification of plankton
+## NeuKrill-Net
 
+- Image classification of plankton
 - Goal: identify plankton labels from images
 - Kaggle
 - dCNN
 - More on this tomorrow
 
-## Predict diabetes 
+## Eyes-Have-It
 
+- Predict diabetes 
 - Goal: predict diabetes from eye scan
 - Basically same network
 - Cost function was difficult
 
-## Short-form spoken word recommender system
+## Prioryprior
 
+Transcriptome assembly parameter ptimisation
+
+- Goal: find the best parameters to generate an assembly
+- Bayesian optimisation (spearmint) 
+- Assemble (trinity)
+- Evaluation (DETONATE)
+
+## Awedify
+
+- Short-form spoken word recommender system
 - Goal: Recommender system for audioclips
 - Hare brained startup
 - Autotranscription
@@ -126,3 +140,8 @@
 - Linear algebra will help you doing
 - Optimisation - calculus 
 
+
+- Intuitions will fail in high dimensions - curse of dimenstionality = blessing of uniformity most things are actually around ld manifold (e.g. MNIST dimensions
+- Assumptions are for real statisticians -
+- Overfitting with cross-validation
+- Be careful not to just focus on algorithm - data, cost function/score metric and optimisation method are equally important
