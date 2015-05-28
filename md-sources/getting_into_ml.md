@@ -38,13 +38,15 @@
 
 ## Textbooks
 
-![Christopher Bishop's "Pattern Recognition and Machine Learning"](assets/presentation/GIML/bishop.jpg)
-![Kevin Murphy's "Machine Learning: A Probabilistic Perspective"](assets/presentation/GIML/murphy.jpg)
-![Gilbert Strang's "Linear Algebra and Its Applications"](assets/presentation/GIML/strang.jpg)
+![](assets/presentation/GIML/books.png)
+
+- Christopher Bishop's "Pattern Recognition and Machine Learning"
+- Kevin Murphy's "Machine Learning: A Probabilistic Perspective"
+- Gilbert Strang's "Linear Algebra and Its Applications"
 
 ## Practice
 
-![Kaggle](assets/presentation/GIML/kaggle.jpg)
+![Kaggle](assets/presentation/GIML/kaggle.png)
 
 - Provided Dataset
 - Evaluation Metric
@@ -114,11 +116,14 @@
 
 - Metatranscriptome origin classification
 - Goal: classify transcripts into origin species
-- Research
-- Phylogenetics and sequence features 
+
+![Phylogenetics vs top BLAST hits](assets/presentation/GIML/phy_vs_blast.png)
+
+---
+
+- Features: Phylogenetic tree and sequence features (GC, trinucleotide) 
 - SVM/RVM 
-- Good enough for a chapter...
-- Nearly as good as manual
+- F1 Score nearly as good as manual
 
 # NeuKrill-Net
 
