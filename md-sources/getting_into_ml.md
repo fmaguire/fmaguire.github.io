@@ -30,56 +30,87 @@
 
 ## MOOCs!
 
-- Linear algebra Coursera *
-- Linear programming Coursera 
-- [Quick summary as part of Andrew Ng's course](https://class.coursera.org/ml-005/lecture/preview)
-- [Philip Klein's "Coding the Matrix course](https://www.coursera.org/course/matrix)
-- Ng Coursera * 
-- PGM Coursera
-- Caltech edX 
+- [Philip Klein's (Brown) "Coding the Matrix"](https://www.coursera.org/course/matrix) *
+- [Andrew Ng's (Stanford) "Machine Learning"](https://class.coursera.org/ml-005/lecture/preview) *
+- [Yaser Abu-Mostafa's (Caltech) "Learning from Data"](https://work.caltech.edu/telecourse.html)
+- [Sriram Sankaranarayanan & Shalom D. Ruben's (UCBoulder) "Linear and Integer Programming"](https://www.coursera.org/course/linearprogramming)
+- [Daphne Koller's (Standford) "Probabilistic Graphical Models"](https://www.coursera.org/course/pgm)
 
 ## Textbooks
 
-- Bishop 
-- Murphy
-- [25 Minute Summary by Patrick van der Smagt](https://youtu.be/ZumgfOei0Ak)
-- [Gilbert Strang's textbook](http://www.amazon.com/dp/0980232716?tag=inspiredalgor-20)
-
-
+![Christopher Bishop's "Pattern Recognition and Machine Learning"](assets/presentation/GIML/bishop.jpg)
+![Kevin Murphy's "Machine Learning: A Probabilistic Perspective"](assets/presentation/GIML/murphy.jpg)
+![Gilbert Strang's "Linear Algebra and Its Applications"](assets/presentation/GIML/strang.jpg)
 
 ## Practice
 
-- Kaggle
-![Punchcard of code submissions](assets/presentation/NDSB/punchcard.png)
+![Kaggle](assets/presentation/GIML/kaggle.jpg)
 
-
-- Research
-- Fun
-
+- Provided Dataset
+- Evaluation Metric
+- Public-Private scoreboards
 
 # Projects 
 
-----
+# parKour 
 
-## parKour 
+--- 
 
-- Read partioning
-- Goal: partition paired HiSeq reads 
-- Research
+![Metatranscriptome GC %](assets/presentation/GIML/gc.png)
+- 400M 150bp PE reads (159GB)
+
+---
+
+- Expectation-Maximisation of GMM
 - K-means clustering
-- Speed was key (plot of runtimes in C++, Python, R)
-- How did it do?
+- Python (SKLearn) still hadn't finished PARSING input after 168 hours
+- C++ (MLPACK/ARMADILLO): 12 hours (6GB of memory) single threaded
 
-## Hail-Seizure
+# Hail-Seizure
 
-- Seizure prediction
-- Goal: classifying iEEGs into pre-seizure or normal brain activity
-- Kaggle
-- Random forest and SVM ensemble
-- Signal analysis features 
-- Top 5%
+---
 
-## Dendrogenous
+![American Epilepsy Society Seizure Prediction Challenge](assets/presentation/GIML/hs_dog.png)
+
+- $25,000
+- 504 teams
+- AUC ROC curve 
+
+---
+
+![iEEGs](assets/presentation/GIML/eeg.png)
+
+- Data preprocessing: downsampling, cleaning
+- Channel correlations: Independent component analysis, common spatial patterns, MVARs
+- Approximately 850 different features 
+- Recursive Feature Elimination
+
+--- 
+
+## ML approaches
+
+- Random forests 
+- Support Vector Machines 
+- Logistic Regression
+- Adaboost
+- Ensembles!
+
+---
+
+## Performance
+
+- Top 5% (16/504)
+- Reasonable accurate prediction - 0.77014 AUC 
+- Team: Gavin Gray and Scott Lowe
+
+
+# Dendrogenous
+
+---
+
+![_Paramecium bursaria_ with _Micractinium reisseri_ endosymbiont](assets/presentation/GIML/pbmr.jpg)
+
+---
 
 - Metatranscriptome origin classification
 - Goal: classify transcripts into origin species
@@ -89,7 +120,9 @@
 - Good enough for a chapter...
 - Nearly as good as manual
 
-## NeuKrill-Net
+# NeuKrill-Net
+
+---
 
 - Image classification of plankton
 - Goal: identify plankton labels from images
@@ -97,14 +130,16 @@
 - dCNN
 - More on this tomorrow
 
-## Eyes-Have-It
+# Eyes-Have-It
 
-- Predict diabetes 
+---
+
+- Diabetes retinopathy
 - Goal: predict diabetes from eye scan
 - Basically same network
 - Cost function was difficult
 
-## Prioryprior
+# 
 
 Transcriptome assembly parameter ptimisation
 
@@ -113,7 +148,7 @@ Transcriptome assembly parameter ptimisation
 - Assemble (trinity)
 - Evaluation (DETONATE)
 
-## Awedify
+# Awedify
 
 - Short-form spoken word recommender system
 - Goal: Recommender system for audioclips
@@ -122,26 +157,48 @@ Transcriptome assembly parameter ptimisation
 - Work in progress
 - RNN and LSTM are fucking cool (see karpathy post!)
 
+# Things I wish I had known or understood earlier!
 
+---
 
-# Things I wish I had known earlier!
+## Plot everything 
 
----- 
-
-- Most of the work is the boring stuff
-- [scikit-learn's documentation is great](http://scikit-learn.org/stable/)
-- BLAS/LAPACK CUDA 
 - Exploratory data analysis - plot, density, scatter, t-sne structure
 - Literate programming and version control 
-- No Free Lunch
-- Curse of dimensionality 
-- Ensembles are amazing
-- Basic probability (dists and real-world usages) 
-- Linear algebra will help you doing
-- Optimisation - calculus 
 
+---
 
-- Intuitions will fail in high dimensions - curse of dimenstionality = blessing of uniformity most things are actually around ld manifold (e.g. MNIST dimensions
-- Assumptions are for real statisticians -
-- Overfitting with cross-validation
-- Be careful not to just focus on algorithm - data, cost function/score metric and optimisation method are equally important
+## No Free Lunch
+
+- No universally best optimiser, classifier, or metric
+- Cost function/metric
+- Optimisation
+
+---
+
+## Curse of dimensionality
+
+- Intuititons will fail in high dimensions
+
+---
+
+## Always new and exciting ways to overfit
+
+- Enought tests and you can overfit cross-validation
+
+---
+
+## Ensembles are amazing
+
+- Boosting
+- Merging
+
+---
+
+## Distribution of work
+
+- Most of the work is the boring stuff
+- Data gathering
+- Data cleaning
+- Setting up tools and data
+- *UNIT TESTS*
