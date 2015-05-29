@@ -64,6 +64,7 @@
 --- 
 
 ![Metatranscriptome GC %](assets/presentation/GIML/gc.png)
+
 - 400M 150bp PE reads (159GB)
 
 ---
@@ -206,7 +207,7 @@
 
 --- 
 
-![Blessing of non-uniformity (from [SKLearn Documentation](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html))](assets/presentation/GIML/manifold.jpg)
+![Blessing of non-uniformity (from [SKLearn Documentation](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html))](assets/presentation/GIML/manifold.png)
  
 ---
 
