@@ -46,11 +46,16 @@
 
 ## Practice
 
-![Kaggle](assets/presentation/GIML/kaggle.png)
+![](assets/presentation/GIML/kaggle.png)
 
 - Provided Dataset
 - Evaluation Metric
 - Public-Private scoreboards
+
+## Warning
+
+![Kaggle can and will eat your time](assets/presentation/GIML/hspunchcard.png)
+
 
 # Projects 
 
@@ -81,6 +86,12 @@
 ---
 
 ![iEEGs](assets/presentation/GIML/eeg.png)
+
+--- 
+
+![](assets/presentation/GIML/hsflow.png)
+
+--- 
 
 - Data preprocessing: downsampling, cleaning
 - Channel correlations: independent component analysis, common spatial patterns, MVARs
@@ -139,14 +150,17 @@
 ![Diabetes retinopathy](assets/presentation/GIML/retina.jpg)
 
 
+- Same approach as NeuKrill-Net
+- Difficult cost function
+
 # Spearseq
 
 ---
 
 - _de novo_ assembly parameter optimisation (k-mer size, minimum coverage, normalisation)
 - Bayesian optimisation of assembly likelihood 
-- Work in progress!
-- Key challenges i.e. stability of subset
+- Spearmint experimentation evaluated using RSEM-eval
+- Key challenges i.e. representative subset, generalising for assemblers
 
 # Awedify
 
@@ -155,9 +169,9 @@
 - Short-form spoken word recommender system
 - Goal: Recommender system for audioclips
 - Hare brained startup
-- Autotranscription (project Gutenberg)
-- Work in progress
-- RNN and LSTM are really cool (see karpathy post!)
+- Audiotranscription and metadata (project Gutenberg)
+- Very much a work in progress
+- RNN and LSTM are really cool
 
 # Things I wish I had known or understood earlier!
 
@@ -165,46 +179,58 @@
 
 ## Plot everything 
 
-- Exploratory data analysis - plot, density, scatter, t-sne structure
-- Literate programming and version control 
+- Exploratory data analysis 
+- Plot density, scatter, structure of data
+
+---
+
+
+![t-SNE of EEG features](assets/presentation/GIML/tsne_class.png)
 
 ---
 
 ## No Free Lunch
 
+- "any two [...] algorithms are equivalent when their performance is averaged across all possible problems"
 - No universally best optimiser, classifier, or metric
-- Cost function/metric
-- Optimisation
+- Wolpert and McCreedy proofs
+- Real world not so nicely random 
 
 ---
 
 ## Curse of dimensionality
 
-- Intuititons will fail in high dimensions
+![from Bengio's [homepage](http://www.iro.umontreal.ca/~bengioy/yoshua_en/research.html)](assets/presentation/GIML/bengio_dim.jpg)
 
+- Intuitions will fail in high dimensions
+
+--- 
+
+![Blessing of non-uniformity (from [SKLearn Documentation](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html))](assets/presentation/GIML/manifold.jpg)
+ 
 ---
 
-## Always new and exciting ways to overfit
-
-- Enought tests and you can overfit cross-validation
-
----
-
-## Ensembles are amazing
-
-- Boosting
-- Merging
-
----
-
-## Distribution of work
+## Highly iterative process 
 
 - Most of the work is the boring stuff
+- Data exploration
 - Data gathering
 - Data cleaning
-- Setting up tools and data
-- *UNIT TESTS*
+- More data often beats smarter algorithms
 
+--- 
+
+- Worth taking time setting up tools and data
+- *UNIT TESTS*
+- Literate programming e.g. Rmd, Jupyter
+- Version control e.g. git
+
+## If in doubt combine models!
+
+- Bagging
+- Stacking
+- Boosting
+- Merging
 
 # Conclusion 
 
@@ -213,4 +239,5 @@
 - Machine learning can be used to do cool things
 - It is not as opaque as it appears
 - Optimisation and Evaluation is as important as ML algorithm
+- Highly iterative process
 - Use version control and literate programming

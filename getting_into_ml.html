@@ -76,13 +76,18 @@
 </section><section id="practice" class="slide level2">
 <h1>Practice</h1>
 <figure>
-<img src="assets/presentation/GIML/kaggle.png" alt="Kaggle" /><figcaption>Kaggle</figcaption>
+<img src="assets/presentation/GIML/kaggle.png" />
 </figure>
 <ul>
 <li>Provided Dataset</li>
 <li>Evaluation Metric</li>
 <li>Public-Private scoreboards</li>
 </ul>
+</section><section id="warning" class="slide level2">
+<h1>Warning</h1>
+<figure>
+<img src="assets/presentation/GIML/hspunchcard.png" alt="Kaggle can and will eat your time" /><figcaption>Kaggle can and will eat your time</figcaption>
+</figure>
 </section></section>
 <section><section id="projects" class="titleslide slide level1"><h1>Projects</h1></section></section>
 <section><section id="parkour" class="titleslide slide level1"><h1>parKour</h1></section><section class="slide level2">
@@ -112,6 +117,13 @@
 <figure>
 <img src="assets/presentation/GIML/eeg.png" alt="iEEGs" /><figcaption>iEEGs</figcaption>
 </figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/GIML/hsflow.png" />
+</figure>
+</section><section class="slide level2">
+
 <ul>
 <li>Data preprocessing: downsampling, cleaning</li>
 <li>Channel correlations: independent component analysis, common spatial patterns, MVARs</li>
@@ -168,14 +180,18 @@
 <figure>
 <img src="assets/presentation/GIML/retina.jpg" alt="Diabetes retinopathy" /><figcaption>Diabetes retinopathy</figcaption>
 </figure>
+<ul>
+<li>Same approach as NeuKrill-Net</li>
+<li>Difficult cost function</li>
+</ul>
 </section></section>
 <section><section id="spearseq" class="titleslide slide level1"><h1>Spearseq</h1></section><section class="slide level2">
 
 <ul>
 <li><em>de novo</em> assembly parameter optimisation (k-mer size, minimum coverage, normalisation)</li>
 <li>Bayesian optimisation of assembly likelihood</li>
-<li>Work in progress!</li>
-<li>Key challenges i.e. stability of subset</li>
+<li>Spearmint experimentation evaluated using RSEM-eval</li>
+<li>Key challenges i.e. representative subset, generalising for assemblers</li>
 </ul>
 </section></section>
 <section><section id="awedify" class="titleslide slide level1"><h1>Awedify</h1></section><section class="slide level2">
@@ -184,48 +200,67 @@
 <li>Short-form spoken word recommender system</li>
 <li>Goal: Recommender system for audioclips</li>
 <li>Hare brained startup</li>
-<li>Autotranscription (project Gutenberg)</li>
-<li>Work in progress</li>
-<li>RNN and LSTM are really cool (see karpathy post!)</li>
+<li>Audiotranscription and metadata (project Gutenberg)</li>
+<li>Very much a work in progress</li>
+<li>RNN and LSTM are really cool</li>
 </ul>
 </section></section>
 <section><section id="things-i-wish-i-had-known-or-understood-earlier" class="titleslide slide level1"><h1>Things I wish I had known or understood earlier!</h1></section><section id="plot-everything" class="slide level2">
 <h1>Plot everything</h1>
 <ul>
-<li>Exploratory data analysis - plot, density, scatter, t-sne structure</li>
-<li>Literate programming and version control</li>
+<li>Exploratory data analysis</li>
+<li>Plot density, scatter, structure of data</li>
 </ul>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/GIML/tsne_class.png" alt="t-SNE of EEG features" /><figcaption>t-SNE of EEG features</figcaption>
+</figure>
 </section><section id="no-free-lunch" class="slide level2">
 <h1>No Free Lunch</h1>
 <ul>
+<li>&quot;any two [...] algorithms are equivalent when their performance is averaged across all possible problems&quot;</li>
 <li>No universally best optimiser, classifier, or metric</li>
-<li>Cost function/metric</li>
-<li>Optimisation</li>
+<li>Wolpert and McCreedy proofs</li>
+<li>Real world not so nicely random</li>
 </ul>
 </section><section id="curse-of-dimensionality" class="slide level2">
 <h1>Curse of dimensionality</h1>
+<figure>
+<img src="assets/presentation/GIML/bengio_dim.jpg" alt="from Bengio&#39;s homepage" /><figcaption>from Bengio's <a href="http://www.iro.umontreal.ca/~bengioy/yoshua_en/research.html">homepage</a></figcaption>
+</figure>
 <ul>
-<li>Intuititons will fail in high dimensions</li>
+<li>Intuitions will fail in high dimensions</li>
 </ul>
-</section><section id="always-new-and-exciting-ways-to-overfit" class="slide level2">
-<h1>Always new and exciting ways to overfit</h1>
-<ul>
-<li>Enought tests and you can overfit cross-validation</li>
-</ul>
-</section><section id="ensembles-are-amazing" class="slide level2">
-<h1>Ensembles are amazing</h1>
-<ul>
-<li>Boosting</li>
-<li>Merging</li>
-</ul>
-</section><section id="distribution-of-work" class="slide level2">
-<h1>Distribution of work</h1>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/GIML/manifold.jpg" alt="Blessing of non-uniformity (from SKLearn Documentation)" /><figcaption>Blessing of non-uniformity (from <a href="http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html">SKLearn Documentation</a>)</figcaption>
+</figure>
+</section><section id="highly-iterative-process" class="slide level2">
+<h1>Highly iterative process</h1>
 <ul>
 <li>Most of the work is the boring stuff</li>
+<li>Data exploration</li>
 <li>Data gathering</li>
 <li>Data cleaning</li>
-<li>Setting up tools and data</li>
+<li>More data often beats smarter algorithms</li>
+</ul>
+</section><section class="slide level2">
+
+<ul>
+<li>Worth taking time setting up tools and data</li>
 <li><em>UNIT TESTS</em></li>
+<li>Literate programming e.g. Rmd, Jupyter</li>
+<li>Version control e.g. git</li>
+</ul>
+</section><section id="if-in-doubt-combine-models" class="slide level2">
+<h1>If in doubt combine models!</h1>
+<ul>
+<li>Bagging</li>
+<li>Stacking</li>
+<li>Boosting</li>
+<li>Merging</li>
 </ul>
 </section></section>
 <section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1></section><section class="slide level2">
@@ -234,6 +269,7 @@
 <li>Machine learning can be used to do cool things</li>
 <li>It is not as opaque as it appears</li>
 <li>Optimisation and Evaluation is as important as ML algorithm</li>
+<li>Highly iterative process</li>
 <li>Use version control and literate programming</li>
 </ul>
 </section></section>
