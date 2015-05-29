@@ -65,11 +65,18 @@
 </ul>
 </section><section id="textbooks" class="slide level2">
 <h1>Textbooks</h1>
-<p><img src="assets/presentation/GIML/bishop.jpg" alt="Christopher Bishop&#39;s &quot;Pattern Recognition and Machine Learning&quot;" /> <img src="assets/presentation/GIML/murphy.jpg" alt="Kevin Murphy&#39;s &quot;Machine Learning: A Probabilistic Perspective&quot;" /> <img src="assets/presentation/GIML/strang.jpg" alt="Gilbert Strang&#39;s &quot;Linear Algebra and Its Applications&quot;" /></p>
+<figure>
+<img src="assets/presentation/GIML/books.png" />
+</figure>
+<ul>
+<li>Christopher Bishop's &quot;Pattern Recognition and Machine Learning&quot;</li>
+<li>Kevin Murphy's &quot;Machine Learning: A Probabilistic Perspective&quot;</li>
+<li>Gilbert Strang's &quot;Linear Algebra and Its Applications&quot;</li>
+</ul>
 </section><section id="practice" class="slide level2">
 <h1>Practice</h1>
 <figure>
-<img src="assets/presentation/GIML/kaggle.jpg" alt="Kaggle" /><figcaption>Kaggle</figcaption>
+<img src="assets/presentation/GIML/kaggle.png" alt="Kaggle" /><figcaption>Kaggle</figcaption>
 </figure>
 <ul>
 <li>Provided Dataset</li>
@@ -107,7 +114,7 @@
 </figure>
 <ul>
 <li>Data preprocessing: downsampling, cleaning</li>
-<li>Channel correlations: Independent component analysis, common spatial patterns, MVARs</li>
+<li>Channel correlations: independent component analysis, common spatial patterns, MVARs</li>
 <li>Approximately 850 different features</li>
 <li>Recursive Feature Elimination</li>
 </ul>
@@ -138,34 +145,50 @@
 <ul>
 <li>Metatranscriptome origin classification</li>
 <li>Goal: classify transcripts into origin species</li>
-<li>Research</li>
-<li>Phylogenetics and sequence features</li>
+</ul>
+<figure>
+<img src="assets/presentation/GIML/binning.png" alt="Phylogenetics vs top BLAST hits" /><figcaption>Phylogenetics vs top BLAST hits</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<ul>
+<li>Features: Phylogenetic tree and sequence features (GC, trinucleotide)</li>
 <li>SVM/RVM</li>
-<li>Good enough for a chapter...</li>
-<li>Nearly as good as manual</li>
+<li>F1 Score nearly as good as manual</li>
 </ul>
 </section></section>
 <section><section id="neukrill-net" class="titleslide slide level1"><h1>NeuKrill-Net</h1></section><section class="slide level2">
 
-<ul>
-<li>Image classification of plankton</li>
-<li>Goal: identify plankton labels from images</li>
-<li>Kaggle</li>
-<li>dCNN</li>
-<li>More on this tomorrow</li>
-</ul>
+<figure>
+<img src="assets/presentation/NDSB/raw_data.png" alt="Image classification of plankton" /><figcaption>Image classification of plankton</figcaption>
+</figure>
 </section></section>
 <section><section id="eyes-have-it" class="titleslide slide level1"><h1>Eyes-Have-It</h1></section><section class="slide level2">
 
+<figure>
+<img src="assets/presentation/GIML/retina.jpg" alt="Diabetes retinopathy" /><figcaption>Diabetes retinopathy</figcaption>
+</figure>
+</section></section>
+<section><section id="spearseq" class="titleslide slide level1"><h1>Spearseq</h1></section><section class="slide level2">
+
 <ul>
-<li>Diabetes retinopathy</li>
-<li>Goal: predict diabetes from eye scan</li>
-<li>Basically same network</li>
-<li>Cost function was difficult</li>
+<li><em>de novo</em> assembly parameter optimisation (k-mer size, minimum coverage, normalisation)</li>
+<li>Bayesian optimisation of assembly likelihood</li>
+<li>Work in progress!</li>
+<li>Key challenges i.e. stability of subset</li>
 </ul>
 </section></section>
-<section><section id="section" class="titleslide slide level1"><h1></h1></section></section>
-<section><section id="awedify" class="titleslide slide level1"><h1>Awedify</h1></section></section>
+<section><section id="awedify" class="titleslide slide level1"><h1>Awedify</h1></section><section class="slide level2">
+
+<ul>
+<li>Short-form spoken word recommender system</li>
+<li>Goal: Recommender system for audioclips</li>
+<li>Hare brained startup</li>
+<li>Autotranscription (project Gutenberg)</li>
+<li>Work in progress</li>
+<li>RNN and LSTM are really cool (see karpathy post!)</li>
+</ul>
+</section></section>
 <section><section id="things-i-wish-i-had-known-or-understood-earlier" class="titleslide slide level1"><h1>Things I wish I had known or understood earlier!</h1></section><section id="plot-everything" class="slide level2">
 <h1>Plot everything</h1>
 <ul>
@@ -203,6 +226,15 @@
 <li>Data cleaning</li>
 <li>Setting up tools and data</li>
 <li><em>UNIT TESTS</em></li>
+</ul>
+</section></section>
+<section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1></section><section class="slide level2">
+
+<ul>
+<li>Machine learning can be used to do cool things</li>
+<li>It is not as opaque as it appears</li>
+<li>Optimisation and Evaluation is as important as ML algorithm</li>
+<li>Use version control and literate programming</li>
 </ul>
 </section></section>
     </div>

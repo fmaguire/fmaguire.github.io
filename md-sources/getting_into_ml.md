@@ -83,7 +83,7 @@
 ![iEEGs](assets/presentation/GIML/eeg.png)
 
 - Data preprocessing: downsampling, cleaning
-- Channel correlations: Independent component analysis, common spatial patterns, MVARs
+- Channel correlations: independent component analysis, common spatial patterns, MVARs
 - Approximately 850 different features 
 - Recursive Feature Elimination
 
@@ -117,7 +117,7 @@
 - Metatranscriptome origin classification
 - Goal: classify transcripts into origin species
 
-![Phylogenetics vs top BLAST hits](assets/presentation/GIML/phy_vs_blast.png)
+![Phylogenetics vs top BLAST hits](assets/presentation/GIML/binning.png)
 
 ---
 
@@ -129,38 +129,35 @@
 
 ---
 
-- Image classification of plankton
-- Goal: identify plankton labels from images
-- Kaggle
-- dCNN
-- More on this tomorrow
+![Image classification of plankton](assets/presentation/NDSB/raw_data.png)
+
 
 # Eyes-Have-It
 
 ---
 
-- Diabetes retinopathy
-- Goal: predict diabetes from eye scan
-- Basically same network
-- Cost function was difficult
+![Diabetes retinopathy](assets/presentation/GIML/retina.jpg)
 
-# 
 
-Transcriptome assembly parameter ptimisation
+# Spearseq
 
-- Goal: find the best parameters to generate an assembly
-- Bayesian optimisation (spearmint) 
-- Assemble (trinity)
-- Evaluation (DETONATE)
+---
+
+- _de novo_ assembly parameter optimisation (k-mer size, minimum coverage, normalisation)
+- Bayesian optimisation of assembly likelihood 
+- Work in progress!
+- Key challenges i.e. stability of subset
 
 # Awedify
+
+---
 
 - Short-form spoken word recommender system
 - Goal: Recommender system for audioclips
 - Hare brained startup
-- Autotranscription
+- Autotranscription (project Gutenberg)
 - Work in progress
-- RNN and LSTM are fucking cool (see karpathy post!)
+- RNN and LSTM are really cool (see karpathy post!)
 
 # Things I wish I had known or understood earlier!
 
@@ -207,3 +204,13 @@ Transcriptome assembly parameter ptimisation
 - Data cleaning
 - Setting up tools and data
 - *UNIT TESTS*
+
+
+# Conclusion 
+
+---
+
+- Machine learning can be used to do cool things
+- It is not as opaque as it appears
+- Optimisation and Evaluation is as important as ML algorithm
+- Use version control and literate programming
