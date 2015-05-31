@@ -64,6 +64,7 @@
 --- 
 
 ![Metatranscriptome GC %](assets/presentation/GIML/gc.png)
+
 - 400M 150bp PE reads (159GB)
 
 ---
@@ -79,17 +80,18 @@
 
 ![American Epilepsy Society Seizure Prediction Challenge](assets/presentation/GIML/hs_dog.png)
 
-- $25,000
-- 504 teams
-- AUC ROC curve 
-
 ---
 
 ![iEEGs](assets/presentation/GIML/eeg.png)
 
 --- 
 
-![](assets/presentation/GIML/hsflow.svg)
+![true positives (sensitivity) vs false negatives (decreased specificity) ([source](http://www.sprawls.org/ppmi2/IMGCHAR/))](assets/presentation/GIML/roc.png)
+
+---
+
+
+![](assets/presentation/GIML/hs_flow.png)
 
 --- 
 
@@ -147,11 +149,11 @@
 
 ---
 
-![Diabetes retinopathy](assets/presentation/GIML/retina.jpg)
+![](assets/presentation/GIML/retina.jpg)
 
-
-- Same approach as NeuKrill-Net
-- Difficult cost function
+- Diabetic retinopathy detection
+- Same ML approach as NeuKrill-Net 
+- Difficult cost function (quadratic negative kappa)
 
 # Spearseq
 
