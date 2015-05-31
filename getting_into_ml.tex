@@ -1,0 +1,597 @@
+\documentclass[ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{:}
+\setbeamercolor{caption name}{fg=normal text.fg}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{lmodern}
+\ifxetex
+  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\else
+  \ifluatex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+    \newcommand{\euro}{€}
+  \else
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+      \fi
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+% Comment these out if you don't want a slide with just the
+% part/section/subsection/subsubsection title:
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \let\insertsectionnumber\relax
+  \let\sectionname\relax
+  \frame{\sectionpage}
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+\title{Stumbling around the decision boundary}
+\author{Finlay Maguire}
+\date{root@finlaymagui.re}
+
+\begin{document}
+\frame{\titlepage}
+
+\section{Getting into Machine
+Learning}\label{getting-into-machine-learning}
+
+\section{Overview}\label{overview}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  What is my background
+\item
+  How I got into ML
+\item
+  Overview of ways I've used ML
+\item
+  What I wish I had known earlier
+\end{itemize}
+
+\end{frame}
+
+\section{Who Am I?}\label{who-am-i}
+
+\begin{frame}{Background}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  High school ``computing'' and maths
+\item
+  Bioscience Undergraduate: insigificant courses and research project
+\item
+  Finishing Bioinformatics PhD looking
+\item
+  So no significant formal training in ML, maths or computer science
+\end{itemize}
+
+\end{frame}
+
+\section{Getting into ML}\label{getting-into-ml}
+
+\begin{frame}{MOOCs!}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \href{https://www.coursera.org/course/matrix}{Philip Klein's (Brown)
+  ``Coding the Matrix''} *
+\item
+  \href{https://class.coursera.org/ml-005/lecture/preview}{Andrew Ng's
+  (Stanford) ``Machine Learning''} *
+\item
+  \href{https://work.caltech.edu/telecourse.html}{Yaser Abu-Mostafa's
+  (Caltech) ``Learning from Data''}
+\item
+  \href{https://www.coursera.org/course/linearprogramming}{Sriram
+  Sankaranarayanan \& Shalom D. Ruben's (UCBoulder) ``Linear and Integer
+  Programming''}
+\item
+  \href{https://www.coursera.org/course/pgm}{Daphne Koller's (Standford)
+  ``Probabilistic Graphical Models''}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Textbooks}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/books.png}
+\caption{}
+\end{figure}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Christopher Bishop's ``Pattern Recognition and Machine Learning''
+\item
+  Kevin Murphy's ``Machine Learning: A Probabilistic Perspective''
+\item
+  Gilbert Strang's ``Linear Algebra and Its Applications''
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Practice}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/kaggle.png}
+\caption{}
+\end{figure}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Provided Dataset
+\item
+  Evaluation Metric
+\item
+  Public-Private scoreboards
+\item
+  Top N winners methods and code are released publically (on Kaggle's
+  \href{http://blog.kaggle.com/}{No Free Hunch Blog})
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Warning}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/hspunchcard.png}
+\caption{Kaggle can and will eat your time}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Other media}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \href{http://fastml.com/}{Zygmunt Zajac's FastML Blog}
+\item
+  \href{http://karpathy.github.io/}{Andrej Karpathy's Blog (DNNs)}
+\item
+  \href{https://nips.cc}{Neural Information Processing Systems
+  workshops}
+\item
+  \href{http://www.thetalkingmachines.com}{Ryan Adams' and Katherine
+  Gorman's Talking Machines Podcast}
+\item
+  \href{http://scikit-learn.org/stable/}{Scikit-Learn Documentation}
+\item
+  \href{http://stats.stackexchange.com/}{Cross Validated - StackOverflow
+  Q\&A System for ML and stats}
+\end{itemize}
+
+\end{frame}
+
+\section{Projects}\label{projects}
+
+\section{parKour}\label{parkour}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/gc.png}
+\caption{Metatranscriptome GC \%}
+\end{figure}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  400M 150bp PE reads (159GB)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Expectation-Maximisation of GMM
+\item
+  K-means clustering
+\item
+  Python (SKLearn) still hadn't finished PARSING input after 168 hours
+\item
+  C++ (MLPACK/ARMADILLO): 12 hours (6GB of memory) single threaded
+\end{itemize}
+
+\end{frame}
+
+\section{Hail-Seizure}\label{hail-seizure}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/hs_dog.png}
+\caption{American Epilepsy Society Seizure Prediction Challenge}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/eeg.png}
+\caption{iEEGs}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/roc.png}
+\caption{true positives (sensitivity) vs false negatives (decreased
+specificity) (\href{http://www.sprawls.org/ppmi2/IMGCHAR/}{source})}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/hsflow.png}
+\caption{}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Data preprocessing: downsampling, cleaning
+\item
+  Channel correlations: independent component analysis, common spatial
+  patterns, MVARs
+\item
+  Approximately 850 different features
+\item
+  Recursive Feature Elimination
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{ML approaches}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Random forests
+\item
+  Support Vector Machines
+\item
+  Logistic Regression
+\item
+  Adaboost
+\item
+  Ensembles!
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Performance}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Top 5\% (16/504)
+\item
+  Reasonable accurate prediction - 0.77014 AUC
+\item
+  Team: Gavin Gray and Scott Lowe
+\end{itemize}
+
+\end{frame}
+
+\section{Dendrogenous}\label{dendrogenous}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/pbmr.jpg}
+\caption{\emph{Paramecium bursaria} with \emph{Micractinium reisseri}
+endosymbiont}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Metatranscriptome origin classification
+\item
+  Goal: classify transcripts into origin species
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/binning.png}
+\caption{Phylogenetics vs top BLAST hits}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Features: Phylogenetic tree and sequence features (GC, trinucleotide)
+\item
+  SVM/RVM
+\item
+  F1 Score nearly as good as manual
+\end{itemize}
+
+\end{frame}
+
+\section{NeuKrill-Net}\label{neukrill-net}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/NDSB/raw_data.png}
+\caption{Image classification of plankton}
+\end{figure}
+
+\end{frame}
+
+\section{Eyes-Have-It}\label{eyes-have-it}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/retina.jpg}
+\caption{}
+\end{figure}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Diabetic retinopathy detection
+\item
+  Same ML approach as NeuKrill-Net
+\item
+  Difficult cost function (quadratic negative kappa)
+\end{itemize}
+
+\end{frame}
+
+\section{Spearseq}\label{spearseq}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \emph{de novo} assembly parameter optimisation (k-mer size, minimum
+  coverage, normalisation)
+\item
+  Bayesian optimisation of assembly likelihood
+\item
+  Spearmint experimentation evaluated using RSEM-eval
+\item
+  Key challenges i.e.~representative subset, generalising for assemblers
+\end{itemize}
+
+\end{frame}
+
+\section{Awedify}\label{awedify}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Short-form spoken word recommender system
+\item
+  Goal: Recommender system for audioclips
+\item
+  Hare brained startup
+\item
+  Audiotranscription and metadata (project Gutenberg)
+\item
+  Very much a work in progress
+\item
+  RNN and LSTM are really cool
+\end{itemize}
+
+\end{frame}
+
+\section{Things I wish I had known or understood
+earlier!}\label{things-i-wish-i-had-known-or-understood-earlier}
+
+\begin{frame}{Plot everything}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Exploratory data analysis
+\item
+  Plot density, scatter, structure of data
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/tsne_class.png}
+\caption{t-SNE of EEG features}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{No Free Lunch}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  ``any two {[}\ldots{}{]} algorithms are equivalent when their
+  performance is averaged across all possible problems''
+\item
+  No universally best optimiser, classifier, or metric
+\item
+  Wolpert and McCreedy proofs
+\item
+  Real world not so nicely random
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Curse of dimensionality}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/bengio_dim.jpg}
+\caption{from Bengio's
+\href{http://www.iro.umontreal.ca/~bengioy/yoshua_en/research.html}{homepage}}
+\end{figure}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Intuitions will fail in high dimensions
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{assets/presentation/GIML/manifold.png}
+\caption{Blessing of non-uniformity (from
+\href{http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html}{SKLearn
+Documentation})}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Highly iterative process}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Most of the work is the boring stuff
+\item
+  Data exploration
+\item
+  Data gathering
+\item
+  Data cleaning
+\item
+  More data often beats smarter algorithms
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Worth taking time setting up tools and data
+\item
+  \emph{UNIT TESTS}
+\item
+  Literate programming e.g.~Rmd, Jupyter
+\item
+  Version control e.g.~git
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{If in doubt combine models!}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Bagging
+\item
+  Stacking
+\item
+  Boosting
+\item
+  Merging
+\end{itemize}
+
+\end{frame}
+
+\section{Conclusion}\label{conclusion}
+
+\begin{frame}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Machine learning can be used to do cool things
+\item
+  It is not as opaque as it appears
+\item
+  Optimisation and Evaluation is as important as ML algorithm
+\item
+  Highly iterative process
+\item
+  Use version control and literate programming
+\end{itemize}
+
+\end{frame}
+
+\end{document}

@@ -51,10 +51,22 @@
 - Provided Dataset
 - Evaluation Metric
 - Public-Private scoreboards
+- Top N winners methods and code are released publically (on Kaggle's [No Free Hunch Blog](http://blog.kaggle.com/))
 
 ## Warning
 
 ![Kaggle can and will eat your time](assets/presentation/GIML/hspunchcard.png)
+
+
+## Other media 
+
+- [Zygmunt Zajac's FastML Blog](http://fastml.com/)
+- [Andrej Karpathy's Blog (DNNs)](http://karpathy.github.io/)
+- [Neural Information Processing Systems workshops](https://nips.cc)
+- [Ryan Adams' and Katherine Gorman's Talking Machines Podcast](http://www.thetalkingmachines.com)
+- [Scikit-Learn Documentation](http://scikit-learn.org/stable/)
+- [Cross Validated - StackOverflow Q&A System for ML and stats](http://stats.stackexchange.com/)
+
 
 
 # Projects 
@@ -91,7 +103,7 @@
 ---
 
 
-![](assets/presentation/GIML/hs_flow.png)
+![](assets/presentation/GIML/hsflow.png)
 
 --- 
 
