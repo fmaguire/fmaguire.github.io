@@ -64,7 +64,6 @@
 --- 
 
 ![Metatranscriptome GC %](assets/presentation/GIML/gc.png)
-
 - 400M 150bp PE reads (159GB)
 
 ---
@@ -90,7 +89,7 @@
 
 --- 
 
-![](assets/presentation/GIML/hsflow.png)
+![](assets/presentation/GIML/hsflow.svg)
 
 --- 
 
