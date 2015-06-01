@@ -81,10 +81,12 @@
 
 ---
 
-- Expectation-Maximisation of GMM
 - K-means clustering
-- Python (SKLearn) still hadn't finished PARSING input after 168 hours
+- Fit GMM using Expectation-Maximisation 
+- Python (SKLearn) still hadn't finished PARSING input after 48 hours
 - C++ (MLPACK/ARMADILLO): 12 hours (6GB of memory) single threaded
+- Lesson: use the right tool for the job (Python: Scikit-Learn, R: Caret, Java: Weka,
+C++: MLPACK etc) 
 
 # Hail-Seizure
 
@@ -107,6 +109,8 @@
 
 --- 
 
+## Data processing and feature extraction
+
 - Data preprocessing: downsampling, cleaning
 - Channel correlations: independent component analysis, common spatial patterns, MVARs
 - Approximately 850 different features 
@@ -114,7 +118,7 @@
 
 --- 
 
-## ML approaches
+## Machine learning
 
 - Random forests 
 - Support Vector Machines 
@@ -129,6 +133,7 @@
 - Top 5% (16/504)
 - Reasonable accurate prediction - 0.77014 AUC 
 - Team: Gavin Gray and Scott Lowe
+- Lesson: planning and ensembles
 
 
 # Dendrogenous
@@ -148,7 +153,7 @@
 
 - Features: Phylogenetic tree and sequence features (GC, trinucleotide) 
 - SVM/RVM 
-- F1 Score nearly as good as manual
+- F1 Score nearly as good as manual (ad hoc self-consistency...) 
 
 # NeuKrill-Net
 
@@ -164,6 +169,7 @@
 ![](assets/presentation/GIML/retina.jpg)
 
 - Diabetic retinopathy detection
+- Two eyes, 5 ratings for each eye
 - Same ML approach as NeuKrill-Net 
 - Difficult cost function (quadratic negative kappa)
 
@@ -212,6 +218,16 @@
 
 ---
 
+## ML = Method + Evaluation + Optimisation
+
+- The ML algorithm (e.g. KNN, SVM, RF etc) is only part of the problem
+- Important to be aware of evaluation (e.g. sum of squares distance, error)
+- and optimisation method (e.g. gradient descent, expectation-maximisation)
+- Can make a big difference to performance (and run time)
+- Ties into NFL theory
+
+---
+
 ## Curse of dimensionality
 
 ![from Bengio's [homepage](http://www.iro.umontreal.ca/~bengioy/yoshua_en/research.html)](assets/presentation/GIML/bengio_dim.jpg)
@@ -230,7 +246,7 @@
 - Data exploration
 - Data gathering
 - Data cleaning
-- More data often beats smarter algorithms
+- More data can beat smarter algorithms (but not always)
 
 --- 
 
@@ -241,10 +257,10 @@
 
 ## If in doubt combine models!
 
-- Bagging
-- Stacking
-- Boosting
-- Merging
+- Bagging (average estimators trained on random subsets of data)
+- Merging (model averaging)
+- Stacking (feed estimators into other estimators)
+- Boosting (iteratively train estimators on data that previous models misclassify)
 
 # Conclusion 
 
@@ -254,4 +270,4 @@
 - It is not as opaque as it appears
 - Optimisation and Evaluation is as important as ML algorithm
 - Highly iterative process
-- Use version control and literate programming
+- Use version control and literate programming to save yourself a lot of difficulty
