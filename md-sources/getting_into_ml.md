@@ -177,6 +177,10 @@ C++: MLPACK etc)
 
 ---
 
+![](assets/presentation/GIML/spearseq.png)
+
+---
+
 - _de novo_ assembly parameter optimisation (k-mer size, minimum coverage, normalisation)
 - Bayesian optimisation of assembly likelihood 
 - Spearmint experimentation evaluated using RSEM-eval
