@@ -251,7 +251,7 @@ C++: MLPACK etc)
 --- 
 
 - Worth taking time setting up tools and data
-- *UNIT TESTS*
+- _UNIT TESTS_
 - Literate programming e.g. Rmd, Jupyter
 - Version control e.g. git
 
