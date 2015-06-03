@@ -1,13 +1,20 @@
 #!/bin/zsh
-#quick script to paste 
+#./page_gen_from_md.sh file.md [reveal]
 
 input_md_file=$1
 input_name=${input_md_file:0:-3}
+output_file=${input_name}.html
+
+if [ $# -eq 2 ]
+      then
+        pandoc -t revealjs -s $input_md_file -o $output_file -V theme=moon -V transition=none --slide-level 2
+        return
+fi
+
 temp_html_file=${input_name}.tmp
 
 markdown $input_md_file > $temp_html_file
 
-output_file=${input_name}.html
 
 SED_CMD="/<section>/r $temp_html_file" 
 
