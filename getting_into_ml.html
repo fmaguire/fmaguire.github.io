@@ -112,10 +112,11 @@
 </section><section class="slide level2">
 
 <ul>
-<li>Expectation-Maximisation of GMM</li>
 <li>K-means clustering</li>
-<li>Python (SKLearn) still hadn't finished PARSING input after 168 hours</li>
+<li>Fit GMM using Expectation-Maximisation</li>
+<li>Python (SKLearn) still hadn't finished PARSING input after 48 hours</li>
 <li>C++ (MLPACK/ARMADILLO): 12 hours (6GB of memory) single threaded</li>
+<li>Lesson: use the right tool for the job (Python: Scikit-Learn, R: Caret, Java: Weka, C++: MLPACK etc)</li>
 </ul>
 </section></section>
 <section><section id="hail-seizure" class="titleslide slide level1"><h1>Hail-Seizure</h1></section><section class="slide level2">
@@ -138,16 +139,16 @@
 <figure>
 <img src="assets/presentation/GIML/hsflow.png" />
 </figure>
-</section><section class="slide level2">
-
+</section><section id="data-processing-and-feature-extraction" class="slide level2">
+<h1>Data processing and feature extraction</h1>
 <ul>
 <li>Data preprocessing: downsampling, cleaning</li>
 <li>Channel correlations: independent component analysis, common spatial patterns, MVARs</li>
 <li>Approximately 850 different features</li>
 <li>Recursive Feature Elimination</li>
 </ul>
-</section><section id="ml-approaches" class="slide level2">
-<h1>ML approaches</h1>
+</section><section id="machine-learning" class="slide level2">
+<h1>Machine learning</h1>
 <ul>
 <li>Random forests</li>
 <li>Support Vector Machines</li>
@@ -161,6 +162,7 @@
 <li>Top 5% (16/504)</li>
 <li>Reasonable accurate prediction - 0.77014 AUC</li>
 <li>Team: Gavin Gray and Scott Lowe</li>
+<li>Lesson: planning and ensembles</li>
 </ul>
 </section></section>
 <section><section id="dendrogenous" class="titleslide slide level1"><h1>Dendrogenous</h1></section><section class="slide level2">
@@ -182,7 +184,7 @@
 <ul>
 <li>Features: Phylogenetic tree and sequence features (GC, trinucleotide)</li>
 <li>SVM/RVM</li>
-<li>F1 Score nearly as good as manual</li>
+<li>F1 Score nearly as good as manual (ad hoc self-consistency...)</li>
 </ul>
 </section></section>
 <section><section id="neukrill-net" class="titleslide slide level1"><h1>NeuKrill-Net</h1></section><section class="slide level2">
@@ -198,11 +200,17 @@
 </figure>
 <ul>
 <li>Diabetic retinopathy detection</li>
+<li>Two eyes, 5 ratings for each eye</li>
 <li>Same ML approach as NeuKrill-Net</li>
 <li>Difficult cost function (quadratic negative kappa)</li>
 </ul>
 </section></section>
 <section><section id="spearseq" class="titleslide slide level1"><h1>Spearseq</h1></section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/GIML/spearseq.png" />
+</figure>
+</section><section class="slide level2">
 
 <ul>
 <li><em>de novo</em> assembly parameter optimisation (k-mer size, minimum coverage, normalisation)</li>
@@ -241,6 +249,15 @@
 <li>Wolpert and McCreedy proofs</li>
 <li>Real world not so nicely random</li>
 </ul>
+</section><section id="ml-method-evaluation-optimisation" class="slide level2">
+<h1>ML = Method + Evaluation + Optimisation</h1>
+<ul>
+<li>The ML algorithm (e.g. KNN, SVM, RF etc) is only part of the problem</li>
+<li>Important to be aware of evaluation (e.g. sum of squares distance, error)</li>
+<li>and optimisation method (e.g. gradient descent, expectation-maximisation)</li>
+<li>Can make a big difference to performance (and run time)</li>
+<li>Ties into NFL theory</li>
+</ul>
 </section><section id="curse-of-dimensionality" class="slide level2">
 <h1>Curse of dimensionality</h1>
 <figure>
@@ -261,7 +278,7 @@
 <li>Data exploration</li>
 <li>Data gathering</li>
 <li>Data cleaning</li>
-<li>More data often beats smarter algorithms</li>
+<li>More data can beat smarter algorithms (but not always)</li>
 </ul>
 </section><section class="slide level2">
 
@@ -274,10 +291,10 @@
 </section><section id="if-in-doubt-combine-models" class="slide level2">
 <h1>If in doubt combine models!</h1>
 <ul>
-<li>Bagging</li>
-<li>Stacking</li>
-<li>Boosting</li>
-<li>Merging</li>
+<li>Bagging (average estimators trained on random subsets of data)</li>
+<li>Merging (model averaging)</li>
+<li>Stacking (feed estimators into other estimators)</li>
+<li>Boosting (iteratively train estimators on data that previous models misclassify)</li>
 </ul>
 </section></section>
 <section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1></section><section class="slide level2">
@@ -287,7 +304,7 @@
 <li>It is not as opaque as it appears</li>
 <li>Optimisation and Evaluation is as important as ML algorithm</li>
 <li>Highly iterative process</li>
-<li>Use version control and literate programming</li>
+<li>Use version control and literate programming to save yourself a lot of difficulty</li>
 </ul>
 </section></section>
     </div>
