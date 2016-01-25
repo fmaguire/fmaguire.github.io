@@ -55,8 +55,8 @@
 <li>Chemical synthesis (reagent ratios/conditions/catalysts)</li>
 <li>Optimising brewing</li>
 </ul>
-</section><section id="computational-problem" class="slide level2">
-<h1>Computational problem</h1>
+</section><section id="computational-problems" class="slide level2">
+<h1>Computational problems</h1>
 <ul>
 <li>Finding the optimal assembly (according to some metric)</li>
 <li>Training detection algorithms e.g. motifs, genes etc.</li>
@@ -65,12 +65,14 @@
 </section><section id="specific-examples" class="slide level2">
 <h1>Specific examples</h1>
 <ul>
-<li>Given a protein of interest, which sequence will maximise expression? (e.g. <span class="math inline">900<em>n</em><em>t</em> = 300</span> codons <span class="math inline">∴ ≈ 2<sup>300</sup></span> possible sequences)</li>
+<li>Given a protein of interest, which sequence will maximise expression? (e.g. <span class="math inline">900<em>n</em><em>t</em> = 300</span> codons <span class="math inline">≈2<sup>300</sup></span> possible sequences)</li>
 <li>Given a set of sequencing data, which preprocessing/assembly parameters will produce the most likely assembly?</li>
 </ul>
+</section><section class="slide level2">
+
 </section></section>
-<section><section id="spearseq" class="titleslide slide level1"><h1>SpearSeq</h1></section><section id="naive-experimental-design-grid-search" class="slide level2">
-<h1>Naive experimental design (Grid Search)</h1>
+<section><section id="naive-experimental-design-grid-search" class="titleslide slide level1"><h1>Naive experimental design (Grid Search)</h1></section><section class="slide level2">
+
 <figure>
 <img src="../assets/presentation/bayesopt/target_function.png" />
 </figure>
@@ -93,6 +95,68 @@
 
 <figure>
 <img src="../assets/presentation/bayesopt/naive_experiment3.png" />
+</figure>
+</section></section>
+<section><section id="so-how-would-you-more-efficient-choose-your-datapoints" class="titleslide slide level1"><h1>So how would you more efficient choose your datapoints?</h1></section><section id="probabilistically" class="slide level2">
+<h1>Probabilistically!</h1>
+<figure>
+<img src="../assets/presentation/bayesopt/GP_draws.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/initial_random.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/acquistion_function.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/acquistion_function2.png" />
+</figure>
+</section><section class="slide level2">
+
+<p><img src="../assets/presentation/bayesopt/initial_random.png" /> <img src="../assets/presentation/bayesopt/acquistion_function.png" /></p>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/opt_step1.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/opt_step2.png" />
+</figure>
+<table style="width:6%;">
+<colgroup>
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><img src="../assets/presentation/bayesopt/opt_step3.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><img src="../assets/presentation/bayesopt/opt_step4.png" /></td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="../assets/presentation/bayesopt/opt_step5.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/opts_step6.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/opt_step7.png" />
 </figure>
 </section></section>
     </div>
