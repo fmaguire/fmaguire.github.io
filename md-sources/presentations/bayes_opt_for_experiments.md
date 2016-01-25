@@ -90,28 +90,27 @@
 ![](../assets/presentation/bayesopt/acquistion_function.png)
 
 ----
-
-![](../assets/presentation/bayesopt/opt_step1.png)
-
-----
-
-![](../assets/presentation/bayesopt/opt_step2.png)
-
-----
-![](../assets/presentation/bayesopt/opt_step3.png)
-
-----
-![](../assets/presentation/bayesopt/opt_step4.png)
-
-----
-![](../assets/presentation/bayesopt/opt_step5.png)
+![](../assets/presentation/bayesopt/opt1.png)
 
 ----
 
-![](../assets/presentation/bayesopt/opts_step6.png)
+![](../assets/presentation/bayesopt/opt2.png)
+
+----
+![](../assets/presentation/bayesopt/opt3.png)
+
+----
+![](../assets/presentation/bayesopt/opt4.png)
+
+----
+![](../assets/presentation/bayesopt/opt5.png)
 
 ----
 
-![](../assets/presentation/bayesopt/opt_step7.png)
+![](../assets/presentation/bayesopt/opt6.png)
+
+----
+
+![](../assets/presentation/bayesopt/opt7.png)
 
 

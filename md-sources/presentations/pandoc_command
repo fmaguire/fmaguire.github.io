@@ -1,1 +1,1 @@
-pandoc -f markdown -t revealjs -V transition=none --slide-level 2 -V theme=moon -s $1 -o../presentations/${2} -V revealjs-url:../reveal.js
+pandoc -f markdown -t revealjs -V transition=none --slide-level 2 -V theme=simple -s $1 -o../presentations/${2} -V revealjs-url:../reveal.js
