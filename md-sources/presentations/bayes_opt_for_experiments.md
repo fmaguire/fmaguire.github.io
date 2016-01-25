@@ -67,3 +67,4 @@
 ![](../assets/presentation/bayesopt/naive_experiment3.png)
 
 
+
