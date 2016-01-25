@@ -84,16 +84,8 @@ slower than a good function that combines exploitation of areas of low variance
 - How do we optimise trh w acquistion functions that best allow exploitation and exploration tradeoff
 
 
-
-
 # UCB
 
 - Gaussian Upper Confidence Bound - exploting lower condifernce bounds (or rather upper when focussing on maximisation
 of the boject function). to construction AQ which minisise regret ofver th4e course of their optimisation.
-
-
-
-
-
-
 
