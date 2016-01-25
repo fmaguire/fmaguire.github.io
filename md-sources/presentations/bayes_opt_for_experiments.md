@@ -63,6 +63,10 @@
 
 ![](../assets/presentation/bayesopt/naive_experiment3.png)
 
+----
+
+![](../assets/presentation/bayesopt/function_recovered.png)
+
 
 #So how would you more efficient choose your datapoints?
 
