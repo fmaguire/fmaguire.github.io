@@ -70,47 +70,47 @@
 
 ## Probabilistically!
 
-![](../assets/presentation/bayesopt/GP_draws.png)
+----
+
+![Random GP Draws](../assets/presentation/bayesopt/GP_draws.png)
 
 ----
 
-![](../assets/presentation/bayesopt/initial_random.png)
+![Choose 3 Random Initial Values](../assets/presentation/bayesopt/initial_random.png)
 
 ----
 
-![](../assets/presentation/bayesopt/acquisiton_function.png)
+![Use something called an AQ function to select](../assets/presentation/bayesopt/acquisiton_function.png)
 
 ----
 
-![](../assets/presentation/bayesopt/acquistion_function2.png)
+![Pick another point using the AQ and refit GP](../assets/presentation/bayesopt/opt1.png)
 
 ----
 
-![](../assets/presentation/bayesopt/initial_random.png)
-![](../assets/presentation/bayesopt/acquistion_function.png)
-
-----
-![](../assets/presentation/bayesopt/opt1.png)
+![Do the same again](../assets/presentation/bayesopt/opt2.png)
 
 ----
 
-![](../assets/presentation/bayesopt/opt2.png)
-
-----
-![](../assets/presentation/bayesopt/opt3.png)
-
-----
-![](../assets/presentation/bayesopt/opt4.png)
-
-----
-![](../assets/presentation/bayesopt/opt5.png)
+![And again](../assets/presentation/bayesopt/opt3.png)
 
 ----
 
-![](../assets/presentation/bayesopt/opt6.png)
+![And again](../assets/presentation/bayesopt/opt4.png)
 
 ----
 
-![](../assets/presentation/bayesopt/opt7.png)
+![For as long as you want](../assets/presentation/bayesopt/opt5.png)
 
+----
+
+![...](../assets/presentation/bayesopt/opt6.png)
+
+----
+
+![Until things are good enough](../assets/presentation/bayesopt/opt7.png)
+
+----
+
+![Another demonstration of AQ function](../assets/presentation/bayesopt/acquistion_function2.png)
 
