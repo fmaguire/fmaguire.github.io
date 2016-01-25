@@ -2,15 +2,13 @@
 % Finlay Maguire 
 % root@finlaymagui.re
 
-# Bayesian Optimisation
+# More Efficient Experimental Design
 
 # Overview
 
 ---
 
 - Parameter optimisation problems
-- Gaussian Processes Background
-- Bayesian Optimisation
 - SpearSeq
 - Recombinant gene expression
 
@@ -18,7 +16,7 @@
 
 ---
 
-## Molecular 
+## In the lab
 
 - Codon optimisation
 - PCR conditions
@@ -26,20 +24,29 @@
 - Chemical synthesis (reagent ratios/conditions/catalysts)
 - Optimising brewing
 
-## Bioinformatics
+## Computational problem
 
 - Finding the optimal assembly (according to some metric)
 - Training detection algorithms e.g. motifs, genes etc.
 - Optimising clustering methods 
-- Basically, anything with hyperparameters 
 
 ## Main example problems
 
 - Given a protein of interest, which sequence will maximise expression? (e.g. $900nt = 300$ codons $\therefore \approx 2^{300}$ possible sequences)
 - Given a set of sequencing data, which preprocessing/assembly parameters will produce the most likely assembly? 
 
+-- 
 
-# Bayesia Optimisation
+# 
+
+
+![](assets/presentation/bayesopt/target_function.png)
+
+
+--
+
+
+
 
 - Ultimately you want to find a function of paramters that optimise a specific value.
 - Therefore, you can choose a prior over the space of possible functions.
