@@ -26,7 +26,7 @@
 
 ----
 
-##Computational problem
+##Computational problems
 
 - Finding the optimal assembly (according to some metric)
 - Training detection algorithms e.g. motifs, genes etc.
@@ -36,16 +36,14 @@
 
 ##Specific examples
 
-- Given a protein of interest, which sequence will maximise expression? (e.g. $900nt = 300$ codons $\therefore \approx 2^{300}$ possible sequences)
+- Given a protein of interest, which sequence will maximise expression? (e.g. $900nt = 300$ codons $\approx 2^{300}$ possible sequences)
 - Given a set of sequencing data, which preprocessing/assembly parameters will produce the most likely assembly? 
-
-#SpearSeq
-
-![](../assets/presentation/bayesopt/target_function.png)
 
 ----
 
-##Naive experimental design (Grid Search)
+#Naive experimental design (Grid Search)
+
+----
 
 
 ![](../assets/presentation/bayesopt/target_function.png)
@@ -66,5 +64,56 @@
 
 ![](../assets/presentation/bayesopt/naive_experiment3.png)
 
+
+#So how would you more efficient choose your datapoints?
+
+---- 
+
+## Probabilistically!
+
+![](../assets/presentation/bayesopt/GP_draws.png)
+
+----
+
+![](../assets/presentation/bayesopt/initial_random.png)
+
+----
+
+![](../assets/presentation/bayesopt/acquistion_function.png)
+
+
+----
+
+![](../assets/presentation/bayesopt/acquistion_function2.png)
+
+----
+
+![](../assets/presentation/bayesopt/initial_random.png)
+![](../assets/presentation/bayesopt/acquistion_function.png)
+
+----
+
+![](../assets/presentation/bayesopt/opt_step1.png)
+
+----
+
+![](../assets/presentation/bayesopt/opt_step2.png)
+
+----
+![](../assets/presentation/bayesopt/opt_step3.png)
+
+----
+![](../assets/presentation/bayesopt/opt_step4.png)
+
+----
+![](../assets/presentation/bayesopt/opt_step5.png)
+
+----
+
+![](../assets/presentation/bayesopt/opts_step6.png)
+
+----
+
+![](../assets/presentation/bayesopt/opt_step7.png)
 
 
