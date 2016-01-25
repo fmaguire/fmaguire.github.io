@@ -39,7 +39,6 @@
 - Given a protein of interest, which sequence will maximise expression? (e.g. $900nt = 300$ codons $\approx 2^{300}$ possible sequences)
 - Given a set of sequencing data, which preprocessing/assembly parameters will produce the most likely assembly? 
 
-----
 
 #Naive experimental design (Grid Search)
 
@@ -79,8 +78,7 @@
 
 ----
 
-![](../assets/presentation/bayesopt/acquistion_function.png)
-
+![](../assets/presentation/bayesopt/acquisiton_function.png)
 
 ----
 
