@@ -38,7 +38,7 @@
 
 ## Textbooks
 
-![](assets/presentation/GIML/books.png)
+![](../assets/presentation/GIML/books.png)
 
 - Christopher Bishop's "Pattern Recognition and Machine Learning"
 - Kevin Murphy's "Machine Learning: A Probabilistic Perspective"
@@ -46,7 +46,7 @@
 
 ## Practice
 
-![](assets/presentation/GIML/kaggle.png)
+![](../assets/presentation/GIML/kaggle.png)
 
 - Provided Dataset
 - Evaluation Metric
@@ -55,7 +55,7 @@
 
 ## Warning
 
-![Kaggle can and will eat your time](assets/presentation/GIML/hspunchcard.png)
+![Kaggle can and will eat your time](../assets/presentation/GIML/hspunchcard.png)
 
 
 ## Other media 
@@ -75,7 +75,7 @@
 
 --- 
 
-![Metatranscriptome GC %](assets/presentation/GIML/gc.png)
+![Metatranscriptome GC %](../assets/presentation/GIML/gc.png)
 
 - 400M 150bp PE reads (159GB)
 
@@ -92,20 +92,20 @@ C++: MLPACK etc)
 
 ---
 
-![American Epilepsy Society Seizure Prediction Challenge](assets/presentation/GIML/hs_dog.png)
+![American Epilepsy Society Seizure Prediction Challenge](../assets/presentation/GIML/hs_dog.png)
 
 ---
 
-![iEEGs](assets/presentation/GIML/eeg.png)
+![iEEGs](../assets/presentation/GIML/eeg.png)
 
 --- 
 
-![true positives (sensitivity) vs false negatives (decreased specificity) ([source](http://www.sprawls.org/ppmi2/IMGCHAR/))](assets/presentation/GIML/roc.png)
+![true positives (sensitivity) vs false negatives (decreased specificity) ([source](http://www.sprawls.org/ppmi2/IMGCHAR/))](../assets/presentation/GIML/roc.png)
 
 ---
 
 
-![](assets/presentation/GIML/hsflow.png)
+![](../assets/presentation/GIML/hsflow.png)
 
 --- 
 
@@ -140,14 +140,14 @@ C++: MLPACK etc)
 
 ---
 
-![_Paramecium bursaria_ with _Micractinium reisseri_ endosymbiont](assets/presentation/GIML/pbmr.jpg)
+![_Paramecium bursaria_ with _Micractinium reisseri_ endosymbiont](../assets/presentation/GIML/pbmr.jpg)
 
 ---
 
 - Metatranscriptome origin classification
 - Goal: classify transcripts into origin species
 
-![Phylogenetics vs top BLAST hits](assets/presentation/GIML/binning.png)
+![Phylogenetics vs top BLAST hits](../assets/presentation/GIML/binning.png)
 
 ---
 
@@ -159,14 +159,14 @@ C++: MLPACK etc)
 
 ---
 
-![Image classification of plankton](assets/presentation/NDSB/raw_data.png)
+![Image classification of plankton](../assets/presentation/NDSB/raw_data.png)
 
 
 # Eyes-Have-It
 
 ---
 
-![](assets/presentation/GIML/retina.jpg)
+![](../assets/presentation/GIML/retina.jpg)
 
 - Diabetic retinopathy detection
 - Two eyes, 5 ratings for each eye
@@ -177,7 +177,7 @@ C++: MLPACK etc)
 
 ---
 
-![](assets/presentation/GIML/spearseq.png)
+![](../assets/presentation/GIML/spearseq.png)
 
 ---
 
@@ -209,7 +209,7 @@ C++: MLPACK etc)
 ---
 
 
-![t-SNE of EEG features](assets/presentation/GIML/tsne_class.png)
+![t-SNE of EEG features](../assets/presentation/GIML/tsne_class.png)
 
 ---
 
@@ -234,13 +234,13 @@ C++: MLPACK etc)
 
 ## Curse of dimensionality
 
-![from Bengio's [homepage](http://www.iro.umontreal.ca/~bengioy/yoshua_en/research.html)](assets/presentation/GIML/bengio_dim.jpg)
+![from Bengio's [homepage](http://www.iro.umontreal.ca/~bengioy/yoshua_en/research.html)](../assets/presentation/GIML/bengio_dim.jpg)
 
 - Intuitions will fail in high dimensions
 
 --- 
 
-![Blessing of non-uniformity (from [SKLearn Documentation](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html))](assets/presentation/GIML/manifold.png)
+![Blessing of non-uniformity (from [SKLearn Documentation](http://scikit-learn.org/stable/auto_examples/manifold/plot_compare_methods.html))](../assets/presentation/GIML/manifold.png)
  
 ---
 

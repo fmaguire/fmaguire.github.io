@@ -6,41 +6,41 @@
 
 ---
 
-![Sucks to do](assets/presentation/xmas/human_bad.jpg)
+![Sucks to do](../assets/presentation/xmas/human_bad.jpg)
 
 ---
 
-![Lots of bad science is being done](assets/presentation/xmas/nhm.jpg)
+![Lots of bad science is being done](../assets/presentation/xmas/nhm.jpg)
 
 # Technology is improving
 
 ---
 
-![2nd generation DNA sequencers](assets/presentation/xmas/hiseq.jpg)
+![2nd generation DNA sequencers](../assets/presentation/xmas/hiseq.jpg)
 
 ---
 
-![3rd generation DNA sequencer](assets/presentation/xmas/minion.jpg)
+![3rd generation DNA sequencer](../assets/presentation/xmas/minion.jpg)
 
 ---
 
 Aside about nanopore
 
-![](assets/presentation/xmas/nanopore.jpg)
+![](../assets/presentation/xmas/nanopore.jpg)
 
 # The robots are rising
 
 ---
 
-![and that is cool](assets/presentation/xmas/robot_2.jpg)
+![and that is cool](../assets/presentation/xmas/robot_2.jpg)
 
 ---
 
-![very cool](assets/presentation/xmas/robot_schemati.jpg)
+![very cool](../assets/presentation/xmas/robot_schemati.jpg)
 
 ---
 
-![and they are our friends](assets/presentation/xmas/robot_better.jpg)
+![and they are our friends](../assets/presentation/xmas/robot_better.jpg)
 
 
 ## But that is still not enough
@@ -49,7 +49,7 @@ Aside about nanopore
 
 ---
 
-![Science-as-a-Service](assets/presentation/xmas/logo.png)
+![Science-as-a-Service](../assets/presentation/xmas/logo.png)
 
 - web-based on-demand remote life science lab
 - live results
@@ -75,7 +75,7 @@ Aside about nanopore
 
 ---
 
-![Transcriptic](assets/presentation/xmas/transcriptic.jpg)
+![Transcriptic](../assets/presentation/xmas/transcriptic.jpg)
 
 ---
 
@@ -103,7 +103,7 @@ Aside about nanopore
         }
 ---
 
-![](assets/presentation/xmas/matrix.jpg)
+![](../assets/presentation/xmas/matrix.jpg)
 
 
 # In summary:

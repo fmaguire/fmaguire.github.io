@@ -12,7 +12,7 @@
 
 ----
 
-![](assets/presentation/bayesopt/experiment_bbox.png)
+![](../assets/presentation/bayesopt/experiment_bbox.png)
 
 ----
 
@@ -41,29 +41,29 @@
 
 #SpearSeq
 
-![](assets/presentation/bayesopt/target_function.png)
+![](../assets/presentation/bayesopt/target_function.png)
 
 ----
 
 ##Naive experimental design (Grid Search)
 
 
-![](assets/presentation/bayesopt/target_function.png)
+![](../assets/presentation/bayesopt/target_function.png)
 
 ----
 
-![](assets/presentation/bayesopt/naive_experiment0.png)
+![](../assets/presentation/bayesopt/naive_experiment0.png)
 
 ----
 
-![](assets/presentation/bayesopt/naive_experiment1.png)
+![](../assets/presentation/bayesopt/naive_experiment1.png)
 
 ----
 
-![](assets/presentation/bayesopt/naive_experiment2.png)
+![](../assets/presentation/bayesopt/naive_experiment2.png)
 
 ----
 
-![](assets/presentation/bayesopt/naive_experiment3.png)
+![](../assets/presentation/bayesopt/naive_experiment3.png)
 
 

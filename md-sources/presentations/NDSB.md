@@ -14,7 +14,7 @@
 
 ----
 
-![](assets/presentation/NDSB/NDSB.png)
+![](../assets/presentation/NDSB/NDSB.png)
 
 - 90 days (December 15th 2014 - March 16th 2015) 
 - Sponsored by Booz Allen Hamilton
@@ -23,7 +23,7 @@
 
 ----
 
-![](assets/presentation/NDSB/isiis.jpg)
+![](../assets/presentation/NDSB/isiis.jpg)
 
 - In Situ Ichthyoplankton Imaging System
 - 5 million shadowgraph images (4-5TB) a day 
@@ -32,7 +32,7 @@
 
 ----
 
-![Goal](assets/presentation/NDSB/prob_dist.png)
+![Goal](../assets/presentation/NDSB/prob_dist.png)
 
 - Reliable automated identification of plankton
 - 121 provided labels 
@@ -86,7 +86,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![](assets/presentation/NDSB/raw_data.png)
+![](../assets/presentation/NDSB/raw_data.png)
 
 ----
 
@@ -98,23 +98,23 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![Variable input size](assets/presentation/NDSB/image_sizes.png)
+![Variable input size](../assets/presentation/NDSB/image_sizes.png)
 
 ----
 
-![Unbalanced classes](assets/presentation/NDSB/label_card.png)
+![Unbalanced classes](../assets/presentation/NDSB/label_card.png)
 
 ----
 
-![Unbalanced classes](assets/presentation/NDSB/low_card.png)
+![Unbalanced classes](../assets/presentation/NDSB/low_card.png)
 
 ----
 
-![Classes very similar](assets/presentation/NDSB/try_yourelf.png)
+![Classes very similar](../assets/presentation/NDSB/try_yourelf.png)
 
 ----
 
-![Hierarchy of labels](assets/presentation/NDSB/raw_hierarchy.png)
+![Hierarchy of labels](../assets/presentation/NDSB/raw_hierarchy.png)
 
 
 # Making the most of this data
@@ -131,7 +131,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![Get more data!](assets/presentation/NDSB/augmentation.png)
+![Get more data!](../assets/presentation/NDSB/augmentation.png)
 
 ----
 
@@ -139,11 +139,11 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![Label schema](assets/presentation/NDSB/raw_hierarchy.png)
+![Label schema](../assets/presentation/NDSB/raw_hierarchy.png)
 
 ----
 
-![Left: Original Hiearchy, Right: New Layers](assets/presentation/NDSB/trees.png)
+![Left: Original Hiearchy, Right: New Layers](../assets/presentation/NDSB/trees.png)
 
 ----
 
@@ -170,11 +170,11 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 ----
  
 
-![Convolution](assets/presentation/NDSB/conv.jpg)
+![Convolution](../assets/presentation/NDSB/conv.jpg)
 
 ----
 
-![Convolution kernels](assets/presentation/NDSB/convolution.png)
+![Convolution kernels](../assets/presentation/NDSB/convolution.png)
 
 ----
 
@@ -189,27 +189,27 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![Artificial Neuron (from wikimedia)](assets/presentation/NDSB/perceptron.png)
+![Artificial Neuron (from wikimedia)](../assets/presentation/NDSB/perceptron.png)
 
 ---- 
 
-![Artificial Neural Network (from wikimedia)](assets/presentation/NDSB/ann.png)
+![Artificial Neural Network (from wikimedia)](../assets/presentation/NDSB/ann.png)
 
 ----
 
-![Deep Neural Network (from neuralnetworksanddeeplearning.com)](assets/presentation/NDSB/DNN.png)
+![Deep Neural Network (from neuralnetworksanddeeplearning.com)](../assets/presentation/NDSB/DNN.png)
 
 ----
 
-![Convolutional Deep Neural Network: LeNet (from DeepLearning.net)](assets/presentation/NDSB/mylenet.png)
+![Convolutional Deep Neural Network: LeNet (from DeepLearning.net)](../assets/presentation/NDSB/mylenet.png)
 
 ----
 
-![Our architecture](assets/presentation/NDSB/arch.png)
+![Our architecture](../assets/presentation/NDSB/arch.png)
 
 ----
 
-![Activation](assets/presentation/NDSB/full_active.png)
+![Activation](../assets/presentation/NDSB/full_active.png)
 
 
 # Combining approaches
@@ -225,7 +225,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![](assets/presentation/NDSB/leader.png)
+![](../assets/presentation/NDSB/leader.png)
 
 - 57/1,054 teams (5.4%)
 - Our LL and PPV = 0.704, 74.38%
@@ -243,7 +243,7 @@ $$logloss = -\frac{1}{N} \sum_{i=1}^{N}\sum_{j=1}^{M}y_{ij} log(p_{ij})$$
 
 ----
 
-![Cyclic pooling](assets/presentation/NDSB/cyclicpool.png)
+![Cyclic pooling](../assets/presentation/NDSB/cyclicpool.png)
 
 # Conclusions
 
