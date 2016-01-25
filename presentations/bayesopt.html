@@ -1,13 +1,52 @@
-<section><section id="more-efficient-experimental-design" class="titleslide slide level1"><h1>More Efficient Experimental Design</h1></section></section>
-<section><section id="overview" class="titleslide slide level1"><h1>Overview</h1></section><section class="slide level2">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Finlay Maguire">
+  <title>Bayesian Optimisation for Experimental Design</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
+<section>
+  <h1 class="title">Bayesian Optimisation for Experimental Design</h1>
+  <h2 class="author">Finlay Maguire</h2>
+  <h3 class="date">root@finlaymagui.re</h3>
+</section>
+
+<section id="overview" class="slide level2">
+<h1>Overview</h1>
 <ul>
 <li>Parameter optimisation problems</li>
 <li>SpearSeq</li>
 <li>Recombinant gene expression</li>
 </ul>
-</section></section>
-<section><section id="parameter-optimisation-problems-in-biology" class="titleslide slide level1"><h1>Parameter Optimisation Problems in Biology</h1></section><section id="in-the-lab" class="slide level2">
+</section>
+<section><section id="parameter-optimisation-problems-in-biology" class="titleslide slide level1"><h1>Parameter Optimisation Problems in Biology</h1></section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/bayesopt/experiment_bbox.png" />
+</figure>
+</section><section id="in-the-lab" class="slide level2">
 <h1>In the lab</h1>
 <ul>
 <li>Codon optimisation</li>
@@ -23,15 +62,60 @@
 <li>Training detection algorithms e.g. motifs, genes etc.</li>
 <li>Optimising clustering methods</li>
 </ul>
-</section><section id="main-example-problems" class="slide level2">
-<h1>Main example problems</h1>
+</section><section id="specific-examples" class="slide level2">
+<h1>Specific examples</h1>
 <ul>
 <li>Given a protein of interest, which sequence will maximise expression? (e.g. <span class="math inline">900<em>n</em><em>t</em> = 300</span> codons <span class="math inline">∴ ≈ 2<sup>300</sup></span> possible sequences)</li>
 <li>Given a set of sequencing data, which preprocessing/assembly parameters will produce the most likely assembly?</li>
 </ul>
-<p>--</p>
 </section></section>
-<section><section id="section" class="titleslide slide level1"><h1></h1></section></section>
-<section><section id="what-is-a-gaussian-process" class="titleslide slide level1"><h1>What is a Gaussian Process?</h1></section></section>
-<section><section id="acquisition-functions" class="titleslide slide level1"><h1>Acquisition functions</h1></section></section>
-<section><section id="ucb" class="titleslide slide level1"><h1>UCB</h1></section></section>
+<section><section id="spearseq" class="titleslide slide level1"><h1>SpearSeq</h1></section><section id="naive-experimental-design-grid-search" class="slide level2">
+<h1>Naive experimental design (Grid Search)</h1>
+<figure>
+<img src="assets/presentation/bayesopt/target_function.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/bayesopt/naive_experiment0.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/bayesopt/naive_experiment1.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/bayesopt/naive_experiment2.png" />
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="assets/presentation/bayesopt/naive_experiment3.png" />
+</figure>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
