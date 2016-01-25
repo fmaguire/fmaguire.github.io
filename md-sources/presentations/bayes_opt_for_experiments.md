@@ -80,6 +80,11 @@
 
 ----
 
+
+![Prior](../assets/presentation/bayesopt/prior.png)
+
+----
+
 ![Choose 3 Random Initial Values](../assets/presentation/bayesopt/initial_random.png)
 
 ----
