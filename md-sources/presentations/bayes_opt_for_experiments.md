@@ -1,12 +1,14 @@
-% Bayesian Optimisation for Experimental Design
+% Efficient Experimental Design
 % Finlay Maguire 
 % root@finlaymagui.re
 
 ## Overview
 
-- Parameter optimisation problems
-- SpearSeq
-- Recombinant gene expression
+- Experiments as parameter optimisation problems
+- Specific examples
+- Bayesian Optimisation
+- Step-through of SpearSeq
+- Conclusions
 
 #Parameter Optimisation Problems in Biology
 
@@ -20,9 +22,10 @@
 
 - Codon optimisation
 - PCR conditions
-- Protein purification (IPTG etc
+- Protein purification 
 - Chemical synthesis (reagent ratios/conditions/catalysts)
-- Optimising brewing
+- Brewing
+- Synthetic biology
 
 ----
 
@@ -31,6 +34,7 @@
 - Finding the optimal assembly (according to some metric)
 - Training detection algorithms e.g. motifs, genes etc.
 - Optimising clustering methods 
+- Really any non-convex optimisation problem
 
 ----
 
@@ -96,6 +100,11 @@
 
 ----
 
+
+![GP Prior](../assets/presentation/bayesopt/prior.png)
+
+----
+
 ![Choose 3 Random Initial Values](../assets/presentation/bayesopt/initial_random.png)
 
 ----
@@ -103,11 +112,15 @@
 
 ![](../assets/presentation/bayesopt/initial_random.png)
 
-![Use something called an AQ function to select](../assets/presentation/bayesopt/acquisiton_function.png)
+![Use Acquisition Function to select next point](../assets/presentation/bayesopt/acquisiton_function.png)
 
 ----
 
-![Pick another point using the AQ and refit GP](../assets/presentation/bayesopt/opt1.png)
+![Tradeoff between exploration and exploitation for a different model](../assets/presentation/bayesopt/acquistion_function2.png)
+
+----
+
+![Update the GP fit, then select another point using Acquisition function](../assets/presentation/bayesopt/opt1.png)
 
 ----
 
@@ -131,24 +144,26 @@
 
 ----
 
-![Until things are good enough](../assets/presentation/bayesopt/opt7.png)
+![Until you are happy or have used your evaluation budget](../assets/presentation/bayesopt/opt7.png)
 
 ----
 
-![Another demonstration of AQ function](../assets/presentation/bayesopt/acquistion_function2.png)
 
 # Results
 
 ----
 
-- SpearSeq found the optimal K-mer value (and other assembly parameters) for a test assembly in 3 trials
+- SpearSeq found the optimal (assembly parameters) for a test assembly in 4-5 trials even with simple priors and untuned acquistion functions.
 - Bayesian Optimisation of synthetic construct expression found 5' UTR free fold energy and 5' UTR length are the two most importantfeatures in expression of the synthetic gene (Gonzalez, 2015)
 
 # Conclusion
 
-- Bayesian Optimisation is a cutting edge method in probabilistic numerics
+- Never just use a grid search, even a naive random search is better (Bergstra & Bengio, 2012)
+- Bayesian Optimisation is a cutting edge method in probabilistic numerics.
 - Can be used for more efficient experimental design (saving time and money, and potentially
 revealing hidden structure in the data)
-- Several libraries and implementations of this for the general case
-- Be eager to here experimental ideas from people that they think this might be applied to
+- Not limited to a single parameter (or objective)
+- Several recent relatively easy to use libraries and implementations  (e.g. GPyOpt, Spearmint)
+- Tell me about experimental ideas that you think this might be applied to
+
 
