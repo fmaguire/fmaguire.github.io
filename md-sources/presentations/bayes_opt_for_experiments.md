@@ -76,18 +76,32 @@
 
 ----
 
-![Random GP Draws](../assets/presentation/bayesopt/GP_draws.png)
+![Prior is random draws from a process (GP)](../assets/presentation/bayesopt/prior.png)
 
 ----
 
 
-![Prior](../assets/presentation/bayesopt/prior.png)
+![Add your data](../assets/presentation/bayesopt/likelihood.png)
+
+----
+
+![Calculate the posterior](../assets/presentation/bayesopt/posterior.png)
+
+----
+
+![](../assets/presentation/bayesopt/posterior2.png)
+
+
+#Step through of optimisation
 
 ----
 
 ![Choose 3 Random Initial Values](../assets/presentation/bayesopt/initial_random.png)
 
 ----
+
+
+![](../assets/presentation/bayesopt/initial_random.png)
 
 ![Use something called an AQ function to select](../assets/presentation/bayesopt/acquisiton_function.png)
 
@@ -122,4 +136,19 @@
 ----
 
 ![Another demonstration of AQ function](../assets/presentation/bayesopt/acquistion_function2.png)
+
+# Results
+
+----
+
+- SpearSeq found the optimal K-mer value (and other assembly parameters) for a test assembly in 3 trials
+- Bayesian Optimisation of synthetic construct expression found 5' UTR free fold energy and 5' UTR length are the two most importantfeatures in expression of the synthetic gene (Gonzalez, 2015)
+
+# Conclusion
+
+- Bayesian Optimisation is a cutting edge method in probabilistic numerics
+- Can be used for more efficient experimental design (saving time and money, and potentially
+revealing hidden structure in the data)
+- Several libraries and implementations of this for the general case
+- Be eager to here experimental ideas from people that they think this might be applied to
 
