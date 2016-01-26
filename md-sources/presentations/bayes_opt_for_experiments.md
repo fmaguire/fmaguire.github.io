@@ -76,7 +76,7 @@
 
 ----
 
-![Prior is random draws from a process (GP)](../assets/presentation/bayesopt/prior.png)
+![Prior is random draws from a process (GP)](../assets/presentation/bayesopt/draws_from_gp.png)
 
 ----
 
