@@ -3,46 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Finlay Maguire" />
-  <title>Efficient Experimental Design</title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="../reveal.js/css/reveal.min.css"/>
-    <style type="text/css">code{white-space: pre;}</style>
-    <link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme">
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-    <script>
-      if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = '../reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-      }
-    </script>
-    <!--[if lt IE 9]>
-    <script src="../reveal.js/lib/js/html5shiv.js"></script>
-    <![endif]-->
+  <meta name="author" content="Finlay Maguire">
+  <title>Bayesian Optimisation for Experimental Design</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../reveal.js/css/theme/simple.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
 <section>
-    <h1 class="title">Efficient Experimental Design</h1>
-    <h2 class="author">Finlay Maguire</h2>
-    <h3 class="date">root@finlaymagui.re</h3>
+  <h1 class="title">Bayesian Optimisation for Experimental Design</h1>
+  <h2 class="author">Finlay Maguire</h2>
+  <h3 class="date">root@finlaymagui.re</h3>
 </section>
 
 <section id="overview" class="slide level2">
 <h1>Overview</h1>
 <ul>
-<li>Experiments as parameter optimisation problems</li>
-<li>Specific examples</li>
-<li>Bayesian Optimisation</li>
-<li>Step-through of SpearSeq</li>
-<li>Conclusions</li>
+<li>Parameter optimisation problems</li>
+<li>SpearSeq</li>
+<li>Recombinant gene expression</li>
 </ul>
 </section>
 <section><section id="parameter-optimisation-problems-in-biology" class="titleslide slide level1"><h1>Parameter Optimisation Problems in Biology</h1></section><section class="slide level2">
@@ -55,10 +51,9 @@
 <ul>
 <li>Codon optimisation</li>
 <li>PCR conditions</li>
-<li>Protein purification</li>
+<li>Protein purification (IPTG etc</li>
 <li>Chemical synthesis (reagent ratios/conditions/catalysts)</li>
-<li>Brewing</li>
-<li>Synthetic biology</li>
+<li>Optimising brewing</li>
 </ul>
 </section><section id="computational-problems" class="slide level2">
 <h1>Computational problems</h1>
@@ -66,12 +61,11 @@
 <li>Finding the optimal assembly (according to some metric)</li>
 <li>Training detection algorithms e.g. motifs, genes etc.</li>
 <li>Optimising clustering methods</li>
-<li>Really any non-convex optimisation problem</li>
 </ul>
 </section><section id="specific-examples" class="slide level2">
 <h1>Specific examples</h1>
 <ul>
-<li>Given a protein of interest, which sequence will maximise expression? (e.g. <span class="math">900<em>n</em><em>t</em> = 300</span> codons <span class="math"> ≈ 2<sup>300</sup></span> possible sequences)</li>
+<li>Given a protein of interest, which sequence will maximise expression? (e.g. <span class="math inline">900<em>n</em><em>t</em> = 300</span> codons <span class="math inline">≈2<sup>300</sup></span> possible sequences)</li>
 <li>Given a set of sequencing data, which preprocessing/assembly parameters will produce the most likely assembly?</li>
 </ul>
 </section></section>
@@ -132,11 +126,6 @@
 <section><section id="step-through-of-optimisation" class="titleslide slide level1"><h1>Step through of optimisation</h1></section><section class="slide level2">
 
 <figure>
-<img src="../assets/presentation/bayesopt/prior.png" alt="GP Prior" /><figcaption>GP Prior</figcaption>
-</figure>
-</section><section class="slide level2">
-
-<figure>
 <img src="../assets/presentation/bayesopt/initial_random.png" alt="Choose 3 Random Initial Values" /><figcaption>Choose 3 Random Initial Values</figcaption>
 </figure>
 </section><section class="slide level2">
@@ -145,17 +134,12 @@
 <img src="../assets/presentation/bayesopt/initial_random.png" />
 </figure>
 <figure>
-<img src="../assets/presentation/bayesopt/acquisiton_function.png" alt="Use Acquisition Function to select next point" /><figcaption>Use Acquisition Function to select next point</figcaption>
+<img src="../assets/presentation/bayesopt/acquisiton_function.png" alt="Use something called an AQ function to select" /><figcaption>Use something called an AQ function to select</figcaption>
 </figure>
 </section><section class="slide level2">
 
 <figure>
-<img src="../assets/presentation/bayesopt/acquistion_function2.png" alt="Tradeoff between exploration and exploitation for a different model" /><figcaption>Tradeoff between exploration and exploitation for a different model</figcaption>
-</figure>
-</section><section class="slide level2">
-
-<figure>
-<img src="../assets/presentation/bayesopt/opt1.png" alt="Update the GP fit, then select another point using Acquisition function" /><figcaption>Update the GP fit, then select another point using Acquisition function</figcaption>
+<img src="../assets/presentation/bayesopt/opt1.png" alt="Pick another point using the AQ and refit GP" /><figcaption>Pick another point using the AQ and refit GP</figcaption>
 </figure>
 </section><section class="slide level2">
 
@@ -185,15 +169,18 @@
 </section><section class="slide level2">
 
 <figure>
-<img src="../assets/presentation/bayesopt/opt7.png" alt="Until you are happy or have used your evaluation budget" /><figcaption>Until you are happy or have used your evaluation budget</figcaption>
+<img src="../assets/presentation/bayesopt/opt7.png" alt="Until things are good enough" /><figcaption>Until things are good enough</figcaption>
 </figure>
 </section><section class="slide level2">
 
+<figure>
+<img src="../assets/presentation/bayesopt/acquistion_function2.png" alt="Another demonstration of AQ function" /><figcaption>Another demonstration of AQ function</figcaption>
+</figure>
 </section></section>
 <section><section id="results" class="titleslide slide level1"><h1>Results</h1></section><section class="slide level2">
 
 <ul>
-<li>SpearSeq found the optimal (assembly parameters) for a test assembly in 4-5 trials even with simple priors and untuned acquistion functions.</li>
+<li>SpearSeq found the optimal K-mer value (and other assembly parameters) for a test assembly in 3 trials</li>
 <li>Bayesian Optimisation of synthetic construct expression found 5' UTR free fold energy and 5' UTR length are the two most importantfeatures in expression of the synthetic gene (Gonzalez, 2015)</li>
 </ul>
 </section></section>
@@ -201,30 +188,24 @@
     </div>
   </div>
 
-
   <script src="../reveal.js/lib/js/head.min.js"></script>
-  <script src="../reveal.js/js/reveal.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
 
   <script>
 
-      // Full list of configuration options available here:
+      // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        theme: 'simple', // available themes are in /css/theme
-        transition: 'none', // default/cube/page/concave/zoom/linear/fade/none
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
 
-        // Optional libraries used to extend on reveal.js
+        // Optional reveal.js plugins
         dependencies: [
           { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: '../reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-//          { src: '../reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
-//          { src: '../reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-]});
+          { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
     </script>
     </body>
 </html>
