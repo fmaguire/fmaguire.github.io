@@ -687,6 +687,7 @@ var data = [{MP: "Steve Brine", x: 0.1423, r: .45, colour: "blue", vocabulary: "
 {MP: "Graham Evans", x: 0.1754, r: .45, colour: "blue", vocabulary: "1754", party: "blue", info: "Graham Evans (Conservative): 1754"}];
 
 
+(function() {
       var bubbleLine = d3.select("g");
         bubbleLine.selectAll("circle")
             .data(data)
@@ -710,7 +711,7 @@ var data = [{MP: "Steve Brine", x: 0.1423, r: .45, colour: "blue", vocabulary: "
             d3.select(this)   
             .on("mouseover", function() {return tooltip.style("visibility", "visible");})
             .on("mousemove", function() {return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-        .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+            .on("mouseout", function(){return tooltip.style("visibility", "hidden");})}};
 
           </script>
 
