@@ -28,7 +28,7 @@
     <div class="slides">
 
 <section>
-  <h1 class="title">Bayesian Optimisation for Experimental Design</h1>
+  <h1 class="title">Efficient Experimental Design</h1>
   <h2 class="author">Finlay Maguire</h2>
   <h3 class="date">root@finlaymagui.re</h3>
 </section>
@@ -36,9 +36,11 @@
 <section id="overview" class="slide level2">
 <h1>Overview</h1>
 <ul>
-<li>Parameter optimisation problems</li>
-<li>SpearSeq</li>
-<li>Recombinant gene expression</li>
+<li>Experiments as parameter optimisation problems</li>
+<li>Specific examples</li>
+<li>Bayesian optimisation</li>
+<li>Step-through of SpearSeq</li>
+<li>Conclusions</li>
 </ul>
 </section>
 <section><section id="parameter-optimisation-problems-in-biology" class="titleslide slide level1"><h1>Parameter Optimisation Problems in Biology</h1></section><section class="slide level2">
@@ -51,9 +53,10 @@
 <ul>
 <li>Codon optimisation</li>
 <li>PCR conditions</li>
-<li>Protein purification (IPTG etc</li>
+<li>Protein purification</li>
 <li>Chemical synthesis (reagent ratios/conditions/catalysts)</li>
-<li>Optimising brewing</li>
+<li>Brewing</li>
+<li>Synthetic Biology</li>
 </ul>
 </section><section id="computational-problems" class="slide level2">
 <h1>Computational problems</h1>
@@ -61,6 +64,7 @@
 <li>Finding the optimal assembly (according to some metric)</li>
 <li>Training detection algorithms e.g. motifs, genes etc.</li>
 <li>Optimising clustering methods</li>
+<li>Really any optimisation problem (especially non-convex)</li>
 </ul>
 </section><section id="specific-examples" class="slide level2">
 <h1>Specific examples</h1>
@@ -123,7 +127,14 @@
 <img src="../assets/presentation/bayesopt/posterior2.png" />
 </figure>
 </section></section>
-<section><section id="step-through-of-optimisation" class="titleslide slide level1"><h1>Step through of optimisation</h1></section><section class="slide level2">
+<section><section id="step-through-of-optimisation" class="titleslide slide level1"><h1>Step through of optimisation</h1></section>
+ <section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/prior.png" alt="Choose 3 Random Initial Values" /><figcaption>Prior GP distribution</figcaption>
+</figure>
+</section>   
+    <section class="slide level2">
 
 <figure>
 <img src="../assets/presentation/bayesopt/initial_random.png" alt="Choose 3 Random Initial Values" /><figcaption>Choose 3 Random Initial Values</figcaption>
@@ -134,9 +145,16 @@
 <img src="../assets/presentation/bayesopt/initial_random.png" />
 </figure>
 <figure>
-<img src="../assets/presentation/bayesopt/acquisiton_function.png" alt="Use something called an AQ function to select" /><figcaption>Use something called an AQ function to select</figcaption>
+<img src="../assets/presentation/bayesopt/acquisiton_function.png" alt="Use something called an AQ function to select" /><figcaption>Use Acquisition Function to select next experimental point</figcaption>
 </figure>
-</section><section class="slide level2">
+</section>
+<section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/bayesopt/acquistion_function2.png" alt="Another demonstration of AQ function" /><figcaption>Acquistion Functions trade-off between exploration and exploitation</figcaption>
+</figure>
+</section>
+<section class="slide level2">
 
 <figure>
 <img src="../assets/presentation/bayesopt/opt1.png" alt="Pick another point using the AQ and refit GP" /><figcaption>Pick another point using the AQ and refit GP</figcaption>
@@ -169,22 +187,28 @@
 </section><section class="slide level2">
 
 <figure>
-<img src="../assets/presentation/bayesopt/opt7.png" alt="Until things are good enough" /><figcaption>Until things are good enough</figcaption>
-</figure>
-</section><section class="slide level2">
-
-<figure>
-<img src="../assets/presentation/bayesopt/acquistion_function2.png" alt="Another demonstration of AQ function" /><figcaption>Another demonstration of AQ function</figcaption>
+<img src="../assets/presentation/bayesopt/opt7.png" alt="Until things are good enough" /><figcaption>Until you are happy or have used your evaluation budget</figcaption>
 </figure>
 </section></section>
-<section><section id="results" class="titleslide slide level1"><h1>Results</h1></section><section class="slide level2">
+<section><section id="results" class="titleslide slide level1"><h1>Results</h1>
 
 <ul>
-<li>SpearSeq found the optimal K-mer value (and other assembly parameters) for a test assembly in 3 trials</li>
+<li>SpearSeq found the optimal assembly parameters for a test assembly in 4-5 trials</li>
 <li>Bayesian Optimisation of synthetic construct expression found 5' UTR free fold energy and 5' UTR length are the two most importantfeatures in expression of the synthetic gene (Gonzalez, 2015)</li>
 </ul>
-</section></section>
-<section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1></section></section>
+    </section></section>
+<section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1>
+ 
+<ul>
+<li>Never just use a grid search, even a naive random search is better (Bergstra and Bengio, 2012)</li>
+<li>Bayesian Optimisation for more efficient experimental design</li>
+<li>Not limited to a single parameter (or objective)</li>
+<li>Several recent relatively easy to use libraries and implementations  (e.g. GPyOpt, Spearmint)</li>
+<li>Tell me about experimental ideas that you think this might be applied to</li>
+</ul>   
+    
+    
+    </section></section>
     </div>
   </div>
 
