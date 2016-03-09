@@ -1,1 +1,7 @@
 *.swp
+
+# Jekyll ignores
+.jekyll-metadata
+.sass-cache/
+_site/
+_data/tokens.yml
