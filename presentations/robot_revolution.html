@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Finlay Maguire">
+  <title>I, for one, welcome our robot overlords.</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../reveal.js/css/theme/moon.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="../reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">I, for one, welcome our robot overlords.</h1>
+  <h2 class="author">Finlay Maguire</h2>
+  <h3 class="date">December 27th 2014</h3>
+</section>
+
+<section><section id="science-sucks" class="titleslide slide level1"><h1>Science sucks</h1></section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/human_bad.jpg" alt="Sucks to do" /><figcaption>Sucks to do</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/nhm.jpg" alt="Lots of bad science is being done" /><figcaption>Lots of bad science is being done</figcaption>
+</figure>
+</section></section>
+<section><section id="technology-is-improving" class="titleslide slide level1"><h1>Technology is improving</h1></section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/hiseq.jpg" alt="2nd generation DNA sequencers" /><figcaption>2nd generation DNA sequencers</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/minion.jpg" alt="3rd generation DNA sequencer" /><figcaption>3rd generation DNA sequencer</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<p>Aside about nanopore</p>
+<figure>
+<img src="../assets/presentation/xmas/nanopore.jpg" />
+</figure>
+</section></section>
+<section><section id="the-robots-are-rising" class="titleslide slide level1"><h1>The robots are rising</h1></section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/robot_2.jpg" alt="and that is cool" /><figcaption>and that is cool</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/robot_schemati.jpg" alt="very cool" /><figcaption>very cool</figcaption>
+</figure>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/robot_better.jpg" alt="and they are our friends" /><figcaption>and they are our friends</figcaption>
+</figure>
+</section><section id="but-that-is-still-not-enough" class="slide level2">
+<h1>But that is still not enough</h1>
+</section></section>
+<section><section id="time-to-get-saas-y" class="titleslide slide level1"><h1>Time to get SAAS-y</h1></section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/logo.png" alt="Science-as-a-Service" /><figcaption>Science-as-a-Service</figcaption>
+</figure>
+<ul>
+<li>web-based on-demand remote life science lab</li>
+<li>live results</li>
+<li>currently expanding... jobs available... tons of start-up funding</li>
+</ul>
+</section><section id="robots-internet" class="slide level2">
+<h1>Robots + Internet</h1>
+<pre><code>    run = requests.post(url(&quot;%s/runs&quot; % PROJECT), json.dumps({
+      &quot;run&quot;: {
+        &quot;title&quot;: &quot;Synthesize pri-F&quot;,
+        &quot;request&quot;: {
+          &quot;type&quot;: &quot;synthesis&quot;,
+          &quot;sequence&quot;: {
+            &quot;sequence&quot;: &quot;acatctgagcgagcgac&quot;,
+            &quot;name&quot;: &quot;pri-F&quot;
+          }
+        }
+      }
+    }), headers = headers).json()
+    print run[&#39;id&#39;]</code></pre>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/transcriptic.jpg" alt="Transcriptic" /><figcaption>Transcriptic</figcaption>
+</figure>
+</section><section id="robots-internet-life" class="slide level2">
+<h1>Robots + Internet + Life</h1>
+<pre><code>    {
+      &quot;title&quot;: &quot;Incubate bacteria&quot;,
+      &quot;protocol&quot;: {
+        &quot;refs&quot;: {
+          &quot;plate1&quot;: {
+            &quot;id&quot;: &quot;ct139xhhctkphy&quot;,
+            &quot;store&quot;: { &quot;where&quot;: &quot;cold_4&quot; }
+          }
+        },
+        &quot;instructions&quot;: [
+          {
+            &quot;op&quot;: &quot;incubate&quot;,
+            &quot;object&quot;: &quot;plate1&quot;,
+            &quot;where&quot;: &quot;warm_37&quot;,
+            &quot;duration&quot;: &quot;2:hour&quot;,
+            &quot;shaking&quot;: true
+          }
+        ]
+      }
+    }</code></pre>
+</section><section class="slide level2">
+
+<figure>
+<img src="../assets/presentation/xmas/matrix.jpg" />
+</figure>
+</section></section>
+<section><section id="in-summary" class="titleslide slide level1"><h1>In summary:</h1></section><section class="slide level2">
+
+<ul>
+<li>Science sucks to do</li>
+<li>Robots are awesome</li>
+<li>Robots + the internet are even more awesome</li>
+<li>Robots + internet + machine learning + utilitarian political philosophies = Bow down human worms.</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: '../reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
