@@ -2,6 +2,7 @@
 title: Getting started in bioinformatics
 author: Finlay Maguire
 permalink: /posts/starting-bioinformatics
+tags: featured
 categories: posts
 background-image: dnacc.jpg
 excerpt: A brief guide to getting started in bioinformatics
