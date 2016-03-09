@@ -1,8 +1,11 @@
-If want you've stumbled across this and would like some specific advice to your research area
-please feel free to e-mail me directly at [root@finlaymagui.re](mailto:root@finlaymagui.re) and I'll
-see whether I can offer anything useful!
-
-# Getting started in bioinformatics
+---
+title: Getting started in bioinformatics
+author: Finlay Maguire
+permalink: /posts/starting-bioinformatics
+categories: posts
+background-image: dnacc.jpg
+excerpt: A brief guide to getting started in bioinformatics
+---
 
 I came to bioinformatics from a mostly non-computer science background.
 Due to this, I occasionally, get asked by colleagues and students for advice on
