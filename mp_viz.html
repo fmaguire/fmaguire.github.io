@@ -1,0 +1,936 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>finlaymagui.re</title>
+    <link rel="icon" type="image/ico" href="assets/gaussian_favicon.ico">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <link href="stylesheets/visualisation.css" rel="stylesheet" type="text/css">
+
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>finlaymagui.re</h1>
+        <p class="view"><img src="assets/estonia.jpg" alt="Personal picture from Estonia" height="70%" width="70%"></p>
+        <p class='view'><a href="https://github.com/fmaguire/CV/raw/master/Finlay_Maguire_CV.pdf">CV</a></p>
+        <p class="view"><a href="mailto:root@finlaymagui.re">root@finlaymagui.re</a></p>
+        <p class="view"><a href="code.html">Code</a></p> 
+        <p class="view"><a href="publications.html">Publications</a></p>
+        <p class="view"><a href="presentations.html">Presentations</a></p>
+        <p class="view"><a href="posts.html">Posts</a></p>
+        <p class="view"><a href="index.html">Main Page</a></p>
+      </header>
+      <section>
+
+    <h2>MPs by Lemmatised Vocabulary Since GE2015</h2>
+    <svg width=100% height=1024px></svg> 
+
+
+      </section>
+    </div>
+    <script src="scripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-55068206-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+          <link rel="shortcut icon" href="http://www.exemple.com/favicon.ico" type="image/icon"> <link rel="icon" href="assets/" type="image/icon">
+
+    <script type="text/javascript">
+
+
+(function() {
+  //D3 program to fit circles of different sizes along a 
+  //horizontal dimension, shifting them up and down
+  //vertically only as much as is necessary to make
+  //them all fit without overlap.
+  //By Amelia Bellamy-Royds, in response to 
+  //http://stackoverflow.com/questions/20912081/d3-js-circle-packing-along-a-line
+  //inspired by
+  //http://www.nytimes.com/interactive/2013/05/25/sunday-review/corporate-taxes.html
+  //Freely released for any purpose under Creative Commons Attribution licence: http://creativecommons.org/licenses/by/3.0/
+  //Author name and link to this page is sufficient attribution.
+
+var data2 = [{MP: "Steve Brine", x: 0.1423, r: .45, colour: "blue", vocabulary: "1423", party: "blue", info: "Steve Brine (Conservative): 1423"},
+{MP: "Rob Wilson", x: 0.091, r: .45, colour: "blue", vocabulary: "910", party: "blue", info: "Rob Wilson (Conservative): 910"},
+{MP: "Brendan O Hara", x: 0.1839, r: .45, colour: "yellow", vocabulary: "1839", party: "yellow", info: "Brendan O Hara (Scottish National Party): 1839"},
+{MP: "Ed Miliband", x: 0.1823, r: .45, colour: "red", vocabulary: "1823", party: "red", info: "Ed Miliband (Labour): 1823"}];
+
+
+var data = [{MP: "Steve Brine", x: 0.1423, r: .45, colour: "blue", vocabulary: "1423", party: "blue", info: "Steve Brine (Conservative): 1423"},
+{MP: "Rob Wilson", x: 0.091, r: .45, colour: "blue", vocabulary: "910", party: "blue", info: "Rob Wilson (Conservative): 910"},
+{MP: "Brendan O Hara", x: 0.1839, r: .45, colour: "yellow", vocabulary: "1839", party: "yellow", info: "Brendan O Hara (Scottish National Party): 1839"},
+{MP: "Ed Miliband", x: 0.1823, r: .45, colour: "red", vocabulary: "1823", party: "red", info: "Ed Miliband (Labour): 1823"},
+{MP: "Judith Cummins", x: 0.0712, r: .45, colour: "red", vocabulary: "712", party: "red", info: "Judith Cummins (Labour): 712"},
+{MP: "Sam Gyimah", x: 0.1462, r: .45, colour: "blue", vocabulary: "1462", party: "blue", info: "Sam Gyimah (Conservative): 1462"},
+{MP: "Jo Johnson", x: 0.1077, r: .45, colour: "blue", vocabulary: "1077", party: "blue", info: "Jo Johnson (Conservative): 1077"},
+{MP: "Laurence Robertson", x: 0.0673, r: .45, colour: "blue", vocabulary: "673", party: "blue", info: "Laurence Robertson (Conservative): 673"},
+{MP: "Kevin Hollinrake", x: 0.1588, r: .45, colour: "blue", vocabulary: "1588", party: "blue", info: "Kevin Hollinrake (Conservative): 1588"},
+{MP: "Andrew Selous", x: 0.1554, r: .45, colour: "blue", vocabulary: "1554", party: "blue", info: "Andrew Selous (Conservative): 1554"},
+{MP: "Andy McDonald", x: 0.1458, r: .45, colour: "red", vocabulary: "1458", party: "red", info: "Andy McDonald (Labour): 1458"},
+{MP: "Andy Burnham", x: 0.302, r: .45, colour: "red", vocabulary: "3020", party: "red", info: "Andy Burnham (Labour): 3020"},
+{MP: "Ian Mearns", x: 0.0664, r: .45, colour: "red", vocabulary: "664", party: "red", info: "Ian Mearns (Labour): 664"},
+{MP: "Matthew Pennycook", x: 0.146, r: .45, colour: "red", vocabulary: "1460", party: "red", info: "Matthew Pennycook (Labour): 1460"},
+{MP: "Marie Rimmer", x: 0.1653, r: .45, colour: "red", vocabulary: "1653", party: "red", info: "Marie Rimmer (Labour): 1653"},
+{MP: "Rupa Huq", x: 0.2428, r: .45, colour: "red", vocabulary: "2428", party: "red", info: "Rupa Huq (Labour): 2428"},
+{MP: "Mhairi Black", x: 0.0943, r: .45, colour: "yellow", vocabulary: "943", party: "yellow", info: "Mhairi Black (Scottish National Party): 943"},
+{MP: "Helen Whately", x: 0.1691, r: .45, colour: "blue", vocabulary: "1691", party: "blue", info: "Helen Whately (Conservative): 1691"},
+{MP: "Douglas Chapman", x: 0.0867, r: .45, colour: "yellow", vocabulary: "867", party: "yellow", info: "Douglas Chapman (Scottish National Party): 867"},
+{MP: "Angus MacNeil", x: 0.2301, r: .45, colour: "yellow", vocabulary: "2301", party: "yellow", info: "Angus MacNeil (Scottish National Party): 2301"},
+{MP: "Caroline Spelman", x: 0.1846, r: .45, colour: "blue", vocabulary: "1846", party: "blue", info: "Caroline Spelman (Conservative): 1846"},
+{MP: "Marcus Fysh", x: 0.1556, r: .45, colour: "blue", vocabulary: "1556", party: "blue", info: "Marcus Fysh (Conservative): 1556"},
+{MP: "Bernard Jenkin", x: 0.2251, r: .45, colour: "blue", vocabulary: "2251", party: "blue", info: "Bernard Jenkin (Conservative): 2251"},
+{MP: "Chris Grayling", x: 0.5463, r: .45, colour: "blue", vocabulary: "5463", party: "blue", info: "Chris Grayling (Conservative): 5463"},
+{MP: "Wendy Morton", x: 0.178, r: .45, colour: "blue", vocabulary: "1780", party: "blue", info: "Wendy Morton (Conservative): 1780"},
+{MP: "Bridget Phillipson", x: 0.0349, r: .45, colour: "red", vocabulary: "349", party: "red", info: "Bridget Phillipson (Labour): 349"},
+{MP: "David Mackintosh", x: 0.0974, r: .45, colour: "blue", vocabulary: "974", party: "blue", info: "David Mackintosh (Conservative): 974"},
+{MP: "Caroline Nokes", x: 0.1281, r: .45, colour: "blue", vocabulary: "1281", party: "blue", info: "Caroline Nokes (Conservative): 1281"},
+{MP: "John Martin McDonnell", x: 0.287, r: .45, colour: "red", vocabulary: "2870", party: "red", info: "John Martin McDonnell (Labour): 2870"},
+{MP: "Dennis Skinner", x: 0.0947, r: .45, colour: "red", vocabulary: "947", party: "red", info: "Dennis Skinner (Labour): 947"},
+{MP: "Imran Hussain", x: 0.1148, r: .45, colour: "red", vocabulary: "1148", party: "red", info: "Imran Hussain (Labour): 1148"},
+{MP: "Chris Green", x: 0.1193, r: .45, colour: "blue", vocabulary: "1193", party: "blue", info: "Chris Green (Conservative): 1193"},
+{MP: "Adrian Bailey", x: 0.1038, r: .45, colour: "red", vocabulary: "1038", party: "red", info: "Adrian Bailey (Labour): 1038"},
+{MP: "Calum Kerr", x: 0.1072, r: .45, colour: "yellow", vocabulary: "1072", party: "yellow", info: "Calum Kerr (Scottish National Party): 1072"},
+{MP: "Stewart Hosie", x: 0.2761, r: .45, colour: "yellow", vocabulary: "2761", party: "yellow", info: "Stewart Hosie (Scottish National Party): 2761"},
+{MP: "Helen Hayes", x: 0.1313, r: .45, colour: "red", vocabulary: "1313", party: "red", info: "Helen Hayes (Labour): 1313"},
+{MP: "Thangam Debbonaire", x: 0.1009, r: .45, colour: "red", vocabulary: "1009", party: "red", info: "Thangam Debbonaire (Labour): 1009"},
+{MP: "Keir Starmer", x: 0.2457, r: .45, colour: "red", vocabulary: "2457", party: "red", info: "Keir Starmer (Labour): 2457"},
+{MP: "Sarah Champion", x: 0.1332, r: .45, colour: "red", vocabulary: "1332", party: "red", info: "Sarah Champion (Labour): 1332"},
+{MP: "Jo Stevens", x: 0.1096, r: .45, colour: "red", vocabulary: "1096", party: "red", info: "Jo Stevens (Labour): 1096"},
+{MP: "Sue Hayman", x: 0.1345, r: .45, colour: "red", vocabulary: "1345", party: "red", info: "Sue Hayman (Labour): 1345"},
+{MP: "Julian Lewis", x: 0.211, r: .45, colour: "blue", vocabulary: "2110", party: "blue", info: "Julian Lewis (Conservative): 2110"},
+{MP: "Ian Blackford", x: 0.2715, r: .45, colour: "yellow", vocabulary: "2715", party: "yellow", info: "Ian Blackford (Scottish National Party): 2715"},
+{MP: "Nigel Evans", x: 0.1421, r: .45, colour: "blue", vocabulary: "1421", party: "blue", info: "Nigel Evans (Conservative): 1421"},
+{MP: "Tobias Ellwood", x: 0.2451, r: .45, colour: "blue", vocabulary: "2451", party: "blue", info: "Tobias Ellwood (Conservative): 2451"},
+{MP: "Mark Spencer", x: 0.0971, r: .45, colour: "blue", vocabulary: "971", party: "blue", info: "Mark Spencer (Conservative): 971"},
+{MP: "Amanda Solloway", x: 0.0862, r: .45, colour: "blue", vocabulary: "862", party: "blue", info: "Amanda Solloway (Conservative): 862"},
+{MP: "James Gray", x: 0.1255, r: .45, colour: "blue", vocabulary: "1255", party: "blue", info: "James Gray (Conservative): 1255"},
+{MP: "Rosie Winterton", x: 0.0007, r: .45, colour: "red", vocabulary: "7", party: "red", info: "Rosie Winterton (Labour): 7"},
+{MP: "Crispin Blunt", x: 0.1407, r: .45, colour: "blue", vocabulary: "1407", party: "blue", info: "Crispin Blunt (Conservative): 1407"},
+{MP: "Jane Ellison", x: 0.2269, r: .45, colour: "blue", vocabulary: "2269", party: "blue", info: "Jane Ellison (Conservative): 2269"},
+{MP: "Jack Dromey", x: 0.2053, r: .45, colour: "red", vocabulary: "2053", party: "red", info: "Jack Dromey (Labour): 2053"},
+{MP: "Alison Thewliss", x: 0.2331, r: .45, colour: "yellow", vocabulary: "2331", party: "yellow", info: "Alison Thewliss (Scottish National Party): 2331"},
+{MP: "Stephen Phillips", x: 0.2917, r: .45, colour: "blue", vocabulary: "2917", party: "blue", info: "Stephen Phillips (Conservative): 2917"},
+{MP: "Ed Vaizey", x: 0.2316, r: .45, colour: "blue", vocabulary: "2316", party: "blue", info: "Ed Vaizey (Conservative): 2316"},
+{MP: "Steven Baker", x: 0.1521, r: .45, colour: "blue", vocabulary: "1521", party: "blue", info: "Steven Baker (Conservative): 1521"},
+{MP: "Jon Cruddas", x: 0.065, r: .45, colour: "red", vocabulary: "650", party: "red", info: "Jon Cruddas (Labour): 650"},
+{MP: "Simon Burns", x: 0.1246, r: .45, colour: "blue", vocabulary: "1246", party: "blue", info: "Simon Burns (Conservative): 1246"},
+{MP: "Jim Dowd", x: 0.0753, r: .45, colour: "red", vocabulary: "753", party: "red", info: "Jim Dowd (Labour): 753"},
+{MP: "David Amess", x: 0.2049, r: .45, colour: "blue", vocabulary: "2049", party: "blue", info: "David Amess (Conservative): 2049"},
+{MP: "Mark Tami", x: 0.0669, r: .45, colour: "red", vocabulary: "669", party: "red", info: "Mark Tami (Labour): 669"},
+{MP: "Ann Clwyd", x: 0.1282, r: .45, colour: "red", vocabulary: "1282", party: "red", info: "Ann Clwyd (Labour): 1282"},
+{MP: "Ian Lucas", x: 0.1078, r: .45, colour: "red", vocabulary: "1078", party: "red", info: "Ian Lucas (Labour): 1078"},
+{MP: "Stephen Barclay", x: 0.0002, r: .45, colour: "blue", vocabulary: "2", party: "blue", info: "Stephen Barclay (Conservative): 2"},
+{MP: "Ben Howlett", x: 0.1906, r: .45, colour: "blue", vocabulary: "1906", party: "blue", info: "Ben Howlett (Conservative): 1906"},
+{MP: "Paul Farrelly", x: 0.1091, r: .45, colour: "red", vocabulary: "1091", party: "red", info: "Paul Farrelly (Labour): 1091"},
+{MP: "Pat Glass", x: 0.1, r: .45, colour: "red", vocabulary: "1000", party: "red", info: "Pat Glass (Labour): 1000"},
+{MP: "John Howell", x: 0.1389, r: .45, colour: "blue", vocabulary: "1389", party: "blue", info: "John Howell (Conservative): 1389"},
+{MP: "Gerald Kaufman", x: 0.1565, r: .45, colour: "red", vocabulary: "1565", party: "red", info: "Gerald Kaufman (Labour): 1565"},
+{MP: "Geoffrey Clifton-Brown", x: 0.1408, r: .45, colour: "blue", vocabulary: "1408", party: "blue", info: "Geoffrey Clifton-Brown (Conservative): 1408"},
+{MP: "James Morris", x: 0.1206, r: .45, colour: "blue", vocabulary: "1206", party: "blue", info: "James Morris (Conservative): 1206"},
+{MP: "Lindsay Hoyle", x: 0.2057, r: .45, colour: "red", vocabulary: "2057", party: "red", info: "Lindsay Hoyle (Labour): 2057"},
+{MP: "Craig Williams", x: 0.1303, r: .45, colour: "blue", vocabulary: "1303", party: "blue", info: "Craig Williams (Conservative): 1303"},
+{MP: "Gavin Robinson", x: 0.2177, r: .45, colour: "darkblue", vocabulary: "2177", party: "darkblue", info: "Gavin Robinson (DUP): 2177"},
+{MP: "Oliver Letwin", x: 0.0445, r: .45, colour: "blue", vocabulary: "445", party: "blue", info: "Oliver Letwin (Conservative): 445"},
+{MP: "Mark Hendrick", x: 0.0459, r: .45, colour: "red", vocabulary: "459", party: "red", info: "Mark Hendrick (Labour): 459"},
+{MP: "Karen Buck", x: 0.1872, r: .45, colour: "red", vocabulary: "1872", party: "red", info: "Karen Buck (Labour): 1872"},
+{MP: "Alan Haselhurst", x: 0.0968, r: .45, colour: "blue", vocabulary: "968", party: "blue", info: "Alan Haselhurst (Conservative): 968"},
+{MP: "Dominic Grieve", x: 0.1881, r: .45, colour: "blue", vocabulary: "1881", party: "blue", info: "Dominic Grieve (Conservative): 1881"},
+{MP: "Ruth Cadbury", x: 0.1872, r: .45, colour: "red", vocabulary: "1872", party: "red", info: "Ruth Cadbury (Labour): 1872"},
+{MP: "Damian Green", x: 0.1615, r: .45, colour: "blue", vocabulary: "1615", party: "blue", info: "Damian Green (Conservative): 1615"},
+{MP: "Neil Gray", x: 0.181, r: .45, colour: "yellow", vocabulary: "1810", party: "yellow", info: "Neil Gray (Scottish National Party): 1810"},
+{MP: "Jim Shannon", x: 0.3761, r: .45, colour: "darkblue", vocabulary: "3761", party: "darkblue", info: "Jim Shannon (DUP): 3761"},
+{MP: "Lucy Frazer", x: 0.1666, r: .45, colour: "blue", vocabulary: "1666", party: "blue", info: "Lucy Frazer (Conservative): 1666"},
+{MP: "Caroline Lucas", x: 0.3082, r: .45, colour: "green", vocabulary: "3082", party: "green", info: "Caroline Lucas (Green): 3082"},
+{MP: "Stephen Hepburn", x: 0.0197, r: .45, colour: "red", vocabulary: "197", party: "red", info: "Stephen Hepburn (Labour): 197"},
+{MP: "Nusrat Ghani", x: 0.1263, r: .45, colour: "blue", vocabulary: "1263", party: "blue", info: "Nusrat Ghani (Conservative): 1263"},
+{MP: "Daniel Zeichner", x: 0.2675, r: .45, colour: "red", vocabulary: "2675", party: "red", info: "Daniel Zeichner (Labour): 2675"},
+{MP: "Chris Stephens", x: 0.235, r: .45, colour: "yellow", vocabulary: "2350", party: "yellow", info: "Chris Stephens (Scottish National Party): 2350"},
+{MP: "Keith Simpson", x: 0.0459, r: .45, colour: "blue", vocabulary: "459", party: "blue", info: "Keith Simpson (Conservative): 459"},
+{MP: "Angela Rayner", x: 0.1323, r: .45, colour: "red", vocabulary: "1323", party: "red", info: "Angela Rayner (Labour): 1323"},
+{MP: "John Hayes", x: 0.1049, r: .45, colour: "blue", vocabulary: "1049", party: "blue", info: "John Hayes (Conservative): 1049"},
+{MP: "Richard Benyon", x: 0.1027, r: .45, colour: "blue", vocabulary: "1027", party: "blue", info: "Richard Benyon (Conservative): 1027"},
+{MP: "Liz Saville-Roberts", x: 0.1674, r: .45, colour: "lawngreen", vocabulary: "1674", party: "lawngreen", info: "Liz Saville-Roberts (Plaid Cymru): 1674"},
+{MP: "Julian Knight", x: 0.1933, r: .45, colour: "blue", vocabulary: "1933", party: "blue", info: "Julian Knight (Conservative): 1933"},
+{MP: "Karen Bradley", x: 0.1198, r: .45, colour: "blue", vocabulary: "1198", party: "blue", info: "Karen Bradley (Conservative): 1198"},
+{MP: "John Glen", x: 0.1773, r: .45, colour: "blue", vocabulary: "1773", party: "blue", info: "John Glen (Conservative): 1773"},
+{MP: "Greg Clark", x: 0.2897, r: .45, colour: "blue", vocabulary: "2897", party: "blue", info: "Greg Clark (Conservative): 2897"},
+{MP: "Mark Harper", x: 0.0001, r: .45, colour: "blue", vocabulary: "1", party: "blue", info: "Mark Harper (Conservative): 1"},
+{MP: "Luciana Berger", x: 0.1216, r: .45, colour: "red", vocabulary: "1216", party: "red", info: "Luciana Berger (Labour): 1216"},
+{MP: "Peter Dowd", x: 0.2021, r: .45, colour: "red", vocabulary: "2021", party: "red", info: "Peter Dowd (Labour): 2021"},
+{MP: "Richard Drax", x: 0.1786, r: .45, colour: "blue", vocabulary: "1786", party: "blue", info: "Richard Drax (Conservative): 1786"},
+{MP: "Gareth Thomas", x: 0.1138, r: .45, colour: "red", vocabulary: "1138", party: "red", info: "Gareth Thomas (Labour): 1138"},
+{MP: "Kirsty Blackman", x: 0.1221, r: .45, colour: "yellow", vocabulary: "1221", party: "yellow", info: "Kirsty Blackman (Scottish National Party): 1221"},
+{MP: "Karen Lumley", x: 0.0278, r: .45, colour: "blue", vocabulary: "278", party: "blue", info: "Karen Lumley (Conservative): 278"},
+{MP: "Kevin Foster", x: 0.2428, r: .45, colour: "blue", vocabulary: "2428", party: "blue", info: "Kevin Foster (Conservative): 2428"},
+{MP: "Steven Paterson", x: 0.1116, r: .45, colour: "yellow", vocabulary: "1116", party: "yellow", info: "Steven Paterson (Scottish National Party): 1116"},
+{MP: "Andrew Gwynne", x: 0.2605, r: .45, colour: "red", vocabulary: "2605", party: "red", info: "Andrew Gwynne (Labour): 2605"},
+{MP: "Nick Smith", x: 0.0709, r: .45, colour: "red", vocabulary: "709", party: "red", info: "Nick Smith (Labour): 709"},
+{MP: "Nick Thomas-Symonds", x: 0.1554, r: .45, colour: "red", vocabulary: "1554", party: "red", info: "Nick Thomas-Symonds (Labour): 1554"},
+{MP: "Mike Penning", x: 0.2173, r: .45, colour: "blue", vocabulary: "2173", party: "blue", info: "Mike Penning (Conservative): 2173"},
+{MP: "Nadhim Zahawi", x: 0.101, r: .45, colour: "blue", vocabulary: "1010", party: "blue", info: "Nadhim Zahawi (Conservative): 1010"},
+{MP: "Tania Mathias", x: 0.1682, r: .45, colour: "blue", vocabulary: "1682", party: "blue", info: "Tania Mathias (Conservative): 1682"},
+{MP: "Roberta Blackman-Woods", x: 0.1026, r: .45, colour: "red", vocabulary: "1026", party: "red", info: "Roberta Blackman-Woods (Labour): 1026"},
+{MP: "Steve McCabe", x: 0.1902, r: .45, colour: "red", vocabulary: "1902", party: "red", info: "Steve McCabe (Labour): 1902"},
+{MP: "Rebecca Harris", x: 0.0923, r: .45, colour: "blue", vocabulary: "923", party: "blue", info: "Rebecca Harris (Conservative): 923"},
+{MP: "Drew Hendry", x: 0.1868, r: .45, colour: "yellow", vocabulary: "1868", party: "yellow", info: "Drew Hendry (Scottish National Party): 1868"},
+{MP: "Chris Skidmore", x: 0.046, r: .45, colour: "blue", vocabulary: "460", party: "blue", info: "Chris Skidmore (Conservative): 460"},
+{MP: "John Whittingdale", x: 0.2602, r: .45, colour: "blue", vocabulary: "2602", party: "blue", info: "John Whittingdale (Conservative): 2602"},
+{MP: "Fabian Hamilton", x: 0.04, r: .45, colour: "red", vocabulary: "400", party: "red", info: "Fabian Hamilton (Labour): 400"},
+{MP: "Nick Gibb", x: 0.1845, r: .45, colour: "blue", vocabulary: "1845", party: "blue", info: "Nick Gibb (Conservative): 1845"},
+{MP: "Mark Menzies", x: 0.1114, r: .45, colour: "blue", vocabulary: "1114", party: "blue", info: "Mark Menzies (Conservative): 1114"},
+{MP: "Suella Fernandes", x: 0.2275, r: .45, colour: "blue", vocabulary: "2275", party: "blue", info: "Suella Fernandes (Conservative): 2275"},
+{MP: "Simon Hoare", x: 0.2744, r: .45, colour: "blue", vocabulary: "2744", party: "blue", info: "Simon Hoare (Conservative): 2744"},
+{MP: "Antoinette Sandbach", x: 0.1779, r: .45, colour: "blue", vocabulary: "1779", party: "blue", info: "Antoinette Sandbach (Conservative): 1779"},
+{MP: "Alun Cairns", x: 0.1288, r: .45, colour: "blue", vocabulary: "1288", party: "blue", info: "Alun Cairns (Conservative): 1288"},
+{MP: "Mark Williams", x: 0.1644, r: .45, colour: "orange", vocabulary: "1644", party: "orange", info: "Mark Williams (Liberal Democrat): 1644"},
+{MP: "Bob Stewart", x: 0.153, r: .45, colour: "blue", vocabulary: "1530", party: "blue", info: "Bob Stewart (Conservative): 1530"},
+{MP: "Gisela Stuart", x: 0.1338, r: .45, colour: "red", vocabulary: "1338", party: "red", info: "Gisela Stuart (Labour): 1338"},
+{MP: "Teresa Pearce", x: 0.1047, r: .45, colour: "red", vocabulary: "1047", party: "red", info: "Teresa Pearce (Labour): 1047"},
+{MP: "Stephen Timms", x: 0.1881, r: .45, colour: "red", vocabulary: "1881", party: "red", info: "Stephen Timms (Labour): 1881"},
+{MP: "Tristram Hunt", x: 0.2115, r: .45, colour: "red", vocabulary: "2115", party: "red", info: "Tristram Hunt (Labour): 2115"},
+{MP: "James Cleverly", x: 0.1439, r: .45, colour: "blue", vocabulary: "1439", party: "blue", info: "James Cleverly (Conservative): 1439"},
+{MP: "Greg Mulholland", x: 0.1418, r: .45, colour: "orange", vocabulary: "1418", party: "orange", info: "Greg Mulholland (Liberal Democrat): 1418"},
+{MP: "Stephen Gethins", x: 0.1455, r: .45, colour: "yellow", vocabulary: "1455", party: "yellow", info: "Stephen Gethins (Scottish National Party): 1455"},
+{MP: "Heidi Alexander", x: 0.1729, r: .45, colour: "red", vocabulary: "1729", party: "red", info: "Heidi Alexander (Labour): 1729"},
+{MP: "Jack Lopresti", x: 0.0956, r: .45, colour: "blue", vocabulary: "956", party: "blue", info: "Jack Lopresti (Conservative): 956"},
+{MP: "Steve Double", x: 0.0962, r: .45, colour: "blue", vocabulary: "962", party: "blue", info: "Steve Double (Conservative): 962"},
+{MP: "Owen Thompson", x: 0.1197, r: .45, colour: "yellow", vocabulary: "1197", party: "yellow", info: "Owen Thompson (Scottish National Party): 1197"},
+{MP: "Patricia Gibson", x: 0.2088, r: .45, colour: "yellow", vocabulary: "2088", party: "yellow", info: "Patricia Gibson (Scottish National Party): 2088"},
+{MP: "David Warburton", x: 0.074, r: .45, colour: "blue", vocabulary: "740", party: "blue", info: "David Warburton (Conservative): 740"},
+{MP: "Emma Reynolds", x: 0.1708, r: .45, colour: "red", vocabulary: "1708", party: "red", info: "Emma Reynolds (Labour): 1708"},
+{MP: "Charlotte Leslie", x: 0.0691, r: .45, colour: "blue", vocabulary: "691", party: "blue", info: "Charlotte Leslie (Conservative): 691"},
+{MP: "Kevin Barron", x: 0.0683, r: .45, colour: "red", vocabulary: "683", party: "red", info: "Kevin Barron (Labour): 683"},
+{MP: "Mark Pawsey", x: 0.1358, r: .45, colour: "blue", vocabulary: "1358", party: "blue", info: "Mark Pawsey (Conservative): 1358"},
+{MP: "Victoria Prentis", x: 0.1039, r: .45, colour: "blue", vocabulary: "1039", party: "blue", info: "Victoria Prentis (Conservative): 1039"},
+{MP: "Caroline Dinenage", x: 0.2148, r: .45, colour: "blue", vocabulary: "2148", party: "blue", info: "Caroline Dinenage (Conservative): 2148"},
+{MP: "Clive Betts", x: 0.177, r: .45, colour: "red", vocabulary: "1770", party: "red", info: "Clive Betts (Labour): 1770"},
+{MP: "Fiona Mactaggart", x: 0.1615, r: .45, colour: "red", vocabulary: "1615", party: "red", info: "Fiona Mactaggart (Labour): 1615"},
+{MP: "Stephen Crabb", x: 0.1358, r: .45, colour: "blue", vocabulary: "1358", party: "blue", info: "Stephen Crabb (Conservative): 1358"},
+{MP: "Caroline Flint", x: 0.179, r: .45, colour: "red", vocabulary: "1790", party: "red", info: "Caroline Flint (Labour): 1790"},
+{MP: "Jeremy Lefroy", x: 0.2422, r: .45, colour: "blue", vocabulary: "2422", party: "blue", info: "Jeremy Lefroy (Conservative): 2422"},
+{MP: "Luke Hall", x: 0.1087, r: .45, colour: "blue", vocabulary: "1087", party: "blue", info: "Luke Hall (Conservative): 1087"},
+{MP: "George Kerevan", x: 0.1812, r: .45, colour: "yellow", vocabulary: "1812", party: "yellow", info: "George Kerevan (Scottish National Party): 1812"},
+{MP: "Matthew Offord", x: 0.1227, r: .45, colour: "blue", vocabulary: "1227", party: "blue", info: "Matthew Offord (Conservative): 1227"},
+{MP: "Stuart McDonald", x: 0.2423, r: .45, colour: "yellow", vocabulary: "2423", party: "yellow", info: "Stuart McDonald (Scottish National Party): 2423"},
+{MP: "Andrew Mitchell", x: 0.1019, r: .45, colour: "blue", vocabulary: "1019", party: "blue", info: "Andrew Mitchell (Conservative): 1019"},
+{MP: "Peter Bone", x: 0.1791, r: .45, colour: "blue", vocabulary: "1791", party: "blue", info: "Peter Bone (Conservative): 1791"},
+{MP: "Anne Milton", x: 0.0002, r: .45, colour: "blue", vocabulary: "2", party: "blue", info: "Anne Milton (Conservative): 2"},
+{MP: "Philip Hollobone", x: 0.1551, r: .45, colour: "blue", vocabulary: "1551", party: "blue", info: "Philip Hollobone (Conservative): 1551"},
+{MP: "Tracey Crouch", x: 0.177, r: .45, colour: "blue", vocabulary: "1770", party: "blue", info: "Tracey Crouch (Conservative): 1770"},
+{MP: "Nicky Morgan", x: 0.3306, r: .45, colour: "blue", vocabulary: "3306", party: "blue", info: "Nicky Morgan (Conservative): 3306"},
+{MP: "Conor McGinn", x: 0.0855, r: .45, colour: "red", vocabulary: "855", party: "red", info: "Conor McGinn (Labour): 855"},
+{MP: "Richard Burgon", x: 0.1259, r: .45, colour: "red", vocabulary: "1259", party: "red", info: "Richard Burgon (Labour): 1259"},
+{MP: "Chi Onwurah", x: 0.1428, r: .45, colour: "red", vocabulary: "1428", party: "red", info: "Chi Onwurah (Labour): 1428"},
+{MP: "Andrew Stephenson", x: 0.1582, r: .45, colour: "blue", vocabulary: "1582", party: "blue", info: "Andrew Stephenson (Conservative): 1582"},
+{MP: "Nigel Adams", x: 0.1039, r: .45, colour: "blue", vocabulary: "1039", party: "blue", info: "Nigel Adams (Conservative): 1039"},
+{MP: "Rosie Cooper", x: 0.0109, r: .45, colour: "red", vocabulary: "109", party: "red", info: "Rosie Cooper (Labour): 109"},
+{MP: "Mike Kane", x: 0.0605, r: .45, colour: "red", vocabulary: "605", party: "red", info: "Mike Kane (Labour): 605"},
+{MP: "Philippa Whitford", x: 0.2231, r: .45, colour: "yellow", vocabulary: "2231", party: "yellow", info: "Philippa Whitford (Scottish National Party): 2231"},
+{MP: "Phil Wilson", x: 0.1144, r: .45, colour: "red", vocabulary: "1144", party: "red", info: "Phil Wilson (Labour): 1144"},
+{MP: "Nick Herbert", x: 0.0996, r: .45, colour: "blue", vocabulary: "996", party: "blue", info: "Nick Herbert (Conservative): 996"},
+{MP: "Ronnie Cowan", x: 0.1599, r: .45, colour: "yellow", vocabulary: "1599", party: "yellow", info: "Ronnie Cowan (Scottish National Party): 1599"},
+{MP: "Mark Field", x: 0.1569, r: .45, colour: "blue", vocabulary: "1569", party: "blue", info: "Mark Field (Conservative): 1569"},
+{MP: "Henry Bellingham", x: 0.144, r: .45, colour: "blue", vocabulary: "1440", party: "blue", info: "Henry Bellingham (Conservative): 1440"},
+{MP: "Iain Duncan Smith", x: 0.2441, r: .45, colour: "blue", vocabulary: "2441", party: "blue", info: "Iain Duncan Smith (Conservative): 2441"},
+{MP: "Nick Clegg", x: 0.1315, r: .45, colour: "orange", vocabulary: "1315", party: "orange", info: "Nick Clegg (Liberal Democrat): 1315"},
+{MP: "Roger Godsiff", x: 0.0693, r: .45, colour: "red", vocabulary: "693", party: "red", info: "Roger Godsiff (Labour): 693"},
+{MP: "David Winnick", x: 0.1374, r: .45, colour: "red", vocabulary: "1374", party: "red", info: "David Winnick (Labour): 1374"},
+{MP: "Julie Cooper", x: 0.152, r: .45, colour: "red", vocabulary: "1520", party: "red", info: "Julie Cooper (Labour): 1520"},
+{MP: "Ian Lavery", x: 0.1611, r: .45, colour: "red", vocabulary: "1611", party: "red", info: "Ian Lavery (Labour): 1611"},
+{MP: "Neil Coyle", x: 0.1152, r: .45, colour: "red", vocabulary: "1152", party: "red", info: "Neil Coyle (Labour): 1152"},
+{MP: "Chris Law", x: 0.1049, r: .45, colour: "yellow", vocabulary: "1049", party: "yellow", info: "Chris Law (Scottish National Party): 1049"},
+{MP: "Flick Drummond", x: 0.174, r: .45, colour: "blue", vocabulary: "1740", party: "blue", info: "Flick Drummond (Conservative): 1740"},
+{MP: "Matthew Hancock", x: 0.126, r: .45, colour: "blue", vocabulary: "1260", party: "blue", info: "Matthew Hancock (Conservative): 1260"},
+{MP: "Lisa Nandy", x: 0.1051, r: .45, colour: "red", vocabulary: "1051", party: "red", info: "Lisa Nandy (Labour): 1051"},
+{MP: "David Cameron", x: 0.6221, r: .45, colour: "blue", vocabulary: "6221", party: "blue", info: "David Cameron (Conservative): 6221"},
+{MP: "Oliver Dowden", x: 0.1157, r: .45, colour: "blue", vocabulary: "1157", party: "blue", info: "Oliver Dowden (Conservative): 1157"},
+{MP: "Steve Pound", x: 0.1292, r: .45, colour: "red", vocabulary: "1292", party: "red", info: "Steve Pound (Labour): 1292"},
+{MP: "David Burrowes", x: 0.2808, r: .45, colour: "blue", vocabulary: "2808", party: "blue", info: "David Burrowes (Conservative): 2808"},
+{MP: "Liz Kendall", x: 0.0514, r: .45, colour: "red", vocabulary: "514", party: "red", info: "Liz Kendall (Labour): 514"},
+{MP: "Harry Harpham", x: 0.0988, r: .45, colour: "red", vocabulary: "988", party: "red", info: "Harry Harpham (Labour): 988"},
+{MP: "Richard Harrington", x: 0.0737, r: .45, colour: "blue", vocabulary: "737", party: "blue", info: "Richard Harrington (Conservative): 737"},
+{MP: "Douglas Carswell", x: 0.1263, r: .45, colour: "purple", vocabulary: "1263", party: "purple", info: "Douglas Carswell (UKIP): 1263"},
+{MP: "Andrea Leadsom", x: 0.2077, r: .45, colour: "blue", vocabulary: "2077", party: "blue", info: "Andrea Leadsom (Conservative): 2077"},
+{MP: "Liam Byrne", x: 0.1139, r: .45, colour: "red", vocabulary: "1139", party: "red", info: "Liam Byrne (Labour): 1139"},
+{MP: "Gareth Johnson", x: 0.0891, r: .45, colour: "blue", vocabulary: "891", party: "blue", info: "Gareth Johnson (Conservative): 891"},
+{MP: "Jon Ashworth", x: 0.1182, r: .45, colour: "red", vocabulary: "1182", party: "red", info: "Jon Ashworth (Labour): 1182"},
+{MP: "Boris Johnson", x: 0.1284, r: .45, colour: "blue", vocabulary: "1284", party: "blue", info: "Boris Johnson (Conservative): 1284"},
+{MP: "Jeffrey M. Donaldson", x: 0.0648, r: .45, colour: "darkblue", vocabulary: "648", party: "darkblue", info: "Jeffrey M. Donaldson (DUP): 648"},
+{MP: "Nicola Blackwood", x: 0.1089, r: .45, colour: "blue", vocabulary: "1089", party: "blue", info: "Nicola Blackwood (Conservative): 1089"},
+{MP: "Stephen McPartland", x: 0.0562, r: .45, colour: "blue", vocabulary: "562", party: "blue", info: "Stephen McPartland (Conservative): 562"},
+{MP: "Tom Blenkinsop", x: 0.1339, r: .45, colour: "red", vocabulary: "1339", party: "red", info: "Tom Blenkinsop (Labour): 1339"},
+{MP: "David Rutley", x: 0.1779, r: .45, colour: "blue", vocabulary: "1779", party: "blue", info: "David Rutley (Conservative): 1779"},
+{MP: "Victoria Atkins", x: 0.1174, r: .45, colour: "blue", vocabulary: "1174", party: "blue", info: "Victoria Atkins (Conservative): 1174"},
+{MP: "Edward Leigh", x: 0.3569, r: .45, colour: "blue", vocabulary: "3569", party: "blue", info: "Edward Leigh (Conservative): 3569"},
+{MP: "Greg Hands", x: 0.1544, r: .45, colour: "blue", vocabulary: "1544", party: "blue", info: "Greg Hands (Conservative): 1544"},
+{MP: "Andrew Turner", x: 0.0661, r: .45, colour: "blue", vocabulary: "661", party: "blue", info: "Andrew Turner (Conservative): 661"},
+{MP: "David Lidington", x: 0.2721, r: .45, colour: "blue", vocabulary: "2721", party: "blue", info: "David Lidington (Conservative): 2721"},
+{MP: "Bill Wiggin", x: 0.0808, r: .45, colour: "blue", vocabulary: "808", party: "blue", info: "Bill Wiggin (Conservative): 808"},
+{MP: "Guto Bebb", x: 0.1161, r: .45, colour: "blue", vocabulary: "1161", party: "blue", info: "Guto Bebb (Conservative): 1161"},
+{MP: "Andrew Percy", x: 0.1635, r: .45, colour: "blue", vocabulary: "1635", party: "blue", info: "Andrew Percy (Conservative): 1635"},
+{MP: "Elizabeth Truss", x: 0.1773, r: .45, colour: "blue", vocabulary: "1773", party: "blue", info: "Elizabeth Truss (Conservative): 1773"},
+{MP: "John Pugh", x: 0.1185, r: .45, colour: "orange", vocabulary: "1185", party: "orange", info: "John Pugh (Liberal Democrat): 1185"},
+{MP: "Khalid Mahmood", x: 0.1, r: .45, colour: "red", vocabulary: "1000", party: "red", info: "Khalid Mahmood (Labour): 1000"},
+{MP: "Karin Smyth", x: 0.1178, r: .45, colour: "red", vocabulary: "1178", party: "red", info: "Karin Smyth (Labour): 1178"},
+{MP: "Yvonne Fovargue", x: 0.0956, r: .45, colour: "red", vocabulary: "956", party: "red", info: "Yvonne Fovargue (Labour): 956"},
+{MP: "Paul Blomfield", x: 0.1514, r: .45, colour: "red", vocabulary: "1514", party: "red", info: "Paul Blomfield (Labour): 1514"},
+{MP: "Emma Lewell-Buck", x: 0.0683, r: .45, colour: "red", vocabulary: "683", party: "red", info: "Emma Lewell-Buck (Labour): 683"},
+{MP: "Peter Heaton-Jones", x: 0.101, r: .45, colour: "blue", vocabulary: "1010", party: "blue", info: "Peter Heaton-Jones (Conservative): 1010"},
+{MP: "Alex Chalk", x: 0.1795, r: .45, colour: "blue", vocabulary: "1795", party: "blue", info: "Alex Chalk (Conservative): 1795"},
+{MP: "Tom Pursglove", x: 0.1938, r: .45, colour: "blue", vocabulary: "1938", party: "blue", info: "Tom Pursglove (Conservative): 1938"},
+{MP: "Sadiq Khan", x: 0.0765, r: .45, colour: "red", vocabulary: "765", party: "red", info: "Sadiq Khan (Labour): 765"},
+{MP: "Ben Bradshaw", x: 0.1158, r: .45, colour: "red", vocabulary: "1158", party: "red", info: "Ben Bradshaw (Labour): 1158"},
+{MP: "David Nuttall", x: 0.2708, r: .45, colour: "blue", vocabulary: "2708", party: "blue", info: "David Nuttall (Conservative): 2708"},
+{MP: "Gregory Campbell", x: 0.046, r: .45, colour: "darkblue", vocabulary: "460", party: "darkblue", info: "Gregory Campbell (DUP): 460"},
+{MP: "Tim Loughton", x: 0.223, r: .45, colour: "blue", vocabulary: "2230", party: "blue", info: "Tim Loughton (Conservative): 2230"},
+{MP: "Paul Maynard", x: 0.0894, r: .45, colour: "blue", vocabulary: "894", party: "blue", info: "Paul Maynard (Conservative): 894"},
+{MP: "Graham Brady", x: 0.1341, r: .45, colour: "blue", vocabulary: "1341", party: "blue", info: "Graham Brady (Conservative): 1341"},
+{MP: "Stephen Doughty", x: 0.1891, r: .45, colour: "red", vocabulary: "1891", party: "red", info: "Stephen Doughty (Labour): 1891"},
+{MP: "David Hanson", x: 0.1405, r: .45, colour: "red", vocabulary: "1405", party: "red", info: "David Hanson (Labour): 1405"},
+{MP: "Wayne David", x: 0.1913, r: .45, colour: "red", vocabulary: "1913", party: "red", info: "Wayne David (Labour): 1913"},
+{MP: "Virendra Sharma", x: 0.0463, r: .45, colour: "red", vocabulary: "463", party: "red", info: "Virendra Sharma (Labour): 463"},
+{MP: "Steve Reed", x: 0.1913, r: .45, colour: "red", vocabulary: "1913", party: "red", info: "Steve Reed (Labour): 1913"},
+{MP: "David Crausby", x: 0.1472, r: .45, colour: "red", vocabulary: "1472", party: "red", info: "David Crausby (Labour): 1472"},
+{MP: "Anne Main", x: 0.2322, r: .45, colour: "blue", vocabulary: "2322", party: "blue", info: "Anne Main (Conservative): 2322"},
+{MP: "Simon Danczuk", x: 0.0465, r: .45, colour: "red", vocabulary: "465", party: "red", info: "Simon Danczuk (Labour): 465"},
+{MP: "Jamie Reed", x: 0.1823, r: .45, colour: "red", vocabulary: "1823", party: "red", info: "Jamie Reed (Labour): 1823"},
+{MP: "Michael Dugher", x: 0.0798, r: .45, colour: "red", vocabulary: "798", party: "red", info: "Michael Dugher (Labour): 798"},
+{MP: "Jonathan Lord", x: 0.0048, r: .45, colour: "blue", vocabulary: "48", party: "blue", info: "Jonathan Lord (Conservative): 48"},
+{MP: "Philip Davies", x: 0.3932, r: .45, colour: "blue", vocabulary: "3932", party: "blue", info: "Philip Davies (Conservative): 3932"},
+{MP: "Rob Marris", x: 0.2523, r: .45, colour: "red", vocabulary: "2523", party: "red", info: "Rob Marris (Labour): 2523"},
+{MP: "Mims Davies", x: 0.2117, r: .45, colour: "blue", vocabulary: "2117", party: "blue", info: "Mims Davies (Conservative): 2117"},
+{MP: "Helen Jones", x: 0.0767, r: .45, colour: "red", vocabulary: "767", party: "red", info: "Helen Jones (Labour): 767"},
+{MP: "Harriett Baldwin", x: 0.2394, r: .45, colour: "blue", vocabulary: "2394", party: "blue", info: "Harriett Baldwin (Conservative): 2394"},
+{MP: "James Wharton", x: 0.2712, r: .45, colour: "blue", vocabulary: "2712", party: "blue", info: "James Wharton (Conservative): 2712"},
+{MP: "John Woodcock", x: 0.1096, r: .45, colour: "red", vocabulary: "1096", party: "red", info: "John Woodcock (Labour): 1096"},
+{MP: "Lisa Cameron", x: 0.2607, r: .45, colour: "yellow", vocabulary: "2607", party: "yellow", info: "Lisa Cameron (Scottish National Party): 2607"},
+{MP: "Phil Boswell", x: 0.0612, r: .45, colour: "yellow", vocabulary: "612", party: "yellow", info: "Phil Boswell (Scottish National Party): 612"},
+{MP: "Huw Irranca-Davies", x: 0.1428, r: .45, colour: "red", vocabulary: "1428", party: "red", info: "Huw Irranca-Davies (Labour): 1428"},
+{MP: "Lucy Allan", x: 0.1127, r: .45, colour: "blue", vocabulary: "1127", party: "blue", info: "Lucy Allan (Conservative): 1127"},
+{MP: "Chuka Umunna", x: 0.203, r: .45, colour: "red", vocabulary: "2030", party: "red", info: "Chuka Umunna (Labour): 2030"},
+{MP: "Andrew Slaughter", x: 0.3076, r: .45, colour: "red", vocabulary: "3076", party: "red", info: "Andrew Slaughter (Labour): 3076"},
+{MP: "Graham Allen", x: 0.3831, r: .45, colour: "red", vocabulary: "3831", party: "red", info: "Graham Allen (Labour): 3831"},
+{MP: "Daniel Kawczynski", x: 0.0673, r: .45, colour: "blue", vocabulary: "673", party: "blue", info: "Daniel Kawczynski (Conservative): 673"},
+{MP: "Dominic Raab", x: 0.0658, r: .45, colour: "blue", vocabulary: "658", party: "blue", info: "Dominic Raab (Conservative): 658"},
+{MP: "Angela Eagle", x: 0.3304, r: .45, colour: "red", vocabulary: "3304", party: "red", info: "Angela Eagle (Labour): 3304"},
+{MP: "Richard Graham", x: 0.1674, r: .45, colour: "blue", vocabulary: "1674", party: "blue", info: "Richard Graham (Conservative): 1674"},
+{MP: "Jon Trickett", x: 0.1378, r: .45, colour: "red", vocabulary: "1378", party: "red", info: "Jon Trickett (Labour): 1378"},
+{MP: "Liz McInnes", x: 0.2229, r: .45, colour: "red", vocabulary: "2229", party: "red", info: "Liz McInnes (Labour): 2229"},
+{MP: "Julie Elliott", x: 0.0814, r: .45, colour: "red", vocabulary: "814", party: "red", info: "Julie Elliott (Labour): 814"},
+{MP: "Mary Robinson", x: 0.1001, r: .45, colour: "blue", vocabulary: "1001", party: "blue", info: "Mary Robinson (Conservative): 1001"},
+{MP: "Nigel Huddleston", x: 0.11, r: .45, colour: "blue", vocabulary: "1100", party: "blue", info: "Nigel Huddleston (Conservative): 1100"},
+{MP: "Ruth Smeeth", x: 0.1512, r: .45, colour: "red", vocabulary: "1512", party: "red", info: "Ruth Smeeth (Labour): 1512"},
+{MP: "Jonathan Edwards", x: 0.1712, r: .45, colour: "lawngreen", vocabulary: "1712", party: "lawngreen", info: "Jonathan Edwards (Plaid Cymru): 1712"},
+{MP: "Valerie Vaz", x: 0.1978, r: .45, colour: "red", vocabulary: "1978", party: "red", info: "Valerie Vaz (Labour): 1978"},
+{MP: "Angela Smith", x: 0.0904, r: .45, colour: "red", vocabulary: "904", party: "red", info: "Angela Smith (Labour): 904"},
+{MP: "Alan Meale", x: 0.0203, r: .45, colour: "red", vocabulary: "203", party: "red", info: "Alan Meale (Labour): 203"},
+{MP: "Philip Dunne", x: 0.2792, r: .45, colour: "blue", vocabulary: "2792", party: "blue", info: "Philip Dunne (Conservative): 2792"},
+{MP: "Mark Francois", x: 0.093, r: .45, colour: "blue", vocabulary: "930", party: "blue", info: "Mark Francois (Conservative): 930"},
+{MP: "Marion Fellows", x: 0.1169, r: .45, colour: "yellow", vocabulary: "1169", party: "yellow", info: "Marion Fellows (Scottish National Party): 1169"},
+{MP: "Ben Wallace", x: 0.1693, r: .45, colour: "blue", vocabulary: "1693", party: "blue", info: "Ben Wallace (Conservative): 1693"},
+{MP: "Tom Brake", x: 0.2165, r: .45, colour: "orange", vocabulary: "2165", party: "orange", info: "Tom Brake (Liberal Democrat): 2165"},
+{MP: "Edward Garnier", x: 0.0738, r: .45, colour: "blue", vocabulary: "738", party: "blue", info: "Edward Garnier (Conservative): 738"},
+{MP: "George Osborne", x: 0.4379, r: .45, colour: "blue", vocabulary: "4379", party: "blue", info: "George Osborne (Conservative): 4379"},
+{MP: "Robert Syms", x: 0.0718, r: .45, colour: "blue", vocabulary: "718", party: "blue", info: "Robert Syms (Conservative): 718"},
+{MP: "Neil Carmichael", x: 0.1366, r: .45, colour: "blue", vocabulary: "1366", party: "blue", info: "Neil Carmichael (Conservative): 1366"},
+{MP: "David Gauke", x: 0.3061, r: .45, colour: "blue", vocabulary: "3061", party: "blue", info: "David Gauke (Conservative): 3061"},
+{MP: "John Stevenson", x: 0.0782, r: .45, colour: "blue", vocabulary: "782", party: "blue", info: "John Stevenson (Conservative): 782"},
+{MP: "Jake Berry", x: 0.1477, r: .45, colour: "blue", vocabulary: "1477", party: "blue", info: "Jake Berry (Conservative): 1477"},
+{MP: "David Mundell", x: 0.2451, r: .45, colour: "blue", vocabulary: "2451", party: "blue", info: "David Mundell (Conservative): 2451"},
+{MP: "Anna Turley", x: 0.2155, r: .45, colour: "red", vocabulary: "2155", party: "red", info: "Anna Turley (Labour): 2155"},
+{MP: "Michael Meacher", x: 0.0844, r: .45, colour: "red", vocabulary: "844", party: "red", info: "Michael Meacher (Labour): 844"},
+{MP: "Craig Mackinlay", x: 0.1699, r: .45, colour: "blue", vocabulary: "1699", party: "blue", info: "Craig Mackinlay (Conservative): 1699"},
+{MP: "Sarah Wollaston", x: 0.1843, r: .45, colour: "blue", vocabulary: "1843", party: "blue", info: "Sarah Wollaston (Conservative): 1843"},
+{MP: "Michael Ellis", x: 0.0622, r: .45, colour: "blue", vocabulary: "622", party: "blue", info: "Michael Ellis (Conservative): 622"},
+{MP: "Emily Thornberry", x: 0.2715, r: .45, colour: "red", vocabulary: "2715", party: "red", info: "Emily Thornberry (Labour): 2715"},
+{MP: "Theresa Villiers", x: 0.2357, r: .45, colour: "blue", vocabulary: "2357", party: "blue", info: "Theresa Villiers (Conservative): 2357"},
+{MP: "Stuart Donaldson", x: 0.0806, r: .45, colour: "yellow", vocabulary: "806", party: "yellow", info: "Stuart Donaldson (Scottish National Party): 806"},
+{MP: "Tom Elliott", x: 0.1188, r: .45, colour: "orchid", vocabulary: "1188", party: "orchid", info: "Tom Elliott (UUP): 1188"},
+{MP: "Clive Efford", x: 0.1698, r: .45, colour: "red", vocabulary: "1698", party: "red", info: "Clive Efford (Labour): 1698"},
+{MP: "Edward Argar", x: 0.1249, r: .45, colour: "blue", vocabulary: "1249", party: "blue", info: "Edward Argar (Conservative): 1249"},
+{MP: "Phillip Lee", x: 0.173, r: .45, colour: "blue", vocabulary: "1730", party: "blue", info: "Phillip Lee (Conservative): 1730"},
+{MP: "Sylvia Hermon", x: 0.1102, r: .45, colour: "grey", vocabulary: "1102", party: "grey", info: "Sylvia Hermon (Independent): 1102"},
+{MP: "Philip Hammond", x: 0.3668, r: .45, colour: "blue", vocabulary: "3668", party: "blue", info: "Philip Hammond (Conservative): 3668"},
+{MP: "Mike Wood", x: 0.2159, r: .45, colour: "blue", vocabulary: "2159", party: "blue", info: "Mike Wood (Conservative): 2159"},
+{MP: "Melanie Onn", x: 0.1608, r: .45, colour: "red", vocabulary: "1608", party: "red", info: "Melanie Onn (Labour): 1608"},
+{MP: "Seema Kennedy", x: 0.1647, r: .45, colour: "blue", vocabulary: "1647", party: "blue", info: "Seema Kennedy (Conservative): 1647"},
+{MP: "Jeremy Corbyn", x: 0.277, r: .45, colour: "red", vocabulary: "2770", party: "red", info: "Jeremy Corbyn (Labour): 2770"},
+{MP: "James Cartlidge", x: 0.1927, r: .45, colour: "blue", vocabulary: "1927", party: "blue", info: "James Cartlidge (Conservative): 1927"},
+{MP: "Liam Fox", x: 0.212, r: .45, colour: "blue", vocabulary: "2120", party: "blue", info: "Liam Fox (Conservative): 2120"},
+{MP: "Patrick Grady", x: 0.2289, r: .45, colour: "yellow", vocabulary: "2289", party: "yellow", info: "Patrick Grady (Scottish National Party): 2289"},
+{MP: "John Spellar", x: 0.0752, r: .45, colour: "red", vocabulary: "752", party: "red", info: "John Spellar (Labour): 752"},
+{MP: "Paul Scully", x: 0.0906, r: .45, colour: "blue", vocabulary: "906", party: "blue", info: "Paul Scully (Conservative): 906"},
+{MP: "Jessica Morden", x: 0.0615, r: .45, colour: "red", vocabulary: "615", party: "red", info: "Jessica Morden (Labour): 615"},
+{MP: "Graham Stringer", x: 0.1162, r: .45, colour: "red", vocabulary: "1162", party: "red", info: "Graham Stringer (Labour): 1162"},
+{MP: "Caroline Ansell", x: 0.0988, r: .45, colour: "blue", vocabulary: "988", party: "blue", info: "Caroline Ansell (Conservative): 988"},
+{MP: "James Heappey", x: 0.1138, r: .45, colour: "blue", vocabulary: "1138", party: "blue", info: "James Heappey (Conservative): 1138"},
+{MP: "Jim Fitzpatrick", x: 0.0878, r: .45, colour: "red", vocabulary: "878", party: "red", info: "Jim Fitzpatrick (Labour): 878"},
+{MP: "Henry Smith", x: 0.1162, r: .45, colour: "blue", vocabulary: "1162", party: "blue", info: "Henry Smith (Conservative): 1162"},
+{MP: "Eilidh Whiteford", x: 0.2767, r: .45, colour: "yellow", vocabulary: "2767", party: "yellow", info: "Eilidh Whiteford (Scottish National Party): 2767"},
+{MP: "Jo Cox", x: 0.1619, r: .45, colour: "red", vocabulary: "1619", party: "red", info: "Jo Cox (Labour): 1619"},
+{MP: "Siobhain McDonagh", x: 0.1693, r: .45, colour: "red", vocabulary: "1693", party: "red", info: "Siobhain McDonagh (Labour): 1693"},
+{MP: "Alex Cunningham", x: 0.1758, r: .45, colour: "red", vocabulary: "1758", party: "red", info: "Alex Cunningham (Labour): 1758"},
+{MP: "John McNally", x: 0.0827, r: .45, colour: "yellow", vocabulary: "827", party: "yellow", info: "John McNally (Scottish National Party): 827"},
+{MP: "Martin Vickers", x: 0.1442, r: .45, colour: "blue", vocabulary: "1442", party: "blue", info: "Martin Vickers (Conservative): 1442"},
+{MP: "Paul Flynn", x: 0.2817, r: .45, colour: "red", vocabulary: "2817", party: "red", info: "Paul Flynn (Labour): 2817"},
+{MP: "Madeleine Moon", x: 0.1548, r: .45, colour: "red", vocabulary: "1548", party: "red", info: "Madeleine Moon (Labour): 1548"},
+{MP: "Alasdair McDonnell", x: 0.1079, r: .45, colour: "darkgreen", vocabulary: "1079", party: "darkgreen", info: "Alasdair McDonnell (Social Democratic and Labour Party): 1079"},
+{MP: "Kwasi Kwarteng", x: 0.1174, r: .45, colour: "blue", vocabulary: "1174", party: "blue", info: "Kwasi Kwarteng (Conservative): 1174"},
+{MP: "Mark Durkan", x: 0.3392, r: .45, colour: "darkgreen", vocabulary: "3392", party: "darkgreen", info: "Mark Durkan (Social Democratic and Labour Party): 3392"},
+{MP: "Rebecca Long-Bailey", x: 0.1858, r: .45, colour: "red", vocabulary: "1858", party: "red", info: "Rebecca Long-Bailey (Labour): 1858"},
+{MP: "Will Quince", x: 0.1456, r: .45, colour: "blue", vocabulary: "1456", party: "blue", info: "Will Quince (Conservative): 1456"},
+{MP: "Ranil Jayawardena", x: 0.1279, r: .45, colour: "blue", vocabulary: "1279", party: "blue", info: "Ranil Jayawardena (Conservative): 1279"},
+{MP: "Wes Streeting", x: 0.2164, r: .45, colour: "red", vocabulary: "2164", party: "red", info: "Wes Streeting (Labour): 2164"},
+{MP: "Nicholas Soames", x: 0.0356, r: .45, colour: "blue", vocabulary: "356", party: "blue", info: "Nicholas Soames (Conservative): 356"},
+{MP: "Penny Mordaunt", x: 0.1652, r: .45, colour: "blue", vocabulary: "1652", party: "blue", info: "Penny Mordaunt (Conservative): 1652"},
+{MP: "Guy Opperman", x: 0.0011, r: .45, colour: "blue", vocabulary: "11", party: "blue", info: "Guy Opperman (Conservative): 11"},
+{MP: "Gordon Marsden", x: 0.1201, r: .45, colour: "red", vocabulary: "1201", party: "red", info: "Gordon Marsden (Labour): 1201"},
+{MP: "Debbie Abrahams", x: 0.1882, r: .45, colour: "red", vocabulary: "1882", party: "red", info: "Debbie Abrahams (Labour): 1882"},
+{MP: "Diane Abbott", x: 0.0716, r: .45, colour: "red", vocabulary: "716", party: "red", info: "Diane Abbott (Labour): 716"},
+{MP: "Margaret Greenwood", x: 0.1061, r: .45, colour: "red", vocabulary: "1061", party: "red", info: "Margaret Greenwood (Labour): 1061"},
+{MP: "Louise Ellman", x: 0.1169, r: .45, colour: "red", vocabulary: "1169", party: "red", info: "Louise Ellman (Labour): 1169"},
+{MP: "Susan Elan Jones", x: 0.0891, r: .45, colour: "red", vocabulary: "891", party: "red", info: "Susan Elan Jones (Labour): 891"},
+{MP: "Diana R. Johnson", x: 0.228, r: .45, colour: "red", vocabulary: "2280", party: "red", info: "Diana R. Johnson (Labour): 2280"},
+{MP: "Nia Griffith", x: 0.1163, r: .45, colour: "red", vocabulary: "1163", party: "red", info: "Nia Griffith (Labour): 1163"},
+{MP: "Bob Blackman", x: 0.2319, r: .45, colour: "blue", vocabulary: "2319", party: "blue", info: "Bob Blackman (Conservative): 2319"},
+{MP: "Gerald Jones", x: 0.0931, r: .45, colour: "red", vocabulary: "931", party: "red", info: "Gerald Jones (Labour): 931"},
+{MP: "Nadine Dorries", x: 0.0388, r: .45, colour: "blue", vocabulary: "388", party: "blue", info: "Nadine Dorries (Conservative): 388"},
+{MP: "Sammy Wilson", x: 0.2457, r: .45, colour: "darkblue", vocabulary: "2457", party: "darkblue", info: "Sammy Wilson (DUP): 2457"},
+{MP: "Marcus Jones", x: 0.1156, r: .45, colour: "blue", vocabulary: "1156", party: "blue", info: "Marcus Jones (Conservative): 1156"},
+{MP: "George Freeman", x: 0.2654, r: .45, colour: "blue", vocabulary: "2654", party: "blue", info: "George Freeman (Conservative): 2654"},
+{MP: "Rachael Maskell", x: 0.2002, r: .45, colour: "red", vocabulary: "2002", party: "red", info: "Rachael Maskell (Labour): 2002"},
+{MP: "Helen Goodman", x: 0.2311, r: .45, colour: "red", vocabulary: "2311", party: "red", info: "Helen Goodman (Labour): 2311"},
+{MP: "Rob Flello", x: 0.2257, r: .45, colour: "red", vocabulary: "2257", party: "red", info: "Rob Flello (Labour): 2257"},
+{MP: "James Brokenshire", x: 0.2895, r: .45, colour: "blue", vocabulary: "2895", party: "blue", info: "James Brokenshire (Conservative): 2895"},
+{MP: "Mary Creagh", x: 0.1781, r: .45, colour: "red", vocabulary: "1781", party: "red", info: "Mary Creagh (Labour): 1781"},
+{MP: "Danny Kinahan", x: 0.1792, r: .45, colour: "orchid", vocabulary: "1792", party: "orchid", info: "Danny Kinahan (UUP): 1792"},
+{MP: "Ian Austin", x: 0.1901, r: .45, colour: "red", vocabulary: "1901", party: "red", info: "Ian Austin (Labour): 1901"},
+{MP: "Jeremy Quin", x: 0.1569, r: .45, colour: "blue", vocabulary: "1569", party: "blue", info: "Jeremy Quin (Conservative): 1569"},
+{MP: "Peter Kyle", x: 0.1456, r: .45, colour: "red", vocabulary: "1456", party: "red", info: "Peter Kyle (Labour): 1456"},
+{MP: "Ian Liddell-Grainger", x: 0.1383, r: .45, colour: "blue", vocabulary: "1383", party: "blue", info: "Ian Liddell-Grainger (Conservative): 1383"},
+{MP: "Mike Gapes", x: 0.1479, r: .45, colour: "red", vocabulary: "1479", party: "red", info: "Mike Gapes (Labour): 1479"},
+{MP: "Jeremy Hunt", x: 0.2924, r: .45, colour: "blue", vocabulary: "2924", party: "blue", info: "Jeremy Hunt (Conservative): 2924"},
+{MP: "James Duddridge", x: 0.1996, r: .45, colour: "blue", vocabulary: "1996", party: "blue", info: "James Duddridge (Conservative): 1996"},
+{MP: "George Eustice", x: 0.1078, r: .45, colour: "blue", vocabulary: "1078", party: "blue", info: "George Eustice (Conservative): 1078"},
+{MP: "Hannah Bardell", x: 0.2895, r: .45, colour: "yellow", vocabulary: "2895", party: "yellow", info: "Hannah Bardell (Scottish National Party): 2895"},
+{MP: "Colleen Fletcher", x: 0.0661, r: .45, colour: "red", vocabulary: "661", party: "red", info: "Colleen Fletcher (Labour): 661"},
+{MP: "Amber Rudd", x: 0.2354, r: .45, colour: "blue", vocabulary: "2354", party: "blue", info: "Amber Rudd (Conservative): 2354"},
+{MP: "Jo Churchill", x: 0.195, r: .45, colour: "blue", vocabulary: "1950", party: "blue", info: "Jo Churchill (Conservative): 1950"},
+{MP: "Jenny Chapman", x: 0.0736, r: .45, colour: "red", vocabulary: "736", party: "red", info: "Jenny Chapman (Labour): 736"},
+{MP: "Dawn Butler", x: 0.13, r: .45, colour: "red", vocabulary: "1300", party: "red", info: "Dawn Butler (Labour): 1300"},
+{MP: "Eleanor Laing", x: 0.2081, r: .45, colour: "blue", vocabulary: "2081", party: "blue", info: "Eleanor Laing (Conservative): 2081"},
+{MP: "Conor Burns", x: 0.0439, r: .45, colour: "blue", vocabulary: "439", party: "blue", info: "Conor Burns (Conservative): 439"},
+{MP: "Simon Hart", x: 0.0021, r: .45, colour: "blue", vocabulary: "21", party: "blue", info: "Simon Hart (Conservative): 21"},
+{MP: "Paula Sherriff", x: 0.169, r: .45, colour: "red", vocabulary: "1690", party: "red", info: "Paula Sherriff (Labour): 1690"},
+{MP: "Victoria Borwick", x: 0.0986, r: .45, colour: "blue", vocabulary: "986", party: "blue", info: "Victoria Borwick (Conservative): 986"},
+{MP: "Chris White", x: 0.0475, r: .45, colour: "blue", vocabulary: "475", party: "blue", info: "Chris White (Conservative): 475"},
+{MP: "Andrea Jenkyns", x: 0.1086, r: .45, colour: "blue", vocabulary: "1086", party: "blue", info: "Andrea Jenkyns (Conservative): 1086"},
+{MP: "Damian Hinds", x: 0.2284, r: .45, colour: "blue", vocabulary: "2284", party: "blue", info: "Damian Hinds (Conservative): 2284"},
+{MP: "Maria Eagle", x: 0.1226, r: .45, colour: "red", vocabulary: "1226", party: "red", info: "Maria Eagle (Labour): 1226"},
+{MP: "Maggie Throup", x: 0.1809, r: .45, colour: "blue", vocabulary: "1809", party: "blue", info: "Maggie Throup (Conservative): 1809"},
+{MP: "Karl Turner", x: 0.0271, r: .45, colour: "red", vocabulary: "271", party: "red", info: "Karl Turner (Labour): 271"},
+{MP: "Joanna Cherry", x: 0.2576, r: .45, colour: "yellow", vocabulary: "2576", party: "yellow", info: "Joanna Cherry (Scottish National Party): 2576"},
+{MP: "Shabana Mahmood", x: 0.1843, r: .45, colour: "red", vocabulary: "1843", party: "red", info: "Shabana Mahmood (Labour): 1843"},
+{MP: "Alistair Burt", x: 0.3352, r: .45, colour: "blue", vocabulary: "3352", party: "blue", info: "Alistair Burt (Conservative): 3352"},
+{MP: "Robert Buckland", x: 0.1087, r: .45, colour: "blue", vocabulary: "1087", party: "blue", info: "Robert Buckland (Conservative): 1087"},
+{MP: "Catherine McKinnell", x: 0.0516, r: .45, colour: "red", vocabulary: "516", party: "red", info: "Catherine McKinnell (Labour): 516"},
+{MP: "Angela Watkinson", x: 0.0819, r: .45, colour: "blue", vocabulary: "819", party: "blue", info: "Angela Watkinson (Conservative): 819"},
+{MP: "Nigel Mills", x: 0.1239, r: .45, colour: "blue", vocabulary: "1239", party: "blue", info: "Nigel Mills (Conservative): 1239"},
+{MP: "Pat McFadden", x: 0.2249, r: .45, colour: "red", vocabulary: "2249", party: "red", info: "Pat McFadden (Labour): 2249"},
+{MP: "Richard Fuller", x: 0.1616, r: .45, colour: "blue", vocabulary: "1616", party: "blue", info: "Richard Fuller (Conservative): 1616"},
+{MP: "Stuart Andrew", x: 0.0592, r: .45, colour: "blue", vocabulary: "592", party: "blue", info: "Stuart Andrew (Conservative): 592"},
+{MP: "Glyn Davies", x: 0.0537, r: .45, colour: "blue", vocabulary: "537", party: "blue", info: "Glyn Davies (Conservative): 537"},
+{MP: "Jonathan Reynolds", x: 0.2201, r: .45, colour: "red", vocabulary: "2201", party: "red", info: "Jonathan Reynolds (Labour): 2201"},
+{MP: "Margaret Beckett", x: 0.0337, r: .45, colour: "red", vocabulary: "337", party: "red", info: "Margaret Beckett (Labour): 337"},
+{MP: "Ivan Lewis", x: 0.0678, r: .45, colour: "red", vocabulary: "678", party: "red", info: "Ivan Lewis (Labour): 678"},
+{MP: "Michael Fabricant", x: 0.1014, r: .45, colour: "blue", vocabulary: "1014", party: "blue", info: "Michael Fabricant (Conservative): 1014"},
+{MP: "David Anderson", x: 0.1525, r: .45, colour: "red", vocabulary: "1525", party: "red", info: "David Anderson (Labour): 1525"},
+{MP: "Keith Vaz", x: 0.2267, r: .45, colour: "red", vocabulary: "2267", party: "red", info: "Keith Vaz (Labour): 2267"},
+{MP: "Therese Coffey", x: 0.1817, r: .45, colour: "blue", vocabulary: "1817", party: "blue", info: "Therese Coffey (Conservative): 1817"},
+{MP: "James Berry", x: 0.1767, r: .45, colour: "blue", vocabulary: "1767", party: "blue", info: "James Berry (Conservative): 1767"},
+{MP: "Stephen Twigg", x: 0.1371, r: .45, colour: "red", vocabulary: "1371", party: "red", info: "Stephen Twigg (Labour): 1371"},
+{MP: "Mark Prisk", x: 0.0708, r: .45, colour: "blue", vocabulary: "708", party: "blue", info: "Mark Prisk (Conservative): 708"},
+{MP: "Chris Evans", x: 0.1392, r: .45, colour: "red", vocabulary: "1392", party: "red", info: "Chris Evans (Labour): 1392"},
+{MP: "John Redwood", x: 0.2901, r: .45, colour: "blue", vocabulary: "2901", party: "blue", info: "John Redwood (Conservative): 2901"},
+{MP: "Justin Madders", x: 0.2028, r: .45, colour: "red", vocabulary: "2028", party: "red", info: "Justin Madders (Labour): 2028"},
+{MP: "Anne McLaughlin", x: 0.2412, r: .45, colour: "yellow", vocabulary: "2412", party: "yellow", info: "Anne McLaughlin (Scottish National Party): 2412"},
+{MP: "Derek Thomas", x: 0.0703, r: .45, colour: "blue", vocabulary: "703", party: "blue", info: "Derek Thomas (Conservative): 703"},
+{MP: "Michelle Donelan", x: 0.1182, r: .45, colour: "blue", vocabulary: "1182", party: "blue", info: "Michelle Donelan (Conservative): 1182"},
+{MP: "Geoffrey Robinson", x: 0.059, r: .45, colour: "red", vocabulary: "590", party: "red", info: "Geoffrey Robinson (Labour): 590"},
+{MP: "Graham Stuart", x: 0.1866, r: .45, colour: "blue", vocabulary: "1866", party: "blue", info: "Graham Stuart (Conservative): 1866"},
+{MP: "Jeff Smith", x: 0.1158, r: .45, colour: "red", vocabulary: "1158", party: "red", info: "Jeff Smith (Labour): 1158"},
+{MP: "Vicky Foxcroft", x: 0.1025, r: .45, colour: "red", vocabulary: "1025", party: "red", info: "Vicky Foxcroft (Labour): 1025"},
+{MP: "Roger Gale", x: 0.1067, r: .45, colour: "blue", vocabulary: "1067", party: "blue", info: "Roger Gale (Conservative): 1067"},
+{MP: "Lyn Brown", x: 0.1606, r: .45, colour: "red", vocabulary: "1606", party: "red", info: "Lyn Brown (Labour): 1606"},
+{MP: "Alok Sharma", x: 0.0049, r: .45, colour: "blue", vocabulary: "49", party: "blue", info: "Alok Sharma (Conservative): 49"},
+{MP: "Sajid Javid", x: 0.2601, r: .45, colour: "blue", vocabulary: "2601", party: "blue", info: "Sajid Javid (Conservative): 2601"},
+{MP: "Oliver Colvile", x: 0.1574, r: .45, colour: "blue", vocabulary: "1574", party: "blue", info: "Oliver Colvile (Conservative): 1574"},
+{MP: "Chris Heaton-Harris", x: 0.1844, r: .45, colour: "blue", vocabulary: "1844", party: "blue", info: "Chris Heaton-Harris (Conservative): 1844"},
+{MP: "Clive Lewis", x: 0.1516, r: .45, colour: "red", vocabulary: "1516", party: "red", info: "Clive Lewis (Labour): 1516"},
+{MP: "Joan Ryan", x: 0.1578, r: .45, colour: "red", vocabulary: "1578", party: "red", info: "Joan Ryan (Labour): 1578"},
+{MP: "Ian Paisley Jnr", x: 0.1858, r: .45, colour: "darkblue", vocabulary: "1858", party: "darkblue", info: "Ian Paisley Jnr (DUP): 1858"},
+{MP: "Nicholas Boles", x: 0.2457, r: .45, colour: "blue", vocabulary: "2457", party: "blue", info: "Nicholas Boles (Conservative): 2457"},
+{MP: "Andrew Smith", x: 0.0592, r: .45, colour: "red", vocabulary: "592", party: "red", info: "Andrew Smith (Labour): 592"},
+{MP: "Alec Shelbrooke", x: 0.1389, r: .45, colour: "blue", vocabulary: "1389", party: "blue", info: "Alec Shelbrooke (Conservative): 1389"},
+{MP: "Chris Philp", x: 0.1694, r: .45, colour: "blue", vocabulary: "1694", party: "blue", info: "Chris Philp (Conservative): 1694"},
+{MP: "Stewart McDonald", x: 0.147, r: .45, colour: "yellow", vocabulary: "1470", party: "yellow", info: "Stewart McDonald (Scottish National Party): 1470"},
+{MP: "Gloria De Piero", x: 0.0823, r: .45, colour: "red", vocabulary: "823", party: "red", info: "Gloria De Piero (Labour): 823"},
+{MP: "Kate Hoey", x: 0.0955, r: .45, colour: "red", vocabulary: "955", party: "red", info: "Kate Hoey (Labour): 955"},
+{MP: "David Tredinnick", x: 0.1246, r: .45, colour: "blue", vocabulary: "1246", party: "blue", info: "David Tredinnick (Conservative): 1246"},
+{MP: "John Nicolson", x: 0.1313, r: .45, colour: "yellow", vocabulary: "1313", party: "yellow", info: "John Nicolson (Scottish National Party): 1313"},
+{MP: "Mark Lancaster", x: 0.2244, r: .45, colour: "blue", vocabulary: "2244", party: "blue", info: "Mark Lancaster (Conservative): 2244"},
+{MP: "Geraint Davies", x: 0.2004, r: .45, colour: "red", vocabulary: "2004", party: "red", info: "Geraint Davies (Labour): 2004"},
+{MP: "Robert Halfon", x: 0.0251, r: .45, colour: "blue", vocabulary: "251", party: "blue", info: "Robert Halfon (Conservative): 251"},
+{MP: "Gerald Howarth", x: 0.2608, r: .45, colour: "blue", vocabulary: "2608", party: "blue", info: "Gerald Howarth (Conservative): 2608"},
+{MP: "Kelvin Hopkins", x: 0.2251, r: .45, colour: "red", vocabulary: "2251", party: "red", info: "Kelvin Hopkins (Labour): 2251"},
+{MP: "John Mann", x: 0.1464, r: .45, colour: "red", vocabulary: "1464", party: "red", info: "John Mann (Labour): 1464"},
+{MP: "Michael Weir", x: 0.0484, r: .45, colour: "yellow", vocabulary: "484", party: "yellow", info: "Michael Weir (Scottish National Party): 484"},
+{MP: "Adam Afriyie", x: 0.0418, r: .45, colour: "blue", vocabulary: "418", party: "blue", info: "Adam Afriyie (Conservative): 418"},
+{MP: "Damian Collins", x: 0.1153, r: .45, colour: "blue", vocabulary: "1153", party: "blue", info: "Damian Collins (Conservative): 1153"},
+{MP: "Frank Field", x: 0.1556, r: .45, colour: "red", vocabulary: "1556", party: "red", info: "Frank Field (Labour): 1556"},
+{MP: "Catherine West", x: 0.2116, r: .45, colour: "red", vocabulary: "2116", party: "red", info: "Catherine West (Labour): 2116"},
+{MP: "Ben Gummer", x: 0.2901, r: .45, colour: "blue", vocabulary: "2901", party: "blue", info: "Ben Gummer (Conservative): 2901"},
+{MP: "Jonathan Djanogly", x: 0.0583, r: .45, colour: "blue", vocabulary: "583", party: "blue", info: "Jonathan Djanogly (Conservative): 583"},
+{MP: "Kirsten Oswald", x: 0.1817, r: .45, colour: "yellow", vocabulary: "1817", party: "yellow", info: "Kirsten Oswald (Scottish National Party): 1817"},
+{MP: "Jacob Rees-Mogg", x: 0.3303, r: .45, colour: "blue", vocabulary: "3303", party: "blue", info: "Jacob Rees-Mogg (Conservative): 3303"},
+{MP: "Michael Tomlinson", x: 0.0939, r: .45, colour: "blue", vocabulary: "939", party: "blue", info: "Michael Tomlinson (Conservative): 939"},
+{MP: "Daniel Poulter", x: 0.1185, r: .45, colour: "blue", vocabulary: "1185", party: "blue", info: "Daniel Poulter (Conservative): 1185"},
+{MP: "Anna Soubry", x: 0.2432, r: .45, colour: "blue", vocabulary: "2432", party: "blue", info: "Anna Soubry (Conservative): 2432"},
+{MP: "Bob Neill", x: 0.1843, r: .45, colour: "blue", vocabulary: "1843", party: "blue", info: "Bob Neill (Conservative): 1843"},
+{MP: "Iain Wright", x: 0.1903, r: .45, colour: "red", vocabulary: "1903", party: "red", info: "Iain Wright (Labour): 1903"},
+{MP: "Matt Warman", x: 0.1443, r: .45, colour: "blue", vocabulary: "1443", party: "blue", info: "Matt Warman (Conservative): 1443"},
+{MP: "Owen Paterson", x: 0.1504, r: .45, colour: "blue", vocabulary: "1504", party: "blue", info: "Owen Paterson (Conservative): 1504"},
+{MP: "Stephen Philip Rotheram", x: 0.06, r: .45, colour: "red", vocabulary: "600", party: "red", info: "Stephen Philip Rotheram (Labour): 600"},
+{MP: "Steve Rotheram", x: 0.0138, r: .45, colour: "red", vocabulary: "138", party: "red", info: "Steve Rotheram (Labour): 138"},
+{MP: "James Davies", x: 0.1437, r: .45, colour: "blue", vocabulary: "1437", party: "blue", info: "James Davies (Conservative): 1437"},
+{MP: "Helen Grant", x: 0.0075, r: .45, colour: "blue", vocabulary: "75", party: "blue", info: "Helen Grant (Conservative): 75"},
+{MP: "Kerry McCarthy", x: 0.1864, r: .45, colour: "red", vocabulary: "1864", party: "red", info: "Kerry McCarthy (Labour): 1864"},
+{MP: "Anne Marie Morris", x: 0.1355, r: .45, colour: "blue", vocabulary: "1355", party: "blue", info: "Anne Marie Morris (Conservative): 1355"},
+{MP: "Grahame Morris", x: 0.1174, r: .45, colour: "red", vocabulary: "1174", party: "red", info: "Grahame Morris (Labour): 1174"},
+{MP: "Stephen Metcalfe", x: 0.0589, r: .45, colour: "blue", vocabulary: "589", party: "blue", info: "Stephen Metcalfe (Conservative): 589"},
+{MP: "Heather Wheeler", x: 0.0609, r: .45, colour: "blue", vocabulary: "609", party: "blue", info: "Heather Wheeler (Conservative): 609"},
+{MP: "Neil Parish", x: 0.0638, r: .45, colour: "blue", vocabulary: "638", party: "blue", info: "Neil Parish (Conservative): 638"},
+{MP: "Kate Hollern", x: 0.0617, r: .45, colour: "red", vocabulary: "617", party: "red", info: "Kate Hollern (Labour): 617"},
+{MP: "Kenneth Clarke", x: 0.2228, r: .45, colour: "blue", vocabulary: "2228", party: "blue", info: "Kenneth Clarke (Conservative): 2228"},
+{MP: "Cheryl Gillan", x: 0.2428, r: .45, colour: "blue", vocabulary: "2428", party: "blue", info: "Cheryl Gillan (Conservative): 2428"},
+{MP: "Stella Creasy", x: 0.1091, r: .45, colour: "red", vocabulary: "1091", party: "red", info: "Stella Creasy (Labour): 1091"},
+{MP: "Gordon Henderson", x: 0.0427, r: .45, colour: "blue", vocabulary: "427", party: "blue", info: "Gordon Henderson (Conservative): 427"},
+{MP: "Holly Lynch", x: 0.0928, r: .45, colour: "red", vocabulary: "928", party: "red", info: "Holly Lynch (Labour): 928"},
+{MP: "Ian Murray", x: 0.3125, r: .45, colour: "red", vocabulary: "3125", party: "red", info: "Ian Murray (Labour): 3125"},
+{MP: "Paul Monaghan", x: 0.081, r: .45, colour: "yellow", vocabulary: "810", party: "yellow", info: "Paul Monaghan (Scottish National Party): 810"},
+{MP: "Andrew Griffiths", x: 0.0356, r: .45, colour: "blue", vocabulary: "356", party: "blue", info: "Andrew Griffiths (Conservative): 356"},
+{MP: "Greg Knight", x: 0.0304, r: .45, colour: "blue", vocabulary: "304", party: "blue", info: "Greg Knight (Conservative): 304"},
+{MP: "Natascha Engel", x: 0.1775, r: .45, colour: "red", vocabulary: "1775", party: "red", info: "Natascha Engel (Labour): 1775"},
+{MP: "George Howarth", x: 0.0986, r: .45, colour: "red", vocabulary: "986", party: "red", info: "George Howarth (Labour): 986"},
+{MP: "Maria Miller", x: 0.1826, r: .45, colour: "blue", vocabulary: "1826", party: "blue", info: "Maria Miller (Conservative): 1826"},
+{MP: "Peter Bottomley", x: 0.1028, r: .45, colour: "blue", vocabulary: "1028", party: "blue", info: "Peter Bottomley (Conservative): 1028"},
+{MP: "Patrick McLoughlin", x: 0.2549, r: .45, colour: "blue", vocabulary: "2549", party: "blue", info: "Patrick McLoughlin (Conservative): 2549"},
+{MP: "John Penrose", x: 0.1849, r: .45, colour: "blue", vocabulary: "1849", party: "blue", info: "John Penrose (Conservative): 1849"},
+{MP: "Graham Jones", x: 0.0916, r: .45, colour: "red", vocabulary: "916", party: "red", info: "Graham Jones (Labour): 916"},
+{MP: "Julian Brazier", x: 0.0735, r: .45, colour: "blue", vocabulary: "735", party: "blue", info: "Julian Brazier (Conservative): 735"},
+{MP: "Chris Davies", x: 0.0858, r: .45, colour: "blue", vocabulary: "858", party: "blue", info: "Chris Davies (Conservative): 858"},
+{MP: "Margaret Ferrier", x: 0.1957, r: .45, colour: "yellow", vocabulary: "1957", party: "yellow", info: "Margaret Ferrier (Scottish National Party): 1957"},
+{MP: "Rishi Sunak", x: 0.1188, r: .45, colour: "blue", vocabulary: "1188", party: "blue", info: "Rishi Sunak (Conservative): 1188"},
+{MP: "Kate Osamor", x: 0.1674, r: .45, colour: "red", vocabulary: "1674", party: "red", info: "Kate Osamor (Labour): 1674"},
+{MP: "Gavin Newlands", x: 0.1739, r: .45, colour: "yellow", vocabulary: "1739", party: "yellow", info: "Gavin Newlands (Scottish National Party): 1739"},
+{MP: "Nick Hurd", x: 0.0506, r: .45, colour: "blue", vocabulary: "506", party: "blue", info: "Nick Hurd (Conservative): 506"},
+{MP: "Derek Twigg", x: 0.095, r: .45, colour: "red", vocabulary: "950", party: "red", info: "Derek Twigg (Labour): 950"},
+{MP: "Robert Jenrick", x: 0.2246, r: .45, colour: "blue", vocabulary: "2246", party: "blue", info: "Robert Jenrick (Conservative): 2246"},
+{MP: "Peter Grant", x: 0.2548, r: .45, colour: "yellow", vocabulary: "2548", party: "yellow", info: "Peter Grant (Scottish National Party): 2548"},
+{MP: "Theresa May", x: 0.4282, r: .45, colour: "blue", vocabulary: "4282", party: "blue", info: "Theresa May (Conservative): 4282"},
+{MP: "Chris Matheson", x: 0.1703, r: .45, colour: "red", vocabulary: "1703", party: "red", info: "Chris Matheson (Labour): 1703"},
+{MP: "David Lammy", x: 0.1924, r: .45, colour: "red", vocabulary: "1924", party: "red", info: "David Lammy (Labour): 1924"},
+{MP: "Shailesh Vara", x: 0.1698, r: .45, colour: "blue", vocabulary: "1698", party: "blue", info: "Shailesh Vara (Conservative): 1698"},
+{MP: "Meg Hillier", x: 0.0851, r: .45, colour: "red", vocabulary: "851", party: "red", info: "Meg Hillier (Labour): 851"},
+{MP: "Norman Lamb", x: 0.213, r: .45, colour: "orange", vocabulary: "2130", party: "orange", info: "Norman Lamb (Liberal Democrat): 2130"},
+{MP: "Callum McCaig", x: 0.1722, r: .45, colour: "yellow", vocabulary: "1722", party: "yellow", info: "Callum McCaig (Scottish National Party): 1722"},
+{MP: "Sharon Hodgson", x: 0.0867, r: .45, colour: "red", vocabulary: "867", party: "red", info: "Sharon Hodgson (Labour): 867"},
+{MP: "Justin Tomlinson", x: 0.1455, r: .45, colour: "blue", vocabulary: "1455", party: "blue", info: "Justin Tomlinson (Conservative): 1455"},
+{MP: "Barry Sheerman", x: 0.1546, r: .45, colour: "red", vocabulary: "1546", party: "red", info: "Barry Sheerman (Labour): 1546"},
+{MP: "Andrew Rosindell", x: 0.0997, r: .45, colour: "blue", vocabulary: "997", party: "blue", info: "Andrew Rosindell (Conservative): 997"},
+{MP: "Carolyn Harris", x: 0.1321, r: .45, colour: "red", vocabulary: "1321", party: "red", info: "Carolyn Harris (Labour): 1321"},
+{MP: "Brandon Lewis", x: 0.1808, r: .45, colour: "blue", vocabulary: "1808", party: "blue", info: "Brandon Lewis (Conservative): 1808"},
+{MP: "Craig Tracey", x: 0.0777, r: .45, colour: "blue", vocabulary: "777", party: "blue", info: "Craig Tracey (Conservative): 777"},
+{MP: "Karl McCartney", x: 0.0576, r: .45, colour: "blue", vocabulary: "576", party: "blue", info: "Karl McCartney (Conservative): 576"},
+{MP: "Corri Wilson", x: 0.0669, r: .45, colour: "yellow", vocabulary: "669", party: "yellow", info: "Corri Wilson (Scottish National Party): 669"},
+{MP: "Jesse Norman", x: 0.0647, r: .45, colour: "blue", vocabulary: "647", party: "blue", info: "Jesse Norman (Conservative): 647"},
+{MP: "Michael Gove", x: 0.1849, r: .45, colour: "blue", vocabulary: "1849", party: "blue", info: "Michael Gove (Conservative): 1849"},
+{MP: "Jason McCartney", x: 0.1095, r: .45, colour: "blue", vocabulary: "1095", party: "blue", info: "Jason McCartney (Conservative): 1095"},
+{MP: "John Baron", x: 0.163, r: .45, colour: "blue", vocabulary: "1630", party: "blue", info: "John Baron (Conservative): 1630"},
+{MP: "Lucy Powell", x: 0.1573, r: .45, colour: "red", vocabulary: "1573", party: "red", info: "Lucy Powell (Labour): 1573"},
+{MP: "Carol Monaghan", x: 0.1187, r: .45, colour: "yellow", vocabulary: "1187", party: "yellow", info: "Carol Monaghan (Scottish National Party): 1187"},
+{MP: "Margaret Ritchie", x: 0.1753, r: .45, colour: "darkgreen", vocabulary: "1753", party: "darkgreen", info: "Margaret Ritchie (Social Democratic and Labour Party): 1753"},
+{MP: "Louise Haigh", x: 0.2341, r: .45, colour: "red", vocabulary: "2341", party: "red", info: "Louise Haigh (Labour): 2341"},
+{MP: "Ronnie Campbell", x: 0.0392, r: .45, colour: "red", vocabulary: "392", party: "red", info: "Ronnie Campbell (Labour): 392"},
+{MP: "Yvette Cooper", x: 0.2743, r: .45, colour: "red", vocabulary: "2743", party: "red", info: "Yvette Cooper (Labour): 2743"},
+{MP: "Toby Perkins", x: 0.1179, r: .45, colour: "red", vocabulary: "1179", party: "red", info: "Toby Perkins (Labour): 1179"},
+{MP: "Hilary Benn", x: 0.2236, r: .45, colour: "red", vocabulary: "2236", party: "red", info: "Hilary Benn (Labour): 2236"},
+{MP: "Andrew Bingham", x: 0.0884, r: .45, colour: "blue", vocabulary: "884", party: "blue", info: "Andrew Bingham (Conservative): 884"},
+{MP: "Margaret Hodge", x: 0.0582, r: .45, colour: "red", vocabulary: "582", party: "red", info: "Margaret Hodge (Labour): 582"},
+{MP: "Barry Gardiner", x: 0.165, r: .45, colour: "red", vocabulary: "1650", party: "red", info: "Barry Gardiner (Labour): 1650"},
+{MP: "Nick Brown", x: 0.0548, r: .45, colour: "red", vocabulary: "548", party: "red", info: "Nick Brown (Labour): 548"},
+{MP: "Kit Malthouse", x: 0.2136, r: .45, colour: "blue", vocabulary: "2136", party: "blue", info: "Kit Malthouse (Conservative): 2136"},
+{MP: "Oliver Heald", x: 0.0506, r: .45, colour: "blue", vocabulary: "506", party: "blue", info: "Oliver Heald (Conservative): 506"},
+{MP: "Martin Docherty", x: 0.1541, r: .45, colour: "yellow", vocabulary: "1541", party: "yellow", info: "Martin Docherty (Scottish National Party): 1541"},
+{MP: "Mark Garnier", x: 0.0977, r: .45, colour: "blue", vocabulary: "977", party: "blue", info: "Mark Garnier (Conservative): 977"},
+{MP: "Tim Farron", x: 0.1866, r: .45, colour: "orange", vocabulary: "1866", party: "orange", info: "Tim Farron (Liberal Democrat): 1866"},
+{MP: "Angela Crawley", x: 0.1501, r: .45, colour: "yellow", vocabulary: "1501", party: "yellow", info: "Angela Crawley (Scottish National Party): 1501"},
+{MP: "Richard Burden", x: 0.1198, r: .45, colour: "red", vocabulary: "1198", party: "red", info: "Richard Burden (Labour): 1198"},
+{MP: "Natalie McGarry", x: 0.1393, r: .45, colour: "yellow", vocabulary: "1393", party: "yellow", info: "Natalie McGarry (Scottish National Party): 1393"},
+{MP: "Maria Caulfield", x: 0.1758, r: .45, colour: "blue", vocabulary: "1758", party: "blue", info: "Maria Caulfield (Conservative): 1758"},
+{MP: "Rory Stewart", x: 0.1857, r: .45, colour: "blue", vocabulary: "1857", party: "blue", info: "Rory Stewart (Conservative): 1857"},
+{MP: "Justine Greening", x: 0.2048, r: .45, colour: "blue", vocabulary: "2048", party: "blue", info: "Justine Greening (Conservative): 2048"},
+{MP: "Lilian Greenwood", x: 0.1133, r: .45, colour: "red", vocabulary: "1133", party: "red", info: "Lilian Greenwood (Labour): 1133"},
+{MP: "Hywel Williams", x: 0.1678, r: .45, colour: "lawngreen", vocabulary: "1678", party: "lawngreen", info: "Hywel Williams (Plaid Cymru): 1678"},
+{MP: "David Jones", x: 0.1205, r: .45, colour: "blue", vocabulary: "1205", party: "blue", info: "David Jones (Conservative): 1205"},
+{MP: "Kevan Jones", x: 0.2447, r: .45, colour: "red", vocabulary: "2447", party: "red", info: "Kevan Jones (Labour): 2447"},
+{MP: "Yasmin Qureshi", x: 0.0629, r: .45, colour: "red", vocabulary: "629", party: "red", info: "Yasmin Qureshi (Labour): 629"},
+{MP: "Alan Duncan", x: 0.0852, r: .45, colour: "blue", vocabulary: "852", party: "blue", info: "Alan Duncan (Conservative): 852"},
+{MP: "Kelly Tolhurst", x: 0.1155, r: .45, colour: "blue", vocabulary: "1155", party: "blue", info: "Kelly Tolhurst (Conservative): 1155"},
+{MP: "Kate Green", x: 0.2418, r: .45, colour: "red", vocabulary: "2418", party: "red", info: "Kate Green (Labour): 2418"},
+{MP: "David Simpson", x: 0.0471, r: .45, colour: "darkblue", vocabulary: "471", party: "darkblue", info: "David Simpson (DUP): 471"},
+{MP: "Alan Whitehead", x: 0.0603, r: .45, colour: "red", vocabulary: "603", party: "red", info: "Alan Whitehead (Labour): 603"},
+{MP: "Alan Campbell", x: 0.0104, r: .45, colour: "red", vocabulary: "104", party: "red", info: "Alan Campbell (Labour): 104"},
+{MP: "Rebecca Pow", x: 0.1903, r: .45, colour: "blue", vocabulary: "1903", party: "blue", info: "Rebecca Pow (Conservative): 1903"},
+{MP: "Naseem Shah", x: 0.0495, r: .45, colour: "red", vocabulary: "495", party: "red", info: "Naseem Shah (Labour): 495"},
+{MP: "Eric Pickles", x: 0.0233, r: .45, colour: "blue", vocabulary: "233", party: "blue", info: "Eric Pickles (Conservative): 233"},
+{MP: "Richard Arkless", x: 0.1589, r: .45, colour: "yellow", vocabulary: "1589", party: "yellow", info: "Richard Arkless (Scottish National Party): 1589"},
+{MP: "Tommy Sheppard", x: 0.2498, r: .45, colour: "yellow", vocabulary: "2498", party: "yellow", info: "Tommy Sheppard (Scottish National Party): 2498"},
+{MP: "Edward Timpson", x: 0.1791, r: .45, colour: "blue", vocabulary: "1791", party: "blue", info: "Edward Timpson (Conservative): 1791"},
+{MP: "Richard Bacon", x: 0.1588, r: .45, colour: "blue", vocabulary: "1588", party: "blue", info: "Richard Bacon (Conservative): 1588"},
+{MP: "Craig Whittaker", x: 0.1, r: .45, colour: "blue", vocabulary: "1000", party: "blue", info: "Craig Whittaker (Conservative): 1000"},
+{MP: "Grant Shapps", x: 0.0791, r: .45, colour: "blue", vocabulary: "791", party: "blue", info: "Grant Shapps (Conservative): 791"},
+{MP: "Stewart Jackson", x: 0.1555, r: .45, colour: "blue", vocabulary: "1555", party: "blue", info: "Stewart Jackson (Conservative): 1555"},
+{MP: "Vernon Coaker", x: 0.1788, r: .45, colour: "red", vocabulary: "1788", party: "red", info: "Vernon Coaker (Labour): 1788"},
+{MP: "Sheryll Murray", x: 0.1023, r: .45, colour: "blue", vocabulary: "1023", party: "blue", info: "Sheryll Murray (Conservative): 1023"},
+{MP: "Royston Smith", x: 0.039, r: .45, colour: "blue", vocabulary: "390", party: "blue", info: "Royston Smith (Conservative): 390"},
+{MP: "David Morris", x: 0.0998, r: .45, colour: "blue", vocabulary: "998", party: "blue", info: "David Morris (Conservative): 998"},
+{MP: "Alistair Carmichael", x: 0.2581, r: .45, colour: "orange", vocabulary: "2581", party: "orange", info: "Alistair Carmichael (Liberal Democrat): 2581"},
+{MP: "Alex Salmond", x: 0.3951, r: .45, colour: "yellow", vocabulary: "3951", party: "yellow", info: "Alex Salmond (Scottish National Party): 3951"},
+{MP: "Mark Pritchard", x: 0.0732, r: .45, colour: "blue", vocabulary: "732", party: "blue", info: "Mark Pritchard (Conservative): 732"},
+{MP: "Cat Smith", x: 0.1934, r: .45, colour: "red", vocabulary: "1934", party: "red", info: "Cat Smith (Labour): 1934"},
+{MP: "Alison McGovern", x: 0.2249, r: .45, colour: "red", vocabulary: "2249", party: "red", info: "Alison McGovern (Labour): 2249"},
+{MP: "Martyn Day", x: 0.0762, r: .45, colour: "yellow", vocabulary: "762", party: "yellow", info: "Martyn Day (Scottish National Party): 762"},
+{MP: "Robert Goodwill", x: 0.2606, r: .45, colour: "blue", vocabulary: "2606", party: "blue", info: "Robert Goodwill (Conservative): 2606"},
+{MP: "Iain Stewart", x: 0.1325, r: .45, colour: "blue", vocabulary: "1325", party: "blue", info: "Iain Stewart (Conservative): 1325"},
+{MP: "Andrew Tyrie", x: 0.1157, r: .45, colour: "blue", vocabulary: "1157", party: "blue", info: "Andrew Tyrie (Conservative): 1157"},
+{MP: "Zac Goldsmith", x: 0.0792, r: .45, colour: "blue", vocabulary: "792", party: "blue", info: "Zac Goldsmith (Conservative): 792"},
+{MP: "Charles Walker", x: 0.1232, r: .45, colour: "blue", vocabulary: "1232", party: "blue", info: "Charles Walker (Conservative): 1232"},
+{MP: "Bill Cash", x: 0.324, r: .45, colour: "blue", vocabulary: "3240", party: "blue", info: "Bill Cash (Conservative): 3240"},
+{MP: "Rehman Chishti", x: 0.1297, r: .45, colour: "blue", vocabulary: "1297", party: "blue", info: "Rehman Chishti (Conservative): 1297"},
+{MP: "Anne-Marie Trevelyan", x: 0.1408, r: .45, colour: "blue", vocabulary: "1408", party: "blue", info: "Anne-Marie Trevelyan (Conservative): 1408"},
+{MP: "Chris Bryant", x: 0.3982, r: .45, colour: "red", vocabulary: "3982", party: "red", info: "Chris Bryant (Labour): 3982"},
+{MP: "Chris Leslie", x: 0.2273, r: .45, colour: "red", vocabulary: "2273", party: "red", info: "Chris Leslie (Labour): 2273"},
+{MP: "Alan Brown", x: 0.213, r: .45, colour: "yellow", vocabulary: "2130", party: "yellow", info: "Alan Brown (Scottish National Party): 2130"},
+{MP: "Rushanara Ali", x: 0.0292, r: .45, colour: "red", vocabulary: "292", party: "red", info: "Rushanara Ali (Labour): 292"},
+{MP: "David Mowat", x: 0.1421, r: .45, colour: "blue", vocabulary: "1421", party: "blue", info: "David Mowat (Conservative): 1421"},
+{MP: "Johnny Mercer", x: 0.1508, r: .45, colour: "blue", vocabulary: "1508", party: "blue", info: "Johnny Mercer (Conservative): 1508"},
+{MP: "Tom Watson", x: 0.0288, r: .45, colour: "red", vocabulary: "288", party: "red", info: "Tom Watson (Labour): 288"},
+{MP: "Peter Aldous", x: 0.1347, r: .45, colour: "blue", vocabulary: "1347", party: "blue", info: "Peter Aldous (Conservative): 1347"},
+{MP: "Christopher Pincher", x: 0.0834, r: .45, colour: "blue", vocabulary: "834", party: "blue", info: "Christopher Pincher (Conservative): 834"},
+{MP: "Christina Rees", x: 0.1288, r: .45, colour: "red", vocabulary: "1288", party: "red", info: "Christina Rees (Labour): 1288"},
+{MP: "Claire Perry", x: 0.1507, r: .45, colour: "blue", vocabulary: "1507", party: "blue", info: "Claire Perry (Conservative): 1507"},
+{MP: "Stephen Hammond", x: 0.1506, r: .45, colour: "blue", vocabulary: "1506", party: "blue", info: "Stephen Hammond (Conservative): 1506"},
+{MP: "Pete Wishart", x: 0.2858, r: .45, colour: "yellow", vocabulary: "2858", party: "yellow", info: "Pete Wishart (Scottish National Party): 2858"},
+{MP: "Tasmina Ahmed-Sheikh", x: 0.2339, r: .45, colour: "yellow", vocabulary: "2339", party: "yellow", info: "Tasmina Ahmed-Sheikh (Scottish National Party): 2339"},
+{MP: "Christopher Chope", x: 0.2094, r: .45, colour: "blue", vocabulary: "2094", party: "blue", info: "Christopher Chope (Conservative): 2094"},
+{MP: "Scott Mann", x: 0.1271, r: .45, colour: "blue", vocabulary: "1271", party: "blue", info: "Scott Mann (Conservative): 1271"},
+{MP: "Thomas Tugendhat", x: 0.2127, r: .45, colour: "blue", vocabulary: "2127", party: "blue", info: "Thomas Tugendhat (Conservative): 2127"},
+{MP: "Jess Phillips", x: 0.1332, r: .45, colour: "red", vocabulary: "1332", party: "red", info: "Jess Phillips (Labour): 1332"},
+{MP: "Mike Freer", x: 0.0419, r: .45, colour: "blue", vocabulary: "419", party: "blue", info: "Mike Freer (Conservative): 419"},
+{MP: "Heidi Allen", x: 0.1466, r: .45, colour: "blue", vocabulary: "1466", party: "blue", info: "Heidi Allen (Conservative): 1466"},
+{MP: "Alan Johnson", x: 0.1077, r: .45, colour: "red", vocabulary: "1077", party: "red", info: "Alan Johnson (Labour): 1077"},
+{MP: "Ann Coffey", x: 0.1086, r: .45, colour: "red", vocabulary: "1086", party: "red", info: "Ann Coffey (Labour): 1086"},
+{MP: "David Davies", x: 0.1673, r: .45, colour: "blue", vocabulary: "1673", party: "blue", info: "David Davies (Conservative): 1673"},
+{MP: "Gavin Shuker", x: 0.1018, r: .45, colour: "red", vocabulary: "1018", party: "red", info: "Gavin Shuker (Labour): 1018"},
+{MP: "William Wragg", x: 0.2243, r: .45, colour: "blue", vocabulary: "2243", party: "blue", info: "William Wragg (Conservative): 2243"},
+{MP: "Alan Mak", x: 0.2003, r: .45, colour: "blue", vocabulary: "2003", party: "blue", info: "Alan Mak (Conservative): 2003"},
+{MP: "Peter Lilley", x: 0.1301, r: .45, colour: "blue", vocabulary: "1301", party: "blue", info: "Peter Lilley (Conservative): 1301"},
+{MP: "Stephen Kinnock", x: 0.1823, r: .45, colour: "red", vocabulary: "1823", party: "red", info: "Stephen Kinnock (Labour): 1823"},
+{MP: "Angus Robertson", x: 0.3256, r: .45, colour: "yellow", vocabulary: "3256", party: "yellow", info: "Angus Robertson (Scottish National Party): 3256"},
+{MP: "Andrew Bridgen", x: 0.1978, r: .45, colour: "blue", vocabulary: "1978", party: "blue", info: "Andrew Bridgen (Conservative): 1978"},
+{MP: "John Cryer", x: 0.0229, r: .45, colour: "red", vocabulary: "229", party: "red", info: "John Cryer (Labour): 229"},
+{MP: "Priti Patel", x: 0.2191, r: .45, colour: "blue", vocabulary: "2191", party: "blue", info: "Priti Patel (Conservative): 2191"},
+{MP: "Deidre Brock", x: 0.1386, r: .45, colour: "yellow", vocabulary: "1386", party: "yellow", info: "Deidre Brock (Scottish National Party): 1386"},
+{MP: "John Healey", x: 0.1709, r: .45, colour: "red", vocabulary: "1709", party: "red", info: "John Healey (Labour): 1709"},
+{MP: "Amanda Milling", x: 0.1093, r: .45, colour: "blue", vocabulary: "1093", party: "blue", info: "Amanda Milling (Conservative): 1093"},
+{MP: "Michelle Thomson", x: 0.1451, r: .45, colour: "yellow", vocabulary: "1451", party: "yellow", info: "Michelle Thomson (Scottish National Party): 1451"},
+{MP: "Jim Cunningham", x: 0.1153, r: .45, colour: "red", vocabulary: "1153", party: "red", info: "Jim Cunningham (Labour): 1153"},
+{MP: "Pauline Latham", x: 0.1257, r: .45, colour: "blue", vocabulary: "1257", party: "blue", info: "Pauline Latham (Conservative): 1257"},
+{MP: "Harriet Harman", x: 0.2181, r: .45, colour: "red", vocabulary: "2181", party: "red", info: "Harriet Harman (Labour): 2181"},
+{MP: "Adam Holloway", x: 0.0862, r: .45, colour: "blue", vocabulary: "862", party: "blue", info: "Adam Holloway (Conservative): 862"},
+{MP: "Nicholas Dakin", x: 0.1568, r: .45, colour: "red", vocabulary: "1568", party: "red", info: "Nicholas Dakin (Labour): 1568"},
+{MP: "Michael Fallon", x: 0.2839, r: .45, colour: "blue", vocabulary: "2839", party: "blue", info: "Michael Fallon (Conservative): 2839"},
+{MP: "Kevin Brennan", x: 0.3009, r: .45, colour: "red", vocabulary: "3009", party: "red", info: "Kevin Brennan (Labour): 3009"},
+{MP: "Fiona Bruce", x: 0.3174, r: .45, colour: "blue", vocabulary: "3174", party: "blue", info: "Fiona Bruce (Conservative): 3174"},
+{MP: "Dan Jarvis", x: 0.1047, r: .45, colour: "red", vocabulary: "1047", party: "red", info: "Dan Jarvis (Labour): 1047"},
+{MP: "Gary Streeter", x: 0.103, r: .45, colour: "blue", vocabulary: "1030", party: "blue", info: "Gary Streeter (Conservative): 1030"},
+{MP: "Bill Esterson", x: 0.1571, r: .45, colour: "red", vocabulary: "1571", party: "red", info: "Bill Esterson (Labour): 1571"},
+{MP: "Albert Owen", x: 0.0988, r: .45, colour: "red", vocabulary: "988", party: "red", info: "Albert Owen (Labour): 988"},
+{MP: "Seema Malhotra", x: 0.199, r: .45, colour: "red", vocabulary: "1990", party: "red", info: "Seema Malhotra (Labour): 1990"},
+{MP: "Paul Beresford", x: 0.0633, r: .45, colour: "blue", vocabulary: "633", party: "blue", info: "Paul Beresford (Conservative): 633"},
+{MP: "Gavin Williamson", x: 0.0218, r: .45, colour: "blue", vocabulary: "218", party: "blue", info: "Gavin Williamson (Conservative): 218"},
+{MP: "Geoffrey Cox", x: 0.0066, r: .45, colour: "blue", vocabulary: "66", party: "blue", info: "Geoffrey Cox (Conservative): 66"},
+{MP: "Julian Sturdy", x: 0.0966, r: .45, colour: "blue", vocabulary: "966", party: "blue", info: "Julian Sturdy (Conservative): 966"},
+{MP: "Jeremy Wright", x: 0.0931, r: .45, colour: "blue", vocabulary: "931", party: "blue", info: "Jeremy Wright (Conservative): 931"},
+{MP: "Desmond Swayne", x: 0.0981, r: .45, colour: "blue", vocabulary: "981", party: "blue", info: "Desmond Swayne (Conservative): 981"},
+{MP: "Andrew Jones", x: 0.2297, r: .45, colour: "blue", vocabulary: "2297", party: "blue", info: "Andrew Jones (Conservative): 2297"},
+{MP: "Andrew Murrison", x: 0.2402, r: .45, colour: "blue", vocabulary: "2402", party: "blue", info: "Andrew Murrison (Conservative): 2402"},
+{MP: "Byron Davies", x: 0.1438, r: .45, colour: "blue", vocabulary: "1438", party: "blue", info: "Byron Davies (Conservative): 1438"},
+{MP: "Tulip Siddiq", x: 0.1151, r: .45, colour: "red", vocabulary: "1151", party: "red", info: "Tulip Siddiq (Labour): 1151"},
+{MP: "Barbara Keeley", x: 0.3045, r: .45, colour: "red", vocabulary: "3045", party: "red", info: "Barbara Keeley (Labour): 3045"},
+{MP: "Chloe Smith", x: 0.1966, r: .45, colour: "blue", vocabulary: "1966", party: "blue", info: "Chloe Smith (Conservative): 1966"},
+{MP: "David Davis", x: 0.2096, r: .45, colour: "blue", vocabulary: "2096", party: "blue", info: "David Davis (Conservative): 2096"},
+{MP: "Hugo Swire", x: 0.147, r: .45, colour: "blue", vocabulary: "1470", party: "blue", info: "Hugo Swire (Conservative): 1470"},
+{MP: "Owen Smith", x: 0.1573, r: .45, colour: "red", vocabulary: "1573", party: "red", info: "Owen Smith (Labour): 1573"},
+{MP: "Nigel Dodds", x: 0.2084, r: .45, colour: "darkblue", vocabulary: "2084", party: "darkblue", info: "Nigel Dodds (DUP): 2084"},
+{MP: "Robin Walker", x: 0.1409, r: .45, colour: "blue", vocabulary: "1409", party: "blue", info: "Robin Walker (Conservative): 1409"},
+{MP: "Mary Glindon", x: 0.0413, r: .45, colour: "red", vocabulary: "413", party: "red", info: "Mary Glindon (Labour): 413"},
+{MP: "Huw Merriman", x: 0.2314, r: .45, colour: "blue", vocabulary: "2314", party: "blue", info: "Huw Merriman (Conservative): 2314"},
+{MP: "Roger Mullin", x: 0.2229, r: .45, colour: "yellow", vocabulary: "2229", party: "yellow", info: "Roger Mullin (Scottish National Party): 2229"},
+{MP: "Alberto Costa", x: 0.094, r: .45, colour: "blue", vocabulary: "940", party: "blue", info: "Alberto Costa (Conservative): 940"},
+{MP: "Graham Evans", x: 0.1754, r: .45, colour: "blue", vocabulary: "1754", party: "blue", info: "Graham Evans (Conservative): 1754"}];
+
+  //Set up SVG and axis//   
+  var svg = d3.select("svg");
+  var digits = /(\d*)/;
+  var margin = 50; //space in pixels from edges of SVG
+  var padding = 4; //space in pixels between circles
+  var maxRadius = 5;
+  var biggestFirst = true; //should largest circles be added first?
+
+  var width = window.getComputedStyle(svg[0][0])["width"];
+  width = digits.exec(width)[0];
+  var height = window.getComputedStyle(svg[0][0])["height"];
+  height = Math.min(digits.exec(height)[0], width);
+
+  var baselineHeight = (margin + height) / 2;
+
+  var xScale = d3.scale.linear()
+    .domain([0, 1])
+    .range([margin, width - margin]);
+
+  var rScale = d3.scale.sqrt()
+    //make radius proportional to square root of data r
+    .domain([0, 1])
+    .range([1, maxRadius]);
+
+
+  var bubbleLine = svg.append("g")
+    .attr("class", "bubbles")
+    .attr("transform",
+      "translate(0," + baselineHeight + ")");
+
+  bubbleLine.append("line")
+    .attr("x1", xScale.range()[0])
+    .attr("x2", xScale.range()[1]);
+  //________________//
+
+  //Create Quadtree to manage data conflicts & define functions//
+
+  var quadtree = d3.geom.quadtree()
+    .x(function(d) {
+      return xScale(d.x);
+    })
+    .y(0) //constant, they are all on the same line
+    .extent([
+      [xScale(-1), 0],
+      [xScale(2), 0]
+    ]);
+  //extent sets the domain for the tree
+  //using the format [[minX,minY],[maxX, maxY]]
+  //optional if you're adding all the data at once
+
+  var quadroot = quadtree([]);
+  //create an empty adjacency tree; 
+  //the function returns the root node.
+
+  // Find the all nodes in the tree that overlap a given circle.
+  // quadroot is the root node of the tree, scaledX and scaledR
+  //are the position and dimensions of the circle on screen
+  //maxR is the (scaled) maximum radius of dots that have
+  //already been positioned.
+  //This will be most efficient if you add the circles
+  //starting with the smallest.  
+  function findNeighbours(root, scaledX, scaledR, maxR) {
+
+    var neighbours = [];
+    //console.log("Neighbours of " + scaledX + ", radius " + scaledR);
+
+    root.visit(function(node, x1, y1, x2, y2) {
+      //console.log("visiting (" + x1 + "," +x2+")");
+      var p = node.point;
+      if (p) { //this node stores a data point value
+        var overlap, x2 = xScale(p.x),
+          r2 = rScale(p.r);
+        if (x2 < scaledX) {
+          //the point is to the left of x
+          overlap = (x2 + r2 + padding >= scaledX - scaledR);
+          /*console.log("left:" + x2 + ", radius " + r2 
+                      + (overlap?" overlap": " clear"));//*/
+        } else {
+          //the point is to the right
+          overlap = (scaledX + scaledR + padding >= x2 - r2);
+          /*console.log("right:" + x2 + ", radius " + r2 
+                      + (overlap?" overlap": " clear"));//*/
+        }
+        if (overlap) neighbours.push(p);
+      }
+
+      return (x1 - maxR > scaledX + scaledR + padding) && (x2 + maxR < scaledX - scaledR - padding);
+      //Returns true if none of the points in this 
+      //section of the tree can overlap the point being
+      //compared; a true return value tells the `visit()` method
+      //not to bother searching the child sections of this tree
+    });
+
+    return neighbours;
+  }
+
+  function calculateOffset(maxR) {
+    return function(d) {
+      neighbours = findNeighbours(quadroot,
+        xScale(d.x),
+        rScale(d.r),
+        maxR);
+      var n = neighbours.length;
+      //console.log(j + " neighbours");
+      var upperEnd = 0,
+        lowerEnd = 0;
+
+      if (n) {
+        //for every circle in the neighbour array
+        // calculate how much farther above
+        //or below this one has to be to not overlap;
+        //keep track of the max values
+        var j = n,
+          occupied = new Array(n);
+        while (j--) {
+          var p = neighbours[j];
+          var hypoteneuse = rScale(d.r) + rScale(p.r) + padding;
+          //length of line between center points, if only 
+          // "padding" space in between circles
+
+          var base = xScale(d.x) - xScale(p.x);
+          // horizontal offset between centres
+
+          var vertical = Math.sqrt(Math.pow(hypoteneuse, 2) -
+            Math.pow(base, 2));
+          //Pythagorean theorem
+
+          occupied[j] = [p.offset + vertical,
+            p.offset - vertical
+          ];
+          //max and min of the zone occupied
+          //by this circle at x=xScale(d.x)
+        }
+        occupied = occupied.sort(
+          function(a, b) {
+            return a[0] - b[0];
+          });
+        //sort by the max value of the occupied block
+        //console.log(occupied);
+        lowerEnd = upperEnd = 1 / 0; //infinity
+
+        j = n;
+        while (j--) {
+          //working from the end of the "occupied" array,
+          //i.e. the circle with highest positive blocking
+          //value:
+
+          if (lowerEnd > occupied[j][0]) {
+            //then there is space beyond this neighbour  
+            //inside of all previous compared neighbours
+            upperEnd = Math.min(lowerEnd,
+              occupied[j][0]);
+            lowerEnd = occupied[j][1];
+          } else {
+            lowerEnd = Math.min(lowerEnd,
+              occupied[j][1]);
+          }
+          //console.log("at " + formatPercent(d.x) + ": "
+          //          + upperEnd + "," + lowerEnd);
+        }
+      }
+
+      //assign this circle the offset that is smaller
+      //in magnitude:
+      return d.offset =
+        (Math.abs(upperEnd) < Math.abs(lowerEnd)) ?
+        upperEnd : lowerEnd;
+    };
+  }
+
+  //Create circles!//
+  var maxR = 0;
+
+  bubbleLine.selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("r", function(d) {
+      return rScale(d.r);
+    })
+
+  .each(function(d, i) {
+    //for each circle, calculate it's position
+    //then add it to the quadtree
+    //so the following circles will avoid it.
+
+    //console.log("Bubble " + i);
+    var scaledX = xScale(d.x);
+    d3.select(this)
+      .attr("cx", scaledX)
+      .attr("cy", -baselineHeight + margin)
+      .transition().delay(300 * i).duration(250)
+      .attr("cy", calculateOffset(maxR));
+    quadroot.add(d);
+
+
+    var tooltip = d3.select("body")
+    .append("div")
+    .style("position", "absolute")
+    .style("background", "white")
+    .style("z-index", "10")
+    .style("visibility", "hidden")
+    .text(d.info);
+
+    d3.select(this).text(d.info);
+
+    d3.select(this)   
+    .on("mouseover", function() {return tooltip.style("visibility", "visible");})
+    .on("mousemove", function() {return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+            
+    //bubbleLine.append("text")
+    //  .attr("x", scaledX)
+    //  .attr("y", d.offset)
+    //  .text(d.info);
+
+    d3.select(this).attr("fill", d.colour);
+
+  });
+
+
+})();
+    </script>
+
+
+  </body>
+</html>

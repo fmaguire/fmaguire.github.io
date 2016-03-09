@@ -1,0 +1,20 @@
+g.axis path, g.axis line {
+    fill:none; 
+    stroke:royalblue;
+}
+g.axis text, g.bubbles text {
+    fill:royalblue;
+    font-family:sans-serif;
+}
+
+g.bubbles line {
+    stroke-width:1; 
+    stroke:royalblue;
+}
+
+g.bubbles circle {
+    stroke-width:3;
+}
+
+
+
