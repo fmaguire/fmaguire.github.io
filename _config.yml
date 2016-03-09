@@ -68,8 +68,7 @@ permalink: /:categories/:title.html
 markdown: kramdown
 #sass:
 #  style: compressed
-exclude: ['site.bat']
-include: ['_pages','.htaccess']
+include: ['_pages']
 defaults:
   - scope:
       path: _pages
