@@ -3,8 +3,8 @@ id: 2
 title: Projects
 permalink: /projects/
 excerpt: Software Projects I've worked on
-image: pic02.jpg
-background-image: pic02.jpg
+image: emist.jpg
+background-image: emist.jpg
 ---
 
 - [Neuroglycerin](http://neuroglycerin.org/): co-founder of Machine Learning Competition Team

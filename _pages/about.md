@@ -3,8 +3,8 @@ id: 1
 title: About Me
 permalink: /about/
 excerpt: Who and What I am.
-image: pic02.jpg
-background-image: pic02.jpg
+image: edincc.jpg
+background-image: somerville.jpg
 ---
 
 Hello, my name is Finlay Maguire.

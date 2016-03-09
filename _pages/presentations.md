@@ -3,7 +3,8 @@ id: 4
 title: Presentations
 permalink: /presentations/
 excerpt: My official ramblings
-background-image: caustic_light.jpg
+image: somerville.jpg
+background-image: somerville.jpg
 ---
 
 
