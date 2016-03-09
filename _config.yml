@@ -1,0 +1,81 @@
+# Welcome to Jekyll!
+#
+
+# Site settings
+title: finlaymagui.re
+description: Bioinformatician and Data Scientist
+owner:
+  name: Finlay Maguire # or company name
+  email: root@finlaymagui.re
+  url: http://finlaymagui.re
+first_published: 1996 # if migrating another site, the year of your first publish
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://finlaymagui.re" # the base hostname & protocol for your site
+
+# on landing page
+greeting: |
+  Welcome!  
+  I hope you enjoy my collection
+features-title: Featured topics
+closing-head: Thanks for visiting
+closing-para: Feel free to get in touch. Cheers!
+
+# on all pages
+social:
+  twitter: https://twitter.com/FinlayM
+  github: https://github.com/fmaguire
+  linkedin-square: https://uk.linkedin.com/in/finlaymaguire
+  #facebook-official: https://facebook.com/gary.faircloth
+  #google-plus-square: https://plus.google.com/u/0/+GaryFaircloth
+  email: /contact/
+  #flickr:
+  #instagram:
+  #youtube-square:
+  #spotify:
+  #stack-overflow:
+  #vimeo:
+  #reddit:
+  #stubleupon:
+  #delicious:
+  #pied-piper:
+  #digg:
+  #soundcloud:
+  #deviantart:
+  #angellist:
+  #tumblr-square:
+  #stackexchange:
+  #weibo:
+  #trello:
+  #foursquare:
+  #linux:
+  #bitbucket-square:
+  #vk:
+  #slack:
+  #vine:
+  #weixin:
+  #yelp:
+  #skyatlas:
+  #leanpub:
+  #connectdevelop:
+  #ils:
+  #forumbee:
+  #tripadvisor:
+  #amazon:
+
+# Build settings
+permalink: /:categories/:title.html
+markdown: kramdown
+#sass:
+#  style: compressed
+exclude: ['site.bat']
+include: ['_pages','.htaccess']
+defaults:
+  - scope:
+      path: _pages
+    values:
+      layout: page
+      #permalink: /:slug/ # see github.com/jekyll/jekyll/issues/2280 for restriction
+  - scope:
+      path: _posts
+    values:
+      layout: post
