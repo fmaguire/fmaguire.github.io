@@ -3,8 +3,8 @@ id: 4
 title: Presentations
 permalink: /presentations/
 excerpt: My official ramblings
-image: somerville.jpg
-background-image: somerville.jpg
+image: kerneltrick.png
+background-image: kerneltrick.png
 ---
 
 

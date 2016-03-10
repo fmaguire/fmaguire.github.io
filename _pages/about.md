@@ -2,23 +2,34 @@
 id: 1
 title: About Me
 permalink: /about/
-excerpt: Who and What I am.
+excerpt: My background and CV
 image: edincc.jpg
 background-image: edincc.jpg
 ---
 
 Hello, my name is Finlay Maguire.
 
-I'm a recent PhD graduate from University College London in Bioinformatics.
+![Postgrad Research: Not even once](../images/wedding.jpg)
 
-I am primarily interested in finding ways to make use of complex and messy datasets.
-For example, my PhD principally focussed on determining the best ways to analyse
-cutting edge single cell transcriptomic datasets from multi-eukaryotic systems.
+I'm a recent PhD graduate in Bioinformatics with a diverse set of interests
+including machine learning, {gen,transcript,metabol}omics, linux and software
+development (primarily python and C++).  I really enjoy solving interesting
+problems regardless of the field!
 
-While I am primarily informatics and machine learning orientated these days my undergraduate 
-studies at the University of Oxford 
-were in Molecular Biology and I have an interest in projects involving this domain.
+
+My [PhD](https://github.com/fmaguire/PhD_thesis) focussed on finding ways to 
+identify optimal strategies for analysing
+large, complex, messy biological datasets from a variety of omic resources.
+This included the first ever analysis of *de novo* single cell transcriptomic 
+datasets from multi-eukaryotic systems.  In the course of this work 
+I developed several novel computational tools and methods for large scale biological data
+(see [projects](http://finlaymagui.re/projects) for a partial list).
+
+
+Additionally, I spend a good chunk of my spare time doing Machine Learning competition
+with [Gavin Gray](https://gngdb.github.io) and [Scott Lowe](http://scottclowe.com) 
+as part of [Neuroglycerin](https://github.com/Neuroglycerin), messing around with linux,
+and reading.
+
 
 My full CV is available [here](https://github.com/fmaguire/CV/raw/master/Finlay_Maguire_CV.pdf).
-
-
