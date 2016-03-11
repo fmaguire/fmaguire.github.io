@@ -2,7 +2,7 @@
 id: 2
 title: Projects
 permalink: /projects/
-excerpt: Software Projects I've worked on
+excerpt: Software projects I've worked on
 image: emist.jpg
 background-image: emist.jpg
 ---

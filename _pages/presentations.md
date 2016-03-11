@@ -8,12 +8,34 @@ background-image: kerneltrick.png
 ---
 
 
-- 2014 Gavin's Journal Club Presentation on Hail-Seizure Kaggle Competition is available [here](http://gngdb.github.io/jcpresentation.html)
 
-- 2014 Christmas Conference Presentation is available [here](robot_revolution.html)
 
-- 2015 Machine Learning Workshop Presentation [here](getting_into_ml.html)
+## Talks
 
-- 2015 Neukrill-Net Kaggle Competition Presentation is available [here](NDSB.html)
+- [2011 Ignicoccus Grant Proposal](http://finlaymagui.re/assets/presentation/archaeagrant_proposal.pdf)
 
-- 2015 Bayesian Optimisation presentation is available [here](bayesopt.html)
+- [2011 Original PhD Plan](http://finlaymagui.re/assets/presentation/phdoriginal_plan.pdf)
+
+- [2011 Revised PhD Plan](http://finlaymagui.re/assets/presentation/phdactual_plan.pdf)
+
+- [2012 Hybrdisiation in Archaea](http://finlaymagui.re/assets/presentation/archaeahybrid_labmeeting.pdf)
+ 
+- [2012 Black Queen Hypothesis](http://finlaymagui.re/assets/presentation/blackqueen_labmeeting.pdf)
+
+- [2013 Paramecium research presentation](http://finlaymagui.re/assets/presentation/phd_ucl_presentation.pdf)
+
+- [2014 Gavin's Journal Club Presentation on Hail-Seizure Kaggle Competition](http://gngdb.github.io/jcpresentation.html)
+
+- [2014 Christmas Conference Presentation](robot_revolution.html)
+
+- [2015 Machine Learning Workshop](getting_into_ml.html)
+
+- [2015 Neukrill-Net Kaggle Competition](NDSB.html)
+
+- [2015 Bayesian Optimisation presentation](bayesopt.html)
+
+## Posters
+
+- [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/presentation/posters/folatefusionSGM.pdf)
+
+- [2013 Molecular Evolution Poster of EMBO](http://finlaymagui.re/assets/presentation/posters/molevol_emboyip.pdf)

@@ -2,7 +2,7 @@
 id: 3
 title: Publications
 permalink: /publications/
-excerpt: My Academic Publications
+excerpt: My academic publications
 image: battersea.jpg
 background-image: battersea.jpg
 ---
