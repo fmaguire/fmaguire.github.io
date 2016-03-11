@@ -3,6 +3,7 @@ title: DueyDrop Taxonomic Analysis
 author: Finlay Maguire
 permalink: /posts/dueydrop
 tags: featured
+icon: tree
 categories: posts
 background-image: dnacc.jpg
 excerpt: Taxonomic analysis of sc-RNAseq libraries
