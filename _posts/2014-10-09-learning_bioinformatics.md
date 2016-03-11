@@ -1,6 +1,6 @@
 ---
 title: Getting started in bioinformatics
-author: Finlay Maguire
+author: finlaymaguire
 permalink: /posts/starting-bioinformatics
 tags: featured
 icon: laptop

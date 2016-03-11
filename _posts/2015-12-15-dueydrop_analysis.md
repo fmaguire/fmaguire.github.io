@@ -1,6 +1,6 @@
 ---
 title: DueyDrop Taxonomic Analysis 
-author: Finlay Maguire
+author: finlaymaguire
 permalink: /posts/dueydrop
 tags: featured
 icon: tree
