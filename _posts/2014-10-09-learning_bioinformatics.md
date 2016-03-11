@@ -4,7 +4,7 @@ author: Finlay Maguire
 permalink: /posts/starting-bioinformatics
 tags: featured
 categories: posts
-background-image: dnacc.jpg
+background-image: prot_struct.png
 excerpt: A brief guide to getting started in bioinformatics
 ---
 
