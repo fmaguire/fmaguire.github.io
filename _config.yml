@@ -21,47 +21,13 @@ closing-para: Feel free to get in touch. Cheers!
 
 # on all pages
 social:
-  twitter: https://twitter.com/FinlayM
   github: https://github.com/fmaguire
+  K: https://www.kaggle.com/finlaymaguire
+  twitter: https://twitter.com/FinlayM
+  university: https://scholar.google.co.uk/citations?user=rHFCtWwAAAAJ
   linkedin-square: https://uk.linkedin.com/in/finlaymaguire
-  flask: https://scholar.google.co.uk/citations?user=rHFCtWwAAAAJ
-  #facebook-official: https://facebook.com/gary.faircloth
-  #google-plus-square: https://plus.google.com/u/0/+GaryFaircloth
-  email: mailto:root@finlaymagui.re
   book: https://github.com/fmaguire/CV/raw/master/Finlay_Maguire_CV.pdf
-  #flickr:
-  #instagram:
-  #youtube-square:
-  #spotify:
-  #stack-overflow:
-  #vimeo:
-  #reddit:
-  #stubleupon:
-  #delicious:
-  #pied-piper:
-  #digg:
-  #soundcloud:
-  #deviantart:
-  #angellist:
-  #tumblr-square:
-  #stackexchange:
-  #weibo:
-  #trello:
-  #foursquare:
-  #linux:
-  #bitbucket-square:
-  #vk:
-  #slack:
-  #vine:
-  #weixin:
-  #yelp:
-  #skyatlas:
-  #leanpub:
-  #connectdevelop:
-  #ils:
-  #forumbee:
-  #tripadvisor:
-  #amazon:
+  email: mailto:root@finlaymagui.re
 
 # Build settings
 permalink: /:categories/:title.html
