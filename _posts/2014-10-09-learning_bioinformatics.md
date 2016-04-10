@@ -25,7 +25,7 @@ get acquainted with:
 
    * a **Unix shell** (e.g. [Bash](http://en.wikipedia.org/wiki/Bash_\(Unix_shell\)), or [Zsh](http://en.wikipedia.org/wiki/Z_shell))
 
-   * a **scripting language** (e.g. [Python](http://en.wikipedia.org/wiki/Python_\(programming_language\), [Perl](http://en.wikipedia.org/wiki/Perl), or [R](http://en.wikipedia.org/wiki/R_\(programming_language\))), 
+   * a **scripting language** (e.g. [Python](http://en.wikipedia.org/wiki/Python_\(programming_language\)), [Perl](http://en.wikipedia.org/wiki/Perl), or [R](http://en.wikipedia.org/wiki/R_\(programming_language\))), 
 
    * a **version control system** (e.g. [Git](http://en.wikipedia.org/wiki/Git_\(software\)))
 
