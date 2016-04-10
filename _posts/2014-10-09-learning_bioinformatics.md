@@ -25,7 +25,7 @@ get acquainted with:
 
    * a **Unix shell** (e.g. [Bash](http://en.wikipedia.org/wiki/Bash_\(Unix_shell\)), or [Zsh](http://en.wikipedia.org/wiki/Z_shell))
 
-   * a **scripting language** (e.g. [Python](http://en.wikipedia.org/wiki/Python_\(programming_language\)), [Perl](http://en.wikipedia.org/wiki/Perl)), or [R](http://en.wikipedia.org/wiki/R_\(programming_language\)), 
+   * a **scripting language** (e.g. [Python](http://en.wikipedia.org/wiki/Python_\(programming_language\), [Perl](http://en.wikipedia.org/wiki/Perl), or [R](http://en.wikipedia.org/wiki/R_\(programming_language\))), 
 
    * a **version control system** (e.g. [Git](http://en.wikipedia.org/wiki/Git_\(software\)))
 
@@ -75,7 +75,7 @@ tend to assume you are using a Unix-based operating system.
 I'd recommend Linux but OS X will serve your purposes fine especially if you already use it. The 
 advantage of Linux is that it is free, will be being used on most of the servers you connect to 
 and in the case of Bio-Linux comes preconfigured with lots of the standard bioinformatics tools.
-There are various 'flavours' of Linux (known as [distributions](http://en.wikipedia.org/wiki/Linux_distribution)) however, for a new user I'd recommend [Mint](http://www.linuxmint.com) or [Bio-Linux](http://environmentalomics.org/bio-linux/).  Both of these are based off a well-polished and easily usable distribution ([Ubuntu](http://www.ubuntu.com/) but come pre-configured with better multimedia support and bioinformatics tools respectively.
+There are various 'flavours' of Linux (known as [distributions](http://en.wikipedia.org/wiki/Linux_distribution)) however, for a new user I'd recommend [Mint](http://www.linuxmint.com) or [Bio-Linux](http://environmentalomics.org/bio-linux/).  Both of these are based off a well-polished and easily usable distribution ([Ubuntu](http://www.ubuntu.com/)) but come pre-configured with better multimedia support and bioinformatics tools respectively.
 
 If you don't want to totally abandon Windows you can [dual-boot](http://en.wikipedia.org/wiki/Multi-booting) with Linux (or OS X but 
 it is a little bit harder) which will allow you to choose which operating system you want to use 
@@ -129,12 +129,12 @@ that focusses on statistical analysis and data visualisation (as you
 probably already know).  I highly recommend learning some R as you
 will find it incredibly useful for manipulating datasets, performing
 various statistical tests and plotting data.  In particular, 
-[Rstudio] http://www.rstudio.com/) is a wonderful environment, [dplyr](http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html) is fantastic for
+[Rstudio](http://www.rstudio.com/) is a wonderful environment, [dplyr](http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html) is fantastic for
 data manipulation and [ggplot2](http://cran.r-project.org/web/packages/ggplot2/index.html)/[ggvis](http://ggvis.rstudio.com/) are great for data visualisation.
 R also has a **large** [collection of libraries](https://cran.r-project.org) implementing almost any statistical test you can imagine and a lot of bioinformatics specific tools available via 
 [Bioconductor](http://www.bioconductor.org/)
 Many bioinformaticians will use R as their main language, however, it does lack some of the more general utility of less specialised languages such as Python or Perl (without putting in some additional work). 
-I'd recommend learning a bit of R as a useful tool in addition to a bit of Python (which is how we decided to teach it in the [SWC Bootcamp])https://github.com/fmaguire/2013-11-14-exeter)).
+I'd recommend learning a bit of R as a useful tool in addition to a bit of Python (which is how we decided to teach it in the [SWC Bootcamp](https://github.com/fmaguire/2013-11-14-exeter)).
 
 I'll also add that both Python and R also have the advantage of having a useful means of creating
 interactive notebooks (which I will explain in the
