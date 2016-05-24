@@ -32,4 +32,5 @@ as part of [Neuroglycerin](https://github.com/Neuroglycerin), messing around wit
 and reading.
 
 
-My full CV is available [here](https://github.com/fmaguire/CV/raw/master/Finlay_Maguire_CV.pdf).
+My full CV is available [here](https://github.com/fmaguire/CV/raw/master/Finlay_Maguire_CV.pdf)
+and a one-page version [here](https://github.com/fmaguire/CV/raw/refactor/Finlay_Maguire_CV.pdf).
