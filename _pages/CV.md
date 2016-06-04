@@ -7,5 +7,8 @@ image: edincc.jpg
 background-image: edincc.jpg
 ---
 
-My full CV is available [here](https://github.com/fmaguire/CV/raw/master/Finlay_Maguire_CV.pdf)
-and a one-page version [here](https://github.com/fmaguire/CV/raw/refactor/Finlay_Maguire_CV.pdf).
+My full CV is available [here](https://github.com/fmaguire/CV/raw/master/Finlay_Maguire_CV.pdf).
+
+A one-page version is also available [here](https://github.com/fmaguire/CV/raw/refactor/Finlay_Maguire_CV.pdf).
+
+Alternatively the full source is on [github](https://github.com/fmaguire/CV).
