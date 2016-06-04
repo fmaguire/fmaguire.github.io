@@ -13,6 +13,8 @@ You can also get copies of all my papers from this [repository](https://github.c
 
 Supplementals for Maguire et al., 2014 specifically can be found in this [repository](https://github.com/fmaguire/Maguire_et_al_2014_supplementals).
 
+My 2015 PhD thesis 'A multi-omic analysis of the photosynthetic endosymbioses of *Paramecium bursaria*' is available [here](http://finlaymagui.re/assets/finlay_maguire_final_PhD_2015_thesis.pdf) (or alternatively the full XeLaTeX source is on [github](https://github.com/fmaguire/PhD_thesis.git))
+
 ## Publication List
 
 *"Complex patterns of gene fission in the eukaryotic folate biosynthesis pathway"*

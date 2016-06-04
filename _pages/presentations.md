@@ -34,8 +34,13 @@ background-image: kerneltrick.png
 
 - [2015 Bayesian Optimisation presentation](bayesopt.html)
 
+- [2016 RNAi in Paramecium at CIFAR](http://finlaymagui.re/assets/presentation/cifar_presentation.pdf)
+
 ## Posters
 
-- [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/presentation/posters/folatefusionSGM.pdf)
+- [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/posters/sgm_poster.pdf)
 
-- [2013 Molecular Evolution Poster of EMBO](http://finlaymagui.re/assets/presentation/posters/molevol_emboyip.pdf)
+- [2013 Molecular Evolution Poster at EMBO](http://finlaymagui.re/assets/posters/embo_yip_poster.pdf)
+
+- [2015 Neukrill-Net Convolutional Neural Network at Informatics Jamboree](http://finlaymagui.re/assets/posters/informatics_poster.pdf)
+
