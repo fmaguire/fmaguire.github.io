@@ -1,7 +1,8 @@
 ---
 id: 2
-title: CV
-permalink: /CV/
+title: CV 
+permalink: /CV_page/
+excerpt: Links to my full Curriculum Vitae
 image: edincc.jpg
 background-image: edincc.jpg
 ---
