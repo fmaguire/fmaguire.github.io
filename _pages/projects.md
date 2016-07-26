@@ -49,6 +49,3 @@ A K-means clustering tool for partitioning meta-omic sequencing data based on co
 ## [markdown-pprint](https://github.com/fmaguire/markdown-pprint)
 A tool written with [gngdb](http://gngdb.github.io) for pretty printing equations in markdown when MathJax isn't supported.
 
-<div class="github-widget" data-username="fmaguire"></div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="https://npmcdn.com/github-card@1.0.0/dist/widget.js"></script>
