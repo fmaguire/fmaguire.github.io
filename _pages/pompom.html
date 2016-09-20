@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>PomPom</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="custom.css"> -->
+    <!-- FOR LOCAL TESTING: -->
+    <!-- Bootstrap core css-->
+    <!-- <link href="/Users/robina/bootstrap/bootstrap-3.3.6/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- Bootstrap theme -->
+    <!-- <link href="/Users/robina/bootstrap/bootstrap-3.3.6/dist/css/bootstrap-theme.min.css" rel="stylesheet"> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+        <h1>PomPom  <small><i>Robin's Pomodoro timer</i></small></h1>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="jumbotron" style="text-align:center" id="mainDisplay">
+            <h1>Ready? GO!</h1>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><b>Work time</b></span>
+            <input type="text" class="form-control" id="workTime" value="25">
+            <span class="input-group-addon" id="basic-addon1">minutes</span>
+          </div>
+          &nbsp;
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><b>Short break time</b></span>
+            <input type="text" class="form-control" id="shortTime" value="5">
+            <span class="input-group-addon" id="basic-addon1">minutes</span>
+          </div>
+          &nbsp;
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><b>Long break time</b></span>
+            <input type="text" class="form-control" id="longTime" value="10">
+            <span class="input-group-addon" id="basic-addon1">minutes</span>
+          </div>
+          &nbsp;
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"><b># of short breaks</b></span>
+            <input type="text" class="form-control" id="nShort" value="3">
+          </div>
+          &nbsp;
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9" style="text-align:center">
+          <button type="button" class="btn btn-success" id="startBtn"><h1>START</h1></button>
+          &nbsp;
+          <button type="button" class="btn btn-warning" id="pauseBtn"><h1>Pause</h1></button>
+          &nbsp;
+          <button type="button" class="btn btn-danger" id="resetBtn"><h1>Reset</h1></button>
+        </div>
+      </div>
+
+    </div>
+
+
+    <script>
+      var StateEnum = {
+        WORK: 1,
+        SHORT_BREAK: 2,
+        LONG_BREAK: 3,
+        STOPPED: 4,
+        properties: {
+          1: {text: "Break in"},
+          2: {text: "Back to work in"},
+          3: {text: "Back to work in"},
+          4: {text: "Ready? GO!"},
+        }
+      };
+
+      function getUserWorkTime() {
+        return parseInt(document.getElementById("workTime").value);
+      }
+
+      function getUserShortBreakTime() {
+        return parseInt(document.getElementById("shortTime").value) * 60000;
+      }
+
+      function getUserLongBreakTime() {
+        return parseInt(document.getElementById("longTime").value) * 60000;
+      }
+
+      function getUserNumShortBreaks() {
+        return parseInt(document.getElementById("nShort").value);
+      }
+
+      var STATE = StateEnum.STOPPED;
+      var NEXT_STATE = StateEnum.WORK;
+      var TIME = 0;
+
+      document.getElementById("startBtn").addEventListener("click", function() {
+        startTimer();
+        STATE = StateEnum.WORK;
+        if (getUserNumShortBreaks() > 0) {
+          NEXT_STATE = StateEnum.SHORT_BREAK;
+        } else {
+          NEXT_STATE = StateEnum.LONG_BREAK;
+        }
+        runner();
+      });
+
+      document.getElementById("pauseBtn").addEventListener("click", function() {
+        console.log("I have been paused");
+        NEXT_STATE = STATE;
+        STATE = StateEnum.STOPPED;
+        // hold correct time...somehow
+      });
+
+     document.getElementById("resetBtn").addEventListener("click", function() {
+        console.log("I have been reset");
+        STATE = StateEnum.STOPPED;
+        NEXT_STATE = StateEnum.WORK;
+        setTimerDisplay(StateEnum.properties[STATE].text, getUserWorkTime(), 0, "");
+      });
+
+      function startTimer() {
+        TIME = Date.now();
+      }
+
+      function runner() {
+        if (STATE == StateEnum.STOPPED)
+          return;
+
+        diff = Date.now() - TIME; // in milliseconds
+
+        limit = 0 // in milliseconds
+
+        if (STATE == StateEnum.WORK)
+          limit = getUserWorkTime();
+        else if (STATE == StateEnum.SHORT_BREAK)
+          limit = getUserShortBreakTime();
+        else if (STATE == StateEnum.LONG_BREAK)
+          limit = getUserLongBreakTime();
+
+        time_left = limit - diff;
+        min_left = parseInt(time_left / (1000. * 60));
+        sec_left = parseInt((time_left - min_left*60000) / 1000);
+
+        if (time_left <= 0) {
+          // switch state
+          setTimerDisplay("OUT OF TIME", 0, 0, "");
+
+        } else {
+          // no switching, just update display time
+          setTimerDisplay(StateEnum.properties[STATE].text, min_left, sec_left, "");
+        }
+        setTimeout(runner, 500);
+      }
+
+      function setTimerDisplay(textPre, timeMin, timeSec, textPost) {
+        displayStr = "";
+        if (textPre !== "")
+          displayStr += "<h1>" + textPre + "<h1>";
+        timeStr = timeMin;
+        if (timeSec < 10)
+          timeStr += ":0" + timeSec;
+        else
+          timeStr += ":" + timeSec;
+        displayStr += "<h1>" + timeStr + "<h1>";
+        if (textPost !== "")
+          displayStr += "<h1>"+ textPost + "<h1>";
+        document.getElementById("mainDisplay").innerHTML = displayStr;
+      }
+
+
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- FOR LOCAL TESTING: -->
+    <!-- <script src="/Users/robina/bootstrap/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script> -->
+  </body>
+</html>
