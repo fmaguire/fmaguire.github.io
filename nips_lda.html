@@ -1,0 +1,481 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>NIPS 2016 Accepted Papers</title>
+
+<style>
+/* CSS */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+	background-color: #F6F3E5;
+}
+.as {
+	font-size: 12px;
+	color: #900;
+}
+.ts {
+	font-weight: bold;
+	font-size: 14px;
+}
+.tt {
+	color: #009;
+	font-size: 13px;
+}
+h1 {
+	font-size: 20px;
+	padding: 0;
+	margin: 0;
+}
+#titdiv {
+	width: 100%;
+	height: 90px;
+	background-color: #840000;
+	color: white;
+
+	padding-top: 20px;
+	padding-left: 20px;
+
+	border-bottom: 1px solid #540000;
+}
+
+#maindiv {
+	width: 970px;
+	padding: 15px;
+	margin-left: auto;
+	margin-right: auto;
+
+	border-left: solid 1px #D6D3C5;
+	border-right: solid 1px #D6D3C5;
+
+	background-color: white;
+}
+
+.apaper {
+	margin-top: 25px;
+	min-height: 300px;
+}
+
+.paperdesc {
+	float: left;
+}
+
+.dllinks {
+	float: right;
+	text-align: right;
+}
+
+#titdiv a:link{ color: white; }
+#titdiv a:visited{ color: white; }
+
+#maindiv a:link{ color: #666; }
+#maindiv a:visited{ color: #600; }
+
+.t0 { color: #000;}
+.t1 { color: #C00;}
+.t2 { color: #0C0;}
+.t3 { color: #00C;}
+.t4 { color: #AA0;}
+.t5 { color: #C0C;}
+.t6 { color: #0CC;}
+
+.topicchoice {
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 4px;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#explanation {
+	background-color: #CFC;
+	border-radius: 5px;
+	color: black;
+	padding: 5px;
+	text-align: center;
+}
+
+#sortoptions {
+	text-align: center;
+	padding: 10px;
+}
+
+.sim {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.abstr {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.abstrholder {
+	background-color: #DFD;
+	border: 1px solid #BDB;
+	font-size: 12px;
+	padding: 10px;
+	border-radius: 5px;
+	display: none; /* so that these are hidden initially */
+	margin-bottom: 5px;
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+
+// this line below will get filled in with database of LDA topic distributions for top words
+// for every paper
+ldadist=[[0.08,0.13,0.12,0.37,0.07,0.13,0.11],[0.12,0.09,0.39,0.11,0.09,0.08,0.12],[0.14,0.09,0.13,0.11,0.16,0.09,0.30],[0.08,0.13,0.09,0.12,0.12,0.36,0.11],[0.08,0.16,0.10,0.15,0.08,0.33,0.10],[0.08,0.39,0.09,0.11,0.10,0.14,0.09],[0.09,0.10,0.09,0.08,0.43,0.11,0.11],[0.12,0.09,0.11,0.14,0.07,0.13,0.33],[0.39,0.08,0.16,0.08,0.08,0.08,0.13],[0.08,0.15,0.12,0.15,0.09,0.32,0.10]]
+
+// this will be filled with pairwise scores between papers
+pairdists=[[231.36,23.40,14.90,12.22,24.97,23.66,9.62,21.12,17.87,21.57],[23.40,240.21,23.08,6.43,9.68,15.32,13.17,13.51,31.68,11.66],[14.90,23.08,242.12,6.11,10.26,16.81,25.09,16.57,23.49,12.07],[12.22,6.43,6.11,232.16,45.06,20.93,12.61,19.16,7.21,31.30],[24.97,9.68,10.26,45.06,210.16,23.18,13.29,19.24,9.85,52.67],[23.66,15.32,16.81,20.93,23.18,231.57,18.06,18.32,9.07,19.19],[9.62,13.17,25.09,12.61,13.29,18.06,255.16,8.01,7.62,11.63],[21.12,13.51,16.57,19.16,19.24,18.32,8.01,237.43,24.42,13.52],[17.87,31.68,23.49,7.21,9.85,9.07,7.62,24.42,245.68,9.85],[21.57,11.66,12.07,31.30,52.67,19.19,11.63,13.52,9.85,221.74]]
+
+var choices = [0, 0, 0, 1, 1, 0, 0]; // default choices, random...
+var similarityMode = 0; // is the user currently looking at papers similar to some one paper?
+var similarTo = 0; // the index of query paper
+
+// given choices of topics to sort by, handle user interface stuff (i.e. show selection)
+function colorChoices() {
+	for(var i=0;i<choices.length;i++) {
+		if(choices[i] == 1) {
+			$("#tc"+i).css("background-color", "#EFE");
+			$("#tc"+i).css("border-color", "#575");
+		} else {
+			$("#tc"+i).css("background-color", "#FFF");
+			$("#tc"+i).css("border-color", "#FFF");
+		}
+	}
+}
+
+// this permutes the divs (that contian 1 paper each) based on a custom sorting function
+// in our case, this sort is done as dot product based on the choices[] array
+// here we are guaranteed ldadist[] already sums to 1 for every paper
+function arrangeDivs() {
+	var rtable = $("#rtable");
+	var paperdivs = rtable.children(".apaper");
+
+	// normalize choices to sum to 1
+	var nn = choices.slice(0); // copy the array
+	var ss = 0.0;
+	for(var j=0;j<choices.length;j++) { ss += choices[j]; }
+	for(var j=0;j<choices.length;j++) { nn[j] = nn[j]/ss; }
+
+	paperdivs.detach().sort(function(a,b) {
+		var ixa = parseInt($(a).attr('id').substring(3));
+		var ixb = parseInt($(b).attr('id').substring(3));
+
+		if(similarityMode === 1) {
+			return pairdists[ixa][similarTo] < pairdists[ixb][similarTo] ? 1 : -1;
+		}
+
+		if(similarityMode === 0) {
+
+			// chi-squared kernel for the two histograms
+			var accuma = 0;
+			var accumb = 0;
+			for(var i=0;i<7;i++) {
+				var ai= ldadist[ixa][i];
+				var bi= ldadist[ixb][i];
+				var ci= choices[i];
+				accuma += (ai-ci)*(ai-ci)/(ai+ci);
+				accumb += (bi-ci)*(bi-ci)/(bi+ci);
+			}
+			return accuma > accumb ? 1 : -1;
+
+			/*
+			// vector distance. These are histograms... but lets pretend they arent
+			var accuma = 0;
+			var accumb = 0;
+			for(var i=0;i<7;i++) {
+				var ai= ldadist[ixa][i];
+				var bi= ldadist[ixb][i];
+				var ci= nn[i];
+				accuma += (ai-ci)*(ai-ci);
+				accumb += (bi-ci)*(bi-ci);
+			}
+			return accuma > accumb ? 1 : -1;
+			*/
+
+			/*
+			// inner product distance
+			var accuma = 0;
+			var accumb = 0;
+			for(var i=0;i<7;i++) {
+				accuma += ldadist[ixa][i] * choices[i];
+				accumb += ldadist[ixb][i] * choices[i];
+			}
+			return accuma < accumb ? 1 : -1;
+			*/
+		}
+
+	});
+	rtable.append(paperdivs);
+}
+
+// when page loads...
+$(document).ready(function(){
+
+	arrangeDivs();
+	colorChoices();
+
+	// user clicks on one of the Topic buttons
+	$(".topicchoice").click(function() {
+		similarityMode = 0; // make sure this is off
+		var tcid = parseInt($(this).attr('id').substring(2));
+		choices[tcid] = 1 - choices[tcid]; // toggle!
+
+		colorChoices();
+		arrangeDivs();
+	});
+
+	// user clicks on "rank by tf-idf similarity to this" button for some paper
+	$(".sim").click(function() {
+		similarityMode = 1; // turn on similarity mode
+		for(var i=0;i<choices.length;i++) { choices[i] = 0; } // zero out choices
+		similarTo = parseInt($(this).attr('id').substring(3)); // store id of the paper clicked
+
+		colorChoices();
+		arrangeDivs();
+
+		// also scroll to top
+		$('html, body').animate({ scrollTop: 0 }, 'fast');
+	});
+
+	// user clicks on "abstract button for some paper
+	$(".abstr").click(function() {
+		var pid = parseInt($(this).attr('id').substring(2)); // id of the paper clicked
+		var aurl = "nips2016/abstracts/" + pid + ".txt";
+		var holderdiv = "#abholder" + pid;
+
+		if($(holderdiv).is(':visible')) {
+
+			$(holderdiv).slideUp(); // hide the abstract away
+
+		} else {
+
+			// do ajax request and fill the abstract div with the result
+			$.ajax({
+	            url : aurl,
+	            dataType: "text",
+	            success : function (data) {
+	                $(holderdiv).html(data);
+	                $(holderdiv).slideDown();
+	            }
+	        });
+		}
+	});
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div id ="titdiv">
+<h1>NIPS 2016 papers</h1>
+updated from <a href="https://twitter.com/karpathy">@karpathy</a><br/>
+source code on <a href="https://github.com/fmaguire/nipspreview">github</a>
+</div>
+
+<div id="maindiv">
+<div id="explanation">Below every paper are TOP 100 most-occuring words in that paper and their color is based on LDA topic model with k = 7.<br />
+	<div style="font-size: 12px;">(It looks like 0 = theory, 1 = reinforcement learning, 2 = graphical models, 3 = deep learning/vision, 4 = optimization, 5 = neuroscience, 6 = embeddings etc.) </div>
+</div>
+<div id="sortoptions">
+Toggle LDA topics to sort by:
+<span class="topicchoice t0" id="tc0">TOPIC0</span>
+<span class="topicchoice t1" id="tc1">TOPIC1</span>
+<span class="topicchoice t2" id="tc2">TOPIC2</span>
+<span class="topicchoice t3" id="tc3">TOPIC3</span>
+<span class="topicchoice t4" id="tc4">TOPIC4</span>
+<span class="topicchoice t5" id="tc5">TOPIC5</span>
+<span class="topicchoice t6" id="tc6">TOPIC6</span>
+</div>
+
+<!-- the keyword below will be replaced by content from the python script generatenice.py -->
+<div id="rtable">
+
+
+        <div class="apaper" id="pid0">
+        <div class="paperdesc">
+            <span class="ts">Deep ADMM-Net for Compressive Sensing MRI</span><br />
+            <span class="as">yan yang, Jian Sun, Huibin Li, Zongben Xu</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6406-deep-admm-net-for-compressive-sensing-mri.pdf">[pdf] </a>
+            <span class="sim" id="sim0">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6406">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6406.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6406"></div>
+    	<span class="tt">[<span class="t0">update, given, ratio</span>] [<span class="t1">layer, network, number, training, corresponding, architecture</span>] [<span class="t2">can, regularization, loss, learning, following, significantly</span>] [<span class="t3">reconstruction, admm, deep, flow, transform, graph, mri, stage, sampling, function, output, method, reconstructed, fast, defined, convolution, nonlinear, accuracy, sensing, computational, learned, nmse, initialized, sparse, computed, test, filter, multiplier, magnetic, shown, compressive, brain, resonance, achieves, general, shrinkage, three, psnr, four, ieee, imaging, novel, learn, chest, gradient, optimization, iterative, operation, min, dictionary, undersampled, pano, compute, train, compared, arg, net, direction</span>] [<span class="t4">time</span>] [<span class="t5">image, figure, different, also</span>] [<span class="t6">data, using, algorithm, first, set, high</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid1">
+        <div class="paperdesc">
+            <span class="ts">On Regularizing Rademacher Observation Losses</span><br />
+            <span class="as">Richard Nock</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6572-on-regularizing-rademacher-observation-losses.pdf">[pdf] </a>
+            <span class="sim" id="sim1">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6572">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6572.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6572"></div>
+    	<span class="tt">[<span class="t0">theorem, table, may, given, log, since, update</span>] [<span class="t1">number, training, several, corresponding</span>] [<span class="t2">oost, rado, loss, regularized, learning, boosting, rados, equivalent, can, learner, example, weak, classifier, equivalence, slope, let, regularization, step, linear, proportionate, exponential, efficient, logistic, max, definition, sufficient, rademacher, supervised, iff, now, suppose, feature, sparsity, domain, regularizing, following, via, significantly, fit, fix, fact, obtain, large, maxj, accurate, even, regularizer, size, depend, key, minimization, constraint, theory, provide, condition, hold, exp, end, datasets</span>] [<span class="t3">shown, defined</span>] [<span class="t4">two, one, order, good</span>] [<span class="t5">show, also, different</span>] [<span class="t6">algorithm, using, set, data, first</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid2">
+        <div class="paperdesc">
+            <span class="ts">Fast and Provably Good Seedings for k-Means</span><br />
+            <span class="as">Olivier Bachem, Mario Lucic, Hamed Hassani, Andreas Krause</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6478-fast-and-provably-good-seedings-for-k-means.pdf">[pdf] </a>
+            <span class="sim" id="sim2">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6478">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6478.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6478"></div>
+    	<span class="tt">[<span class="t0">log, theorem, table, probability, approximation, given</span>] [<span class="t1">sample, outperforms, several, across</span>] [<span class="t2">step, can, let, even, provide, key, total</span>] [<span class="t3">computational, fast, sampled, compared, sampling</span>] [<span class="t4">chain, random, markov, one, two, bound, good, section</span>] [<span class="t5">distribution, without, different, also, based, used</span>] [<span class="t6">data, algorithm, free, ssumption, solution, seeding, distance, proposal, error, length, quality, set, using, complexity, theoretical, expected, clustering, preprocessing, first, quantization, requires, full, web, guarantee, center, main, bachem, consider, optimal, provably, uniformly, propose, competitive, cluster, afk, rna, initial, denote, kdd, susy</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid3">
+        <div class="paperdesc">
+            <span class="ts">Unsupervised Learning for Physical Interaction through Video Prediction</span><br />
+            <span class="as">Chelsea Finn, Ian Goodfellow, Sergey Levine</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6161-unsupervised-learning-for-physical-interaction-through-video-prediction.pdf">[pdf] </a>
+            <span class="sim" id="sim3">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6161">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6161.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6161"></div>
+    	<span class="tt">[<span class="t0">new</span>] [<span class="t1">trained, use, performance, training, produce, well, feedforward</span>] [<span class="t2">learning, can</span>] [<span class="t3">method, learn, test</span>] [<span class="t4">state, one, two, time, directly</span>] [<span class="t5">video, prediction, model, motion, image, previous, future, object, pixel, figure, neural, predicted, lstm, cdna, predict, human, physical, different, multiple, also, dataset, show, convolutional, prior, proposed, robot, action, applied, without, vision, frame, predicts, conv, predicting, used, mask, interaction, internal, stp, unsupervised, spatial, explicitly, next, robotic, including, interactive, work, predictive, million, previously, evaluate, raw, appearance, reconstruct, transformation</span>] [<span class="t6">using, information, conference, processing, approach, computer, international, data</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid4">
+        <div class="paperdesc">
+            <span class="ts">Visual Dynamics: Probabilistic Future Frame Synthesis via Cross Convolutional Networks</span><br />
+            <span class="as">Tianfan Xue, Jiajun Wu, Katherine Bouman, Bill Freeman</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6552-visual-dynamics-probabilistic-future-frame-synthesis-via-cross-convolutional-networks.pdf">[pdf] </a>
+            <span class="sim" id="sim4">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6552">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6552.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6552"></div>
+    	<span class="tt">[<span class="t0">given, problem, map, reference</span>] [<span class="t1">network, training, layer, sample, deterministic, use</span>] [<span class="t2">feature, can, learning</span>] [<span class="t3">learned, deep, test, flow, method, learn, shown, novel, function, output</span>] [<span class="t4">two, simple</span>] [<span class="t5">motion, image, model, figure, distribution, future, frame, input, convolutional, video, also, cross, visual, variational, different, generative, prediction, conditional, possible, observed, representation, difference, encoder, show, single, proposed, dataset, without, probabilistic, real, latent, field, learns, synthesize, synthesis, movement, variance, neural, multiple, unsupervised, scale, autoencoder, decoder, kernel, work, able, predict, rgb, michael, toy, next, recognition, often, optical</span>] [<span class="t6">using, algorithm, mean, set, first, propose</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid5">
+        <div class="paperdesc">
+            <span class="ts">Swapout: Learning an ensemble of deep architectures</span><br />
+            <span class="as">Saurabh Singh, Derek Hoiem, David Forsyth</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6205-swapout-learning-an-ensemble-of-deep-architectures.pdf">[pdf] </a>
+            <span class="sim" id="sim5">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6205">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6205.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6205"></div>
+    	<span class="tt">[<span class="t0">table, may, constant</span>] [<span class="t1">swapout, stochastic, network, dropout, resnet, layer, training, residual, number, use, trained, inference, depth, unit, performance, deterministic, block, batch, width, randomly, schedule, wider, corresponding, skip, form, increasing, comparable, better, average, bernoulli, several, represent, improves, similar, pooling, standard, well, outperforms, relatively, experimental, note, dropping, performs, ensemble, equation, improve, outperform, across, randomness, stochasticity, others</span>] [<span class="t2">can, learning, regularization, large</span>] [<span class="t3">deep, method, gradient, output, general</span>] [<span class="t4">random, one, two</span>] [<span class="t5">model, convolutional, different, neural, show, work, used, input</span>] [<span class="t6">set, using, error, mean, competitive</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid6">
+        <div class="paperdesc">
+            <span class="ts">Scan Order in Gibbs Sampling: Models in Which it Matters and Bounds on How Much</span><br />
+            <span class="as">Bryan D. He, Christopher M. De Sa, Ioannis Mitliagkas, Christopher Ré</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6589-scan-order-in-gibbs-sampling-models-in-which-it-matters-and-bounds-on-how-much.pdf">[pdf] </a>
+            <span class="sim" id="sim6">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6589">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6589.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6589"></div>
+    	<span class="tt">[<span class="t0">probability, theorem</span>] [<span class="t1">number, sample, corresponding, choice, several</span>] [<span class="t2">can, following, best</span>] [<span class="t3">sampling, space, method</span>] [<span class="t4">scan, systematic, mixing, random, two, state, variable, order, bridge, gibbs, time, island, chain, markov, conductance, tmix, transition, one, will, effect, permutation, efficiency, factor, move, mix, polynomial, true, sequence, augmented, stationary, mass, needed, section, prove, faster, bound, conjecture, good, statistical, asymptotic, discrete, relative, onto, must, pyramid, small, slower, always, distributed, way, sampler, bad, worst, nsf, lazy</span>] [<span class="t5">model, distribution, different, show, single, used, figure</span>] [<span class="t6">using, information, set, first, matrix, result</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid7">
+        <div class="paperdesc">
+            <span class="ts">High-Rank Matrix Completion and Clustering under Self-Expressive Models</span><br />
+            <span class="as">Ehsan Elhamifar</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6357-high-rank-matrix-completion-and-clustering-under-self-expressive-models.pdf">[pdf] </a>
+            <span class="sim" id="sim7">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6357">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6357.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6357"></div>
+    	<span class="tt">[<span class="t0">since, convex, problem, given, ambient</span>] [<span class="t1">number, performs, performance, better, use</span>] [<span class="t2">can, learning, via, large</span>] [<span class="t3">function, sparse, method, optimization, ieee, min, graph, reconstruction</span>] [<span class="t4"></span>] [<span class="t5">figure, different, motion, real, dataset, representation, show, neural</span>] [<span class="t6">data, missing, completion, clustering, matrix, fraction, cij, using, algorithm, subspace, error, notice, lrmc, mfa, computer, incomplete, point, recover, solution, corrupted, lie, conference, machine, union, international, framework, ssc, complete, due, synthetic, similarity, set, rank, propose, information, deal, objective, subset, consider, solve, lifting, first, finding, journal, whose, selecting, cin, pattern, nonzero, cjj</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid8">
+        <div class="paperdesc">
+            <span class="ts">A scaled Bregman theorem with applications</span><br />
+            <span class="as">Richard Nock, Aditya Menon, Cheng Soon Ong</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6176-a-scaled-bregman-theorem-with-applications.pdf">[pdf] </a>
+            <span class="sim" id="sim8">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6176">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6176.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6176"></div>
+    	<span class="tt">[<span class="t0">bregman, theorem, convex, density, estimation, table, lemma, ratio, scaled, skm, divergence, manifold, may, since, log, problem, perspective, norm, sphere, map, drec, approximation, adaptive, reduction, online, appendix, new, given, dual, curved, multiclass, related, euclidean, signal, binary, flat, case, mirror, hyperboloid, geodesic, potential, update, beat, spherical, optimisation, suitable, significant, normalisation, university, differentiable</span>] [<span class="t1">use, estimate, improvement</span>] [<span class="t2">can, learning, loss, step, fact, let, exponential, via, now</span>] [<span class="t3">three, function, general, ieee, novel</span>] [<span class="t4">one, two, bound</span>] [<span class="t5">vector, figure, different, used</span>] [<span class="t6">clustering, lifting, seeding, using, distance, matrix</span>] </span>
+    	</div>
+
+    	
+
+        <div class="apaper" id="pid9">
+        <div class="paperdesc">
+            <span class="ts">Learning a Probabilistic Latent Space of Object Shapes via 3D Generative-Adversarial Modeling</span><br />
+            <span class="as">Jiajun Wu, Chengkai Zhang, Tianfan Xue, Bill Freeman, Josh Tenenbaum</span><br /><br />
+        </div>
+        <div class="dllinks">
+            <a href="nips2016/data/6096-learning-a-probabilistic-latent-space-of-object-shapes-via-3d-generative-adversarial-modeling.pdf">[pdf] </a>
+            <span class="sim" id="sim9">[rank by tf-idf similarity to this]</span><br />
+    		<span class="abstr" id="ab6096">[abstract]</span>
+    	</div>
+    	<img src = "nips2016/thumbs/6096.jpg" width=100%><br />
+    	<div class = "abstrholder" id="abholder6096"></div>
+    	<span class="tt">[<span class="t0">table</span>] [<span class="t1">training, network, use, performance, sample, preprint</span>] [<span class="t2">learning, can, generator, loss, following, supervised</span>] [<span class="t3">space, learned, deep, reconstruction, novel, accuracy, higher, test</span>] [<span class="t4">two</span>] [<span class="t5">object, generative, adversarial, image, show, latent, figure, shape, discriminator, model, representation, generated, vector, single, convolutional, distribution, also, without, modeling, volumetric, probabilistic, ikea, used, classification, structure, girdhar, sharma, synthesize, synthesis, consists, discriminative, based, generate, voxel, neural, unsupervised, evaluate, thomas, input, previous, semantic, mit, radford, different, dataset, able, demonstrate, generating, observe, leonidas, qualitative, supervision, variational, synthesized, proposed</span>] [<span class="t6">using, framework, data</span>] </span>
+    	</div>
+
+    	
+</div>
+
+</div>
+
+<br /><br /><br /><br /><br /><br />
+</body>
+
+</html>
