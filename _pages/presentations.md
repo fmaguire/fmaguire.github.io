@@ -36,6 +36,8 @@ background-image: kerneltrick.png
 
 - [2016 RNAi in Paramecium at CIFAR](http://finlaymagui.re/assets/presentation/cifar_presentation.pdf)
 
+- [2017 RNAi in Paramecium at Dalhousie CGEB](http://finlaymagui.re/assets/presentation/fm_cgeb_2017.pdf)
+
 ## Posters
 
 - [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/posters/sgm_poster.pdf)
