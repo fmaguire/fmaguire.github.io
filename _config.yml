@@ -8,7 +8,7 @@ owner:
   name: Finlay Maguire # or company name
   email: root@finlaymagui.re
   url: http://finlaymagui.re
-first_published: 1996 # if migrating another site, the year of your first publish
+first_published: 2014 # if migrating another site, the year of your first publish
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://finlaymagui.re" # the base hostname & protocol for your site
 
