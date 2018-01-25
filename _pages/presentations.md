@@ -38,6 +38,10 @@ background-image: kerneltrick.png
 
 - [2017 RNAi in Paramecium at Dalhousie CGEB](http://finlaymagui.re/assets/presentation/fm_cgeb_2017.pdf)
 
+- [2017 CARD at ICARe](http://finlaymagui.re/assets/presentation/ICARe_CARD.pdf)
+
+- [2018 BayeHem at DCSI](http://finlaymagui.re/assets/presentation/bayehem.pdf)
+
 ## Posters
 
 - [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/posters/sgm_poster.pdf)
