@@ -42,6 +42,8 @@ background-image: kerneltrick.png
 
 - [2018 BayeHem at DCSI](http://finlaymagui.re/assets/presentation/bayehem.pdf)
 
+- [2018 Master of Library Science](http://finlaymagui.re/assets/data-management-ML.pdf)
+
 ## Posters
 
 - [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/posters/sgm_poster.pdf)
