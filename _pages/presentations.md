@@ -36,11 +36,13 @@ background-image: kerneltrick.png
 
 - [2016 RNAi in Paramecium at CIFAR](http://finlaymagui.re/assets/presentation/cifar_presentation.pdf)
 
-- [2017 ICARe]()
+- [2017 RNAi in Paramecium at Dalhousie CGEB](http://finlaymagui.re/assets/presentation/fm_cgeb_2017.pdf)
 
-- [2018 IRIDA]()
+- [2017 CARD at ICARe](http://finlaymagui.re/assets/presentation/ICARe_CARD.pdf)
 
-- [2018 MLiS]()
+- [2018 BayeHem at DCSI](http://finlaymagui.re/assets/presentation/bayehem.pdf)
+
+- [2018 Master of Library Science](http://finlaymagui.re/assets/data-management-ML.pdf)
 
 - [2018 Bioinformatics Algorithms](http://finlaymagui.re/assets/presentations/phylo.pdf)
 
