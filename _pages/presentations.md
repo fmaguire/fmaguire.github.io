@@ -44,7 +44,7 @@ background-image: kerneltrick.png
 
 - [2018 Master of Library Science](http://finlaymagui.re/assets/data-management-ML.pdf)
 
-- [2018 Bioinformatics Algorithms](http://finlaymagui.re/assets/presentations/phylo.pdf)
+- [2018 Bioinformatics Algorithms](http://finlaymagui.re/assets/presentation/phylo.pdf)
 
 ## Posters
 
