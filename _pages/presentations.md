@@ -36,6 +36,14 @@ background-image: kerneltrick.png
 
 - [2016 RNAi in Paramecium at CIFAR](http://finlaymagui.re/assets/presentation/cifar_presentation.pdf)
 
+- [2017 ICARe]()
+
+- [2018 IRIDA]()
+
+- [2018 MLiS]()
+
+- [2018 Bioinformatics Algorithms](http://finlaymagui.re/assets/presentations/phylo.pdf)
+
 ## Posters
 
 - [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/posters/sgm_poster.pdf)
