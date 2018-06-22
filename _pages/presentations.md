@@ -46,6 +46,8 @@ background-image: kerneltrick.png
 
 - [2018 Bioinformatics Algorithms](http://finlaymagui.re/assets/presentation/phylo.pdf)
 
+- [2018 IRIDA AGM](http://finlaymagui.re/assets/presentation/irida_agm.pdf)
+
 ## Posters
 
 - [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/posters/sgm_poster.pdf)
@@ -53,4 +55,6 @@ background-image: kerneltrick.png
 - [2013 Molecular Evolution Poster at EMBO](http://finlaymagui.re/assets/posters/embo_yip_poster.pdf)
 
 - [2015 Neukrill-Net Convolutional Neural Network at Informatics Jamboree](http://finlaymagui.re/assets/posters/informatics_poster.pdf)
+
+- [2018 Filtering Poster at CSM](http://finlaymagui.re/assets/posters/FM_CSM_poster.pdf)
 
