@@ -14,7 +14,7 @@ Perhaps unsuprisingly, public health is by far the most well represented special
 This is followed by psychiatry, and after a bit of a jump, infectious disease, family and emergency medicine.
 Although there are more family doctors overall there are not necessarily as large a proportion actively engaged in research as hospital based clinicians.
 
-![Harm Reduction Affiliations](assets/harm_reduction.png)
+![Harm Reduction Affiliations](/assets/harm_reduction.png)
 
 Now the major caveats are this is not normalised by the relative size of different specialties i.e. there are a lot more family/GPs than infectious disease MDs.
 This means small disciplines may actually be much more active within harm reduction research than the absolute numbers imply.
