@@ -73,9 +73,9 @@ For comparison on page 148-149 of the 9th Edition:
 
 It's very weird to me that the original cited text uses a different Apgar score threshold of ≤ 4. 
 So either they messed up in copying the original text or changed it for some reason (updated guidelines possibly) but it surely means the statistical supports presented are totally incorrect as they related to different thresholds.
-The description of the conclusions of this study in the chapter also doesn't include the corollary from the original paper that "forceps application increases the risk of neonatal compromise consequently necessitating their admission in their admission in the NICU.".
+The description of the conclusions of this study in the chapter also doesn't include the corollary from the original paper that "forceps application increases the risk of neonatal compromise consequently necessitating their admission in their admission in the NICU".
+It's not like accuract information is important in potential highly acute clinical situations.
 
-In conclusion, this is a clear case of plagiarism in the case of the the uncited section lifted from [Ali and Norwitz, 2009](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2672989), a case of very dubious practice in the direct copying without indicating quotation again from this paper, and finally another case of dubious practice and explicit introduction of error in plagiarism of [Prapas et al, 2009](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2633252/).
 
 ## Reporting
 
@@ -109,11 +109,19 @@ In conclusion, this is a clear case of plagiarism in the case of the the uncited
 
 ## Conclusion 
 
-Elsevier's [own definition of plagiarism](https://www.elsevier.com/editors/perk/plagiarism-complaints):
-"Plagiarism is committed when one author uses another work (typically the work of another author) without permission, credit, or acknowledgment. Plagiarism takes different forms, from literal copying to paraphrasing the work of another. 
-Literal copying is reproducing a work word for word, in whole or in part, without permission and acknowledgment of the original source. Literal copying is obvious plagiarism and is easy to detect by comparing the papers in question."
+To summarise, there are 3 cases of what I would deem plagiarism, one of which is potentially highly dangerous:
 
-So while the verbatim copying with citation isn't clear cut under their definition, doing so without citation very clearly falls under this.
-In the case of the vacuum delivery history section plagiarised from the [Ali and Norwitz, 2009] paper this is clearly plagiarism.
-The fact that references were removed and individual numerical values were changed in the plagiarised sections indicates that this process was not remotely accidental.
-At some point I'll do a bit more of an exhaustive analysis.
+1. Uncited, unquoted section from [Ali and Norwitz, 2009](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2672989)
+
+2.  A different cited but not quoted section from the same paper mentioned in the background.
+
+3.  Direct copying without quotation but with citation of [Prapas et al, 2009](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2633252/) with introduction of errors from active changing of key results from original paper.
+
+Elsevier's "Content Strategist" stated that these did "not meet the threshold of plagiarism".
+However, Elsevier's [own definition of plagiarism](https://www.elsevier.com/editors/perk/plagiarism-complaints) is as follows:
+
+> Plagiarism is committed when one author uses another work (typically the work of another author) without permission, credit, or acknowledgment. Plagiarism takes different forms, from literal copying to paraphrasing the work of another. Literal copying is reproducing a work word for word, in whole or in part, without permission and acknowledgment of the original source. Literal copying is obvious plagiarism and is easy to detect by comparing the papers in question.
+
+This means while the latter 2 cases of plagiarism are not clear cut under their defition the vacuum delivery history section (case 1) from from the [Ali and Norwitz, 2009] paper is clearly plagiarism.
+Additionally, the arbitrary, uncited changing of key results from the Papras paper in case 3 while retaining the now incorrect statistical support values is actively dangerous and irresponsible.
+A more exhaustive analysis of the work of the authors of this chapter is definitely warranted in future.
