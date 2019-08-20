@@ -103,9 +103,11 @@ It's not like accuract information is important in potential highly acute clinic
 
 > Chapter 15, page 161 (page 4 of the PDF) – Insert quotation marks in the second paragraph on the right side starting at “Vacuum extraction was first described in 1705 by Dr. James Yonge…” and ending at …approximately 66% of operative vaginal deliveries were by vacuum”
 
-> Chapter 15, page 162 (page 5 of the PDF) – Insert quotation marks at the beginning of the third paragraph on the left side starting at “The original vacuum device developed in the 1950s by the
+![Totally normal way of writing.](/assets/plagiarism_fix.png)
 
-> Swedish obstetrician…” and ending at “…similar to the original metal disc-shaped cup and is available in three sizes”. After the closing quotation mark, please add: (Ali and Nortwitz, 2009)
+> Chapter 15, page 162 (page 5 of the PDF) – Insert quotation marks at the beginning of the third paragraph on the left side starting at “The original vacuum device developed in the 1950s by the Swedish obstetrician…” and ending at “…similar to the original metal disc-shaped cup and is available in three sizes”. After the closing quotation mark, please add: (Ali and Nortwitz, 2009)
+
+![We all use block quotes like this...](/assets/plagiarism_fix2.png)
 
 ## Conclusion 
 
