@@ -48,6 +48,14 @@ background-image: kerneltrick.png
 
 - [2018 IRIDA AGM](http://finlaymagui.re/assets/presentation/irida_agm.pdf)
 
+- [2019 Resistance Prediction Talk at Faculty of Medicine](http://finlaymui.re/assets/presentation/FM_FoM_talk.pdf)
+
+- [2019 Seminar at Simon Fraser University](http://finlaymagui.re/assets/presentation/SFU_Talk.pdf)
+
+- [2019 AMRtime talk at CSM](http://finlaymagui.re/assets/presentation/CSM_2019_AMRtime.pdf)
+
+- [2019 Departmental Seminar at McMaster](http://finlaymagui.re/assets/presentation/fm_mcmaster_seminar.pdf)
+
 ## Posters
 
 - [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/posters/sgm_poster.pdf)
@@ -57,4 +65,5 @@ background-image: kerneltrick.png
 - [2015 Neukrill-Net Convolutional Neural Network at Informatics Jamboree](http://finlaymagui.re/assets/posters/informatics_poster.pdf)
 
 - [2018 Filtering Poster at CSM](http://finlaymagui.re/assets/posters/FM_CSM_poster.pdf)
+
 
