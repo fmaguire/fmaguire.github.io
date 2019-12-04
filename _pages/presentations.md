@@ -50,6 +50,8 @@ background-image: kerneltrick.png
 
 - [2019 Resistance Prediction Talk at Faculty of Medicine](http://finlaymui.re/assets/presentation/FM_FoM_talk.pdf)
 
+- [2019 Reddit Autism Presentation with Tamara Sorenson-Duncan at Faculty of Medicine](http://finlaymui.re/ assets/presentation/sd_fm_fom_autism.pdf)
+
 - [2019 Seminar at Simon Fraser University](http://finlaymagui.re/assets/presentation/SFU_Talk.pdf)
 
 - [2019 AMRtime talk at CSM](http://finlaymagui.re/assets/presentation/CSM_2019_AMRtime.pdf)
