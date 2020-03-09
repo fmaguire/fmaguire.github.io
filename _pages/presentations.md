@@ -48,6 +48,8 @@ background-image: kerneltrick.png
 
 - [2018 IRIDA AGM](http://finlaymagui.re/assets/presentation/irida_agm.pdf)
 
+- [2020 Variation Graphs](http://finlaymagui.re/assets/Variation_Graph_Lecture.pdf)
+
 ## Posters
 
 - [2011 Folate Fusion Poster at SGM](http://finlaymagui.re/assets/posters/sgm_poster.pdf)
