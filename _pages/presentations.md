@@ -42,9 +42,9 @@ background-image: kerneltrick.png
 
 - [2018 BayeHem at DCSI](http://finlaymagui.re/assets/presentation/bayehem.pdf)
 
-- [2018 Master of Library Science](http://finlaymagui.re/assets/data-management-ML.pdf)
+- [2018 Master of Library Science: Data Management Lecture](http://finlaymagui.re/assets/data-management-ML.pdf)
 
-- [2018 Bioinformatics Algorithms](http://finlaymagui.re/assets/presentation/phylo.pdf)
+- [2018 Bioinformatics Algorithms: Phylogenetic Support Lecture](http://finlaymagui.re/assets/presentation/phylo.pdf)
 
 - [2018 IRIDA AGM](http://finlaymagui.re/assets/presentation/irida_agm.pdf)
 
@@ -54,11 +54,21 @@ background-image: kerneltrick.png
 
 - [2019 Seminar at Simon Fraser University](http://finlaymagui.re/assets/presentation/SFU_Talk.pdf)
 
+- [2019 Bioinformatics: Principles of Phylogenetics Lecture](http://finlaymagui.re/assets/presentation/Principles_of_Phylogenetics_Lecture.pdf)
+
+- [2019 Bioinformatics: Phylogenetics Tutorial 1](http://finlaymagui.re/assets/presentation/Phylo_Tutorial_1.pdf)
+
+- [2019 Bioinformatics: Using Phylogenies Lecture](http://finlaymagui.re/assets/presentation/Using_Phylogenies_Lecture.pdf)
+
+- [2019 Bioinformatics: Phylogenetics Tutorial 2](http://finlaymagui.re/assets/presentation/Phylo_Tutorial_2.pdf)
+
 - [2019 AMRtime talk at CSM](http://finlaymagui.re/assets/presentation/CSM_2019_AMRtime.pdf)
 
 - [2019 Departmental Seminar at McMaster](http://finlaymagui.re/assets/presentation/fm_mcmaster_seminar.pdf)
 
-- [2020 Variation Graphs](http://finlaymagui.re/assets/Variation_Graph_Lecture.pdf)
+- [2020 Bioinformatics Algorithms: Variation Graphs Lecture](http://finlaymagui.re/assets/Variation_Graph_Lecture.pdf)
+
+- [2020 Bioinformatics Algorithms: Phylogenetic Support Lecture](http://finlaymagui.re/assets/presentation/Phylogenetic_Support.pdf)
 
 ## Posters
 
@@ -70,4 +80,5 @@ background-image: kerneltrick.png
 
 - [2018 Filtering Poster at CSM](http://finlaymagui.re/assets/posters/FM_CSM_poster.pdf)
 
+- [2019 IRIDA/CARD Poster at CSM](https://finlaymagui.re/assets/posters/IRIDACARD_CSM_poster.pdf)
 
