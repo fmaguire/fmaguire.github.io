@@ -3,10 +3,10 @@
 
 # Site settings
 title: finlaymagui.re
-description: Bioinformatician and Data Scientist
+description: Genomic Epidemiologist and Data Scientist
 owner:
   name: Finlay Maguire # or company name
-  email: root@finlaymagui.re
+  email: website@finlaymagui.re
   url: http://finlaymagui.re
 first_published: 2014 # if migrating another site, the year of your first publish
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -15,19 +15,17 @@ url: "http://finlaymagui.re" # the base hostname & protocol for your site
 # on landing page
 greeting: |
   Welcome!  
-  I hope you enjoy my little personal page
+  I hope you enjoy my personal page
 closing-head: Thanks for visiting
 closing-para: Feel free to get in touch. Cheers!
 
 # on all pages
 social:
   github: https://github.com/fmaguire
-  K: https://www.kaggle.com/finlaymaguire
-  twitter: https://twitter.com/FinlayM
   university: https://scholar.google.co.uk/citations?user=rHFCtWwAAAAJ
   linkedin-square: https://uk.linkedin.com/in/finlaymaguire
-  book: https://github.com/fmaguire/CV/raw/master/Finlay_Maguire_CV.pdf
-  email: mailto:root@finlaymagui.re
+  book: https://finlaymagui.re/assets/finlay_maguire_CV_1_page.pdf
+  email: mailto:website@finlaymagui.re
 
 # Build settings
 permalink: /:categories/:title.html
